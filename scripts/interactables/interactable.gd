@@ -1,7 +1,5 @@
 class_name Interactable extends Area2D
 
-@onready var ray_cast : RayCast2D = $RayCast2D
-
 var impassable : bool = false
 var moveable : bool = false
 var react_wind : bool = false

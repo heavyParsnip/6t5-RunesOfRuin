@@ -25,7 +25,6 @@ var is_moving : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position = position.snapped(Vector2.ONE * G.TILE_SIZE)
-	#position += Vector2.ONE * G.TILE_SIZE/2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,11 +34,14 @@ func _process(delta):
 
 
 func _unhandled_input(event):
-	
 	# This is separate from movement code to allow the player to change which way they are
 	# facing even if they are colliding with an object
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir, true) and !is_moving:
+			
+			if raycast_query(directions[facing], 1.0).get("collider") is Interactable:
+				print("hello!")
+			
 			#move(dir) # Single-fire version of the movement code. More efficient but less responsive to held inputs
 			match dir:
 				"move_left":
@@ -52,7 +54,10 @@ func _unhandled_input(event):
 					facing = Direction.DOWN
 				_:
 					pass
-
+	
+	# DEBUG RAYCAST
+	if event.is_action_pressed("DEBUG RAYCAST"):
+		print(raycast_query(directions[facing], 3.0))
 
 # let's roll!
 func move(dir):
@@ -67,7 +72,15 @@ func move(dir):
 	# set up signal for when movement finishes, so that game does not accept new movement inputs until current is done
 	move_tween.finished.connect(_on_move_tween_finished)
 
-# check 
+func raycast_query(direction : Vector2, range : float):
+	var space_state = get_viewport().get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(position + (direction * G.TILE_SIZE/2), position + (direction * (range * G.TILE_SIZE)))
+	query.collide_with_areas = true
+	var result = space_state.intersect_ray(query)
+	
+	
+	
+	return result
 
 func _on_move_tween_finished():
 	# ok i take new movement now !
