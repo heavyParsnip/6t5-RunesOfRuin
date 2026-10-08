@@ -13,3 +13,5 @@ shape = SubResource("RectangleShape2D_qn476")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
 scale = Vector2(64, 64)
 texture = SubResource("PlaceholderTexture2D_qn476")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1237560437]

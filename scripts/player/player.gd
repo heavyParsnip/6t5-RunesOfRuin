@@ -4,6 +4,13 @@ signal move_tween_finished
 
 enum Direction { LEFT, RIGHT, UP, DOWN }
 
+var directions = {
+	Direction.LEFT : Vector2.LEFT,
+	Direction.RIGHT : Vector2.RIGHT,
+	Direction.UP : Vector2.UP,
+	Direction.DOWN : Vector2.DOWN
+}
+
 var inputs = {
 	"move_left" : Vector2.LEFT,
 	"move_right" : Vector2.RIGHT,
