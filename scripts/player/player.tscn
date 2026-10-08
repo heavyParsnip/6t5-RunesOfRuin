@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://20p67equkyj1"]
+
+[ext_resource type="Script" uid="uid://druyb01jnpisk" path="res://scripts/player/player.gd" id="1_f50pn"]
+[ext_resource type="Texture2D" uid="uid://cx7n3ytngbgvf" path="res://Assets/test/indigo.png" id="2_enrq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
+size = Vector2(64, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1028885159]
+script = ExtResource("1_f50pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=560442579]
+shape = SubResource("RectangleShape2D_qn476")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=191664354]
+position = Vector2(-9.536743e-07, 0)
+texture = ExtResource("2_enrq2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=62864668]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=165261393]
