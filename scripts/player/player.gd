@@ -30,7 +30,12 @@ func _ready():
 func _process(delta):
 	for dir in inputs.keys():
 		if Input.is_action_pressed(dir) and !is_moving:
-			move(dir)
+			
+			if raycast_query(directions[facing], 1.0).get("collider") is Interactable:
+				print("wall collided!")
+				print(raycast_query(directions[facing], 1.0))
+			else:
+				move(dir)
 
 
 func _unhandled_input(event):
@@ -38,10 +43,6 @@ func _unhandled_input(event):
 	# facing even if they are colliding with an object
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir, true) and !is_moving:
-			
-			if raycast_query(directions[facing], 1.0).get("collider") is Interactable:
-				print("hello!")
-			
 			#move(dir) # Single-fire version of the movement code. More efficient but less responsive to held inputs
 			match dir:
 				"move_left":
@@ -76,6 +77,7 @@ func raycast_query(direction : Vector2, range : float):
 	var space_state = get_viewport().get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(position + (direction * G.TILE_SIZE/2), position + (direction * (range * G.TILE_SIZE)))
 	query.collide_with_areas = true
+	query.exclude = [self.get_rid()]
 	var result = space_state.intersect_ray(query)
 	
 	
