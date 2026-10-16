@@ -28,14 +28,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	for dir in inputs.keys():
-		if Input.is_action_pressed(dir) and !is_moving:
-			
-			if raycast_query(directions[facing], 1.0).get("collider") is Interactable:
-				print("wall collided!")
-				print(raycast_query(directions[facing], 1.0))
+	# changed the raycast to handle the input action rather than direction
+	if is_moving:
+		return
+	for action in inputs:
+		if Input.is_action_pressed(action):
+			var collider = raycast_query(inputs[action], 1.0).get("collider")
+			if collider is Interactable and collider.impassable:
+				print("Wall collided! We can't pass this.")
 			else:
-				move(dir)
+				move(action)
+			
+		
+	
 
 
 func _unhandled_input(event):
@@ -73,16 +78,31 @@ func move(dir):
 	# set up signal for when movement finishes, so that game does not accept new movement inputs until current is done
 	move_tween.finished.connect(_on_move_tween_finished)
 
-func raycast_query(direction : Vector2, range : float):
-	var space_state = get_viewport().get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position + (direction * G.TILE_SIZE/2), position + (direction * (range * G.TILE_SIZE)))
+func raycast_query(
+	direction: Vector2,
+	range_in_tiles: float
+) -> Dictionary: # static typed for readability. why not!
+	var space_state := get_viewport().get_world_2d().direct_space_state
+
+	# global position rather than local since i think space_state uses globals only?
+	var start := global_position
+	var end := global_position + direction * (
+		range_in_tiles * G.TILE_SIZE + 1.0
+	)
+	
+	# prev ray = position + directioin * G.TILE_SIZE / 2. this didn't reach the end of the tile!
+	# we'd go from center to center and this just pushes us a lil more in
+	
+	
+	# the ray only went halfway into the next space, and mixed with the dir issues, made the ray a bit unreliable
+
+	var query := PhysicsRayQueryParameters2D.create(start, end)
+
 	query.collide_with_areas = true
+	query.collide_with_bodies = true # in case we want body2D's to come into play
 	query.exclude = [self.get_rid()]
-	var result = space_state.intersect_ray(query)
-	
-	
-	
-	return result
+
+	return space_state.intersect_ray(query)
 
 func _on_move_tween_finished():
 	# ok i take new movement now !
