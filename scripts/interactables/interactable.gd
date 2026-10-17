@@ -1,11 +1,13 @@
 class_name Interactable extends Area2D
 
-var impassable : bool = false
-var moveable : bool = false
+@export var impassable : bool = false
+@export var moveable : bool = false
 var react_wind : bool = false
 var react_fire : bool = false
 var react_earth : bool = false
 var react_frost : bool = false
+
+var is_moving : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +16,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func get_spell(element: SpellController.Element, dir: Vector2) -> void:
+	match element:
+		SpellController.Element.WIND:
+			if react_wind:
+				get_wind(dir)
+
+func get_wind(_dir: Vector2) -> void:
 	pass
 
 func raycast_query(direction : Vector2, range : float):

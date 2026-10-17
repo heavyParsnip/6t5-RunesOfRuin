@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://yb5hgwx3nse8"]
+
+[ext_resource type="Script" uid="uid://beefq3tjq4mch" path="res://scripts/interactables/pushablewall.gd" id="1_bxddq"]
+[ext_resource type="Texture2D" uid="uid://x8tjqj5xcrds" path="res://Assets/test/green.png" id="2_na0o8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8k7b"]
+size = Vector2(64, 64)
+
+[node name="PushableWall" type="Area2D" unique_id=1823622871]
+collision_layer = 3
+script = ExtResource("1_bxddq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963806180]
+shape = SubResource("RectangleShape2D_j8k7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074856258]
+texture = ExtResource("2_na0o8")
