@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://druyb01jnpisk" path="res://scripts/player/player.gd" id="1_f50pn"]
 [ext_resource type="Texture2D" uid="uid://cx7n3ytngbgvf" path="res://Assets/test/indigo.png" id="2_enrq2"]
-[ext_resource type="Script" uid="uid://d0a8p0eti2xv1" path="res://spell_controller.gd" id="3_so2s4"]
+[ext_resource type="Script" uid="uid://d0a8p0eti2xv1" path="res://spells/spell_controller.gd" id="3_so2s4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)

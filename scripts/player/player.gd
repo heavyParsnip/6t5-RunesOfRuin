@@ -18,7 +18,7 @@ var inputs = {
 	"move_down" : Vector2.DOWN
 }
 
-# make this into a state machine later
+# make this into a state machine later if necessary
 var is_moving : bool = false
 @export var facing : Direction = Direction.DOWN
 
