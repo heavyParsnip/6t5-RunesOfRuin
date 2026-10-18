@@ -75,7 +75,7 @@ func push_once(dir: Vector2) -> void:
 	# https://www.reddit.com/r/godot/comments/1ipc0gx/how_to_wait_for_tween_to_finish_before_starting/
 	await tween.finished
 	
-	global_position = global_position.snapped(Vector2.ONE * G.TILE_SIZE)
+	#global_position = global_position.snapped(Vector2.ONE * G.TILE_SIZE)
 	moving = false
 	
 

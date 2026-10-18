@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://kr0j8dydm2he"]
+
+[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/windgust.gd" id="1_c8bej"]
+[ext_resource type="Texture2D" uid="uid://dvu2ern43jbtp" path="res://Assets/test/WindAnim/001.png" id="1_noad5"]
+[ext_resource type="Texture2D" uid="uid://chsfj5ntobsa7" path="res://Assets/test/WindAnim/002.png" id="2_frrcx"]
+[ext_resource type="Texture2D" uid="uid://8qpn6p3obc34" path="res://Assets/test/WindAnim/006.png" id="6_ghv2x"]
+[ext_resource type="Texture2D" uid="uid://bibnnag6aof2g" path="res://Assets/test/WindAnim/007.png" id="7_wreop"]
+[ext_resource type="Texture2D" uid="uid://cogmjphtwcbtu" path="res://Assets/test/WindAnim/008.png" id="8_wu4sc"]
+[ext_resource type="Texture2D" uid="uid://btn16k757kpe7" path="res://Assets/test/WindAnim/009.png" id="9_nhioh"]
+[ext_resource type="Texture2D" uid="uid://dpb6kg3ibqa43" path="res://Assets/test/WindAnim/010.png" id="10_08d3i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyg4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_noad5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_frrcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ghv2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wreop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wu4sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nhioh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_08d3i")
+}],
+"loop": 0,
+"name": &"gust",
+"speed": 15.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1817801125]
+script = ExtResource("1_c8bej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1110344308]
+sprite_frames = SubResource("SpriteFrames_tyg4f")
+animation = &"gust"
+frame = 6
+frame_progress = 1.0
