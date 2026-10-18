@@ -3,6 +3,8 @@ extends Node
 
 @export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
 @export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
+@export var wind_gust : PackedScene
+@export var sfx_parent : Node2D
 
 enum Element{
 	NONE,
@@ -76,6 +78,13 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	return interactables
 	
 
+func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
+	var gust := wind_gust.instantiate() as WindGust
+	get_tree().current_scene.add_child(gust)
+	
+	gust.global_position = world_pos
+	gust.setangle(direction)
+	#gust.play()
 
 func cast_wind_around() -> void:
 	var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
@@ -86,6 +95,7 @@ func cast_wind_around() -> void:
 	
 	for cells in affectedCells:
 		
+		wind_sfx(cells.pos, cells.dir)
 		var interactables := find_interactables_at(cells.pos)
 		print(interactables)
 		for interactable in interactables:

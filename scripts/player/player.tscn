@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://druyb01jnpisk" path="res://scripts/player/player.gd" id="1_f50pn"]
 [ext_resource type="Texture2D" uid="uid://cx7n3ytngbgvf" path="res://Assets/test/indigo.png" id="2_enrq2"]
 [ext_resource type="Script" uid="uid://d0a8p0eti2xv1" path="res://spells/spell_controller.gd" id="3_so2s4"]
+[ext_resource type="PackedScene" uid="uid://kr0j8dydm2he" path="res://spells/windgust.tscn" id="4_5amry"]
 [ext_resource type="Texture2D" uid="uid://d2esdynda37my" path="res://Assets/mage/mback.png" id="4_jft68"]
 [ext_resource type="Texture2D" uid="uid://bea7qr1eu5t36" path="res://Assets/mage/mfront.png" id="5_5amry"]
 [ext_resource type="Texture2D" uid="uid://yy8thodwvnr2" path="res://Assets/mage/mleft.png" id="6_b6sy1"]
@@ -67,6 +68,7 @@ texture = ExtResource("2_enrq2")
 [node name="SpellController" type="Node" parent="." unique_id=2032116784]
 script = ExtResource("3_so2s4")
 spell_mask = 2
+wind_gust = ExtResource("4_5amry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1505049942]
 scale = Vector2(0.25, 0.25)
