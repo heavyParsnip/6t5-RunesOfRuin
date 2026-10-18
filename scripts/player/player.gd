@@ -18,15 +18,18 @@ var inputs = {
 	"move_down" : Vector2.DOWN
 }
 
-# make this into a state machine later if necessary
-var is_moving : bool = false
+@onready var reset_timer : Timer = $ResetTimer
+var hold_time : float = 2.0
 @export var facing : Direction = Direction.DOWN
+var is_moving : bool = false # make this into a state machine later if necessary
 var floating = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#position = position.snapped(Vector2.ONE * G.TILE_SIZE)
-	pass
+	reset_timer.wait_time = hold_time
+	reset_timer.one_shot = true
+	reset_timer.timeout.connect(reset_level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -66,6 +69,12 @@ func _unhandled_input(event):
 					$AnimatedSprite2D.animation = "front"
 				_:
 					pass
+	
+	# Level reset handling
+	if event.is_action_pressed("reset_level"):
+		reset_timer.start()
+	elif event.is_action_released("reset_level"):
+		reset_timer.stop()
 	
 	# DEBUG RAYCAST
 	if event.is_action_pressed("DEBUG RAYCAST"):
@@ -109,6 +118,10 @@ func raycast_query(
 	query.exclude = [self.get_rid()]
 
 	return space_state.intersect_ray(query)
+
+func reset_level():
+	print("Resetting level...")
+	get_tree().reload_current_scene()
 
 func _on_move_tween_finished():
 	# ok i take new movement now !
