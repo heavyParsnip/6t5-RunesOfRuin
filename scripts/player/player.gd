@@ -25,7 +25,8 @@ var floating = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = position.snapped(Vector2.ONE * G.TILE_SIZE)
+	#position = position.snapped(Vector2.ONE * G.TILE_SIZE)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
