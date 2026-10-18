@@ -51,8 +51,16 @@ func destination_blocked(dir: Vector2) -> bool:
 
 	query.exclude = [get_rid()] # don't calculate self duh
 	
-	var hits:= get_world_2d().direct_space_state.intersect_ray(query)
-	return not hits.is_empty() # if it's empty we can move
+	var hits = get_world_2d().direct_space_state.intersect_ray(query).get("collider")
+
+	# need to check whether queried objects are impassable or not 
+	if hits is Interactable and hits.impassable:
+		return true # get outta here!!!
+	
+	# no impassables? no problem
+	return false
+	
+	#return not hits.is_empty() # if it's empty we can move
 
 func push_once(dir: Vector2) -> void:
 	moving = true

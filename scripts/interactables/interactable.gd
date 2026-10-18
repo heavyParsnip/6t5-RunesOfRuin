@@ -6,6 +6,7 @@ var react_wind : bool = false
 var react_fire : bool = false
 var react_earth : bool = false
 var react_frost : bool = false
+var presses_switch : bool = false
 
 var is_moving : bool = false
 
@@ -29,7 +30,7 @@ func get_wind(_dir: Vector2) -> void:
 
 func raycast_query(direction : Vector2, range : float):
 	var space_state = get_viewport().get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position, direction * (range * G.TILE_SIZE))
+	var query = PhysicsRayQueryParameters2D.create(global_position, direction * (range * G.TILE_SIZE))
 	var result = space_state.intersect_ray(query)
 	
 	return result
