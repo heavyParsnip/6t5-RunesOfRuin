@@ -17,7 +17,7 @@ var check_timer : Timer
 func _ready():
 	# timer so switches don't raycast every single frame
 	check_timer = Timer.new()
-	check_timer.wait_time = 0.3
+	check_timer.wait_time = 0.05
 	check_timer.one_shot = false
 	check_timer.autostart = true
 	add_child(check_timer)
@@ -27,24 +27,41 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	check_for_press()
-
-func check_for_press():
-	#var result = raycast_query(Vector2.UP, 0.1).get("collider") # this is kinda hacky but it works
-	#print(result)
-	#if result is Interactable and result.presses_switch and !is_activated:
-		#on()
-	#elif !result and is_activated:
-		#off()
 	pass
 
+func check_for_press():
+	#var result = raycast_query(Vector2.LEFT, 0.1).get("collider") # this is kinda hacky but it works
+	var result = shape_query()
+	#print(result)
+	
+	# Check for any areas/bodies over the switch
+	for h in result:
+		var hit = h.get("collider")
+		# If the switch is off and the hit presses switches or is a non-floating player
+		if !is_activated and ((hit is Interactable and hit.presses_switch) or (hit is CharacterBody2D and !hit.floating)):
+			on()
+	
+	# Can't put this in the loop, won't fire if shape_query is empty, so just check for an empty result
+	if is_activated and !result:
+		off()
+
 func on():
-	print("on!")
+	print("switch is on!")
 	is_activated = true
 	emit_signal("activated")
 
 func off():
-	print("off!")
+	print("switch is off!")
 	is_activated = false
 	emit_signal("deactivated")
+
+func shape_query():
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = RectangleShape2D.new() # internet says a solid shape is better than a ray
+	query.shape.size = Vector2(G.TILE_SIZE/2, G.TILE_SIZE/2)  # so this is how long we want or casted rectangle 2 look
+	query.transform = Transform2D(0.0, global_position) # where the ray go
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	query.exclude = [self.get_rid()]
 	
+	return self.get_world_2d().direct_space_state.intersect_shape(query, 10) # in what world will there be more than 10 objs
