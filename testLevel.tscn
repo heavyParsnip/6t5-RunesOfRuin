@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://20p67equkyj1" path="res://scripts/player/player.tscn" id="1_8a0p6"]
 [ext_resource type="PackedScene" uid="uid://cncpag0xnkhu6" path="res://scripts/interactables/wall.tscn" id="2_vgrmv"]
+[ext_resource type="PackedScene" uid="uid://yb5hgwx3nse8" path="res://scripts/interactables/pushable_wall.tscn" id="3_aldhi"]
+[ext_resource type="PackedScene" uid="uid://caumtotjjuweb" path="res://scripts/interactables/switch.tscn" id="4_0uj7a"]
+[ext_resource type="PackedScene" uid="uid://bdk5tp1mtqr2p" path="res://scripts/interactables/disappearing_block.tscn" id="5_dbgv3"]
 
 [node name="root" type="Node2D" unique_id=1885997703]
 
@@ -23,3 +26,19 @@ position = Vector2(-128, -128)
 
 [node name="Wall5" parent="." unique_id=1143762167 instance=ExtResource("2_vgrmv")]
 position = Vector2(-128, 128)
+
+[node name="PushableWall3" parent="." unique_id=476270757 instance=ExtResource("3_aldhi")]
+position = Vector2(64, 0)
+
+[node name="PushableWall2" parent="." unique_id=1510031123 instance=ExtResource("3_aldhi")]
+position = Vector2(192, 0)
+
+[node name="PushableWall" parent="." unique_id=741833010 instance=ExtResource("3_aldhi")]
+position = Vector2(128, -64)
+
+[node name="Switch" parent="." unique_id=272109281 instance=ExtResource("4_0uj7a")]
+position = Vector2(64, 128)
+
+[node name="DisappearingBlock" parent="." unique_id=1702338825 node_paths=PackedStringArray("connected_to") instance=ExtResource("5_dbgv3")]
+position = Vector2(192, 128)
+connected_to = NodePath("../Switch")

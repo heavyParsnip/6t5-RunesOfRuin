@@ -7,6 +7,7 @@
 size = Vector2(64, 64)
 
 [node name="Wall" type="Area2D" unique_id=1823622871]
+collision_layer = 3
 script = ExtResource("1_ov7yt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963806180]
