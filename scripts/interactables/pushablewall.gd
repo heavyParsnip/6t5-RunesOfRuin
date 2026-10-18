@@ -21,9 +21,9 @@ func _ready() -> void:
 	react_wind = true 
 
 func get_wind(dir: Vector2) -> void:
-	#if destination_blocked(dir):
-	#	print("Can't be moved to this position due to a block")
-	#	return
+	if destination_blocked(dir):
+		print("Can't be moved to this position due to a block")
+		return
 	if moving:
 		return # don't double move
 	push_once(dir)
@@ -35,11 +35,15 @@ func destination_blocked(dir: Vector2) -> bool:
 	if coll_shape.shape == null:
 		print("Somehow, you forgot to give this wall a collider.")
 		return true
-	var query := PhysicsShapeQueryParameters2D.new()
-	query.shape = coll_shape.shape # use wall size instead of random rectangle
+	
+	# ray start & end pos
+	var start := global_position
+	var end := global_position + dir * G.TILE_SIZE
+	
+	var query := PhysicsRayQueryParameters2D.create(start, end)
 	
 	# our hypothetical transform of where it's going times tile size
-	query.transform = coll_shape.global_transform.translated(dir * G.TILE_SIZE)
+	#query.transform = coll_shape.global_transform.translated(dir * G.TILE_SIZE)
 	
 	query.collision_mask = move_block_mask # not everything prevents a move
 	query.collide_with_areas = true
@@ -47,7 +51,7 @@ func destination_blocked(dir: Vector2) -> bool:
 
 	query.exclude = [get_rid()] # don't calculate self duh
 	
-	var hits:= get_world_2d().direct_space_state.intersect_shape(query, 1) # 1 hit = no bueno
+	var hits:= get_world_2d().direct_space_state.intersect_ray(query)
 	return not hits.is_empty() # if it's empty we can move
 
 func push_once(dir: Vector2) -> void:

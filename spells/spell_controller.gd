@@ -44,19 +44,15 @@ func cast_selected_spell() -> void:
 	match currentModifier:
 		Modifier.AROUND:
 			cast_around(currentElement)
-			pass
 		#Modifier.Below
 		#Modifier.Here
 		
 	isCasting = false # ready to do another.
-	pass
 
 func cast_around(element: Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_around()
-			pass
-	pass
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -89,8 +85,9 @@ func cast_wind_around() -> void:
 	# if there is, apply wind to it, moving it back 1 tile based on direction
 	
 	for cells in affectedCells:
-		var interactables := find_interactables_at(cells.pos)
 		
+		var interactables := find_interactables_at(cells.pos)
+		print(interactables)
 		for interactable in interactables:
 			interactable.get_spell(Element.WIND, cells.dir)
 	

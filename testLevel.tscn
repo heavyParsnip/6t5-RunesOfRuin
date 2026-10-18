@@ -25,11 +25,11 @@ position = Vector2(-128, -128)
 [node name="Wall5" parent="." unique_id=1143762167 instance=ExtResource("2_vgrmv")]
 position = Vector2(-128, 128)
 
+[node name="PushableWall3" parent="." unique_id=476270757 instance=ExtResource("3_aldhi")]
+position = Vector2(64, 0)
+
+[node name="PushableWall2" parent="." unique_id=1510031123 instance=ExtResource("3_aldhi")]
+position = Vector2(192, 0)
+
 [node name="PushableWall" parent="." unique_id=741833010 instance=ExtResource("3_aldhi")]
 position = Vector2(128, -64)
-
-[node name="PushableWall" parent="PushableWall" unique_id=1510031123 instance=ExtResource("3_aldhi")]
-position = Vector2(64, 64)
-
-[node name="PushableWall" parent="PushableWall/PushableWall" unique_id=476270757 instance=ExtResource("3_aldhi")]
-position = Vector2(-128, 0)
