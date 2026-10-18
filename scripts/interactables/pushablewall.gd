@@ -21,9 +21,9 @@ func _ready() -> void:
 	react_wind = true 
 
 func get_wind(dir: Vector2) -> void:
-	#if destination_blocked(dir):
-	#	print("Can't be moved to this position due to a block")
-	#	return
+	if destination_blocked(dir):
+		print("Can't be moved to this position due to a block")
+		return
 	if moving:
 		return # don't double move
 	push_once(dir)
