@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdk5tp1mtqr2p"]
 
-[ext_resource type="Texture2D" uid="uid://x8tjqj5xcrds" path="res://Assets/test/green.png" id="2_oayac"]
+[ext_resource type="Texture2D" uid="uid://clo14786eqg5v" path="res://Assets/Wall Tiles/wall_1.png" id="2_lohc8"]
 [ext_resource type="Script" uid="uid://bhliv3pce0wc5" path="res://scripts/interactables/disappearing_block.gd" id="3_oayac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8k7b"]
@@ -14,4 +14,6 @@ script = ExtResource("3_oayac")
 shape = SubResource("RectangleShape2D_j8k7b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074856258]
-texture = ExtResource("2_oayac")
+modulate = Color(0.7, 0.7, 0.7, 1)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_lohc8")

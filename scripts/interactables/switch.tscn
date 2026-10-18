@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://caumtotjjuweb"]
 
 [ext_resource type="Script" uid="uid://cp5ybfcqkjc73" path="res://scripts/interactables/switch.gd" id="1_144xb"]
+[ext_resource type="Texture2D" uid="uid://cihpwbk104232" path="res://Assets/test/red.png" id="2_pwjj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
 
 [node name="Switch" type="Area2D" unique_id=272109281]
 script = ExtResource("1_144xb")
@@ -14,5 +13,4 @@ script = ExtResource("1_144xb")
 shape = SubResource("RectangleShape2D_qn476")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
-scale = Vector2(64, 64)
-texture = SubResource("PlaceholderTexture2D_qn476")
+texture = ExtResource("2_pwjj6")

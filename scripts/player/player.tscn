@@ -74,3 +74,5 @@ wind_gust = ExtResource("4_5amry")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lsifr")
 animation = &"right"
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=1251311066]
