@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bwwihr0lmxkgt"]
+
+[node name="ControlTutorialUI" type="VBoxContainer" unique_id=142106021]
+custom_maximum_size = Vector2(220, -1)
+offset_left = 420.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = -202.0
+
+[node name="Label2" type="RichTextLabel" parent="." unique_id=1346872686]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b][i]Controls[/i]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Label1" type="RichTextLabel" parent="." unique_id=787759877]
+layout_mode = 2
+text = "←↑↓→  or  WASD  —>  Move"
+fit_content = true
+scroll_active = false
+
+[node name="Label3" type="RichTextLabel" parent="." unique_id=386781089]
+layout_mode = 2
+bbcode_enabled = true
+text = "[1]  —>  Select [color=\"silver\"]WIND[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="Label4" type="RichTextLabel" parent="." unique_id=901522871]
+layout_mode = 2
+bbcode_enabled = true
+text = "[8]  —>  Select AROUND"
+fit_content = true
+scroll_active = false
+
+[node name="Label5" type="RichTextLabel" parent="." unique_id=1725700369]
+layout_mode = 2
+bbcode_enabled = true
+text = "[ENTER]  —>  Cast spell with current runes"
+fit_content = true
+scroll_active = false
+
+[node name="Label6" type="RichTextLabel" parent="." unique_id=774121783]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

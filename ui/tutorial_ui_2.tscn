@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://vb6gjtsy2i7"]
+
+[node name="ControlTutorialUI2" type="VBoxContainer" unique_id=1076614349]
+custom_maximum_size = Vector2(200, -1)
+offset_left = 440.0
+offset_top = 259.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label2" type="RichTextLabel" parent="." unique_id=1450745494]
+layout_mode = 2
+bbcode_enabled = true
+text = "[i]Find a way to the exit...[/i]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Label3" type="RichTextLabel" parent="." unique_id=927243737]
+layout_mode = 2
+bbcode_enabled = true
+text = "Cast spells by selecting an [color=\"silver\"]ELEMENT[/color] + [color=\"plum\"]MODIFIER[/color] and pressing CAST"
+fit_content = true
+scroll_active = false
