@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bj18i12xe8pet"]
+
+[ext_resource type="PackedScene" uid="uid://cncpag0xnkhu6" path="res://scripts/interactables/wall.tscn" id="1_a055j"]
+
+[node name="Tutorial1Windaround" type="Node2D" unique_id=1980890262]
+
+[node name="Wall" parent="." unique_id=1823622871 instance=ExtResource("1_a055j")]
+position = Vector2(-608, -288)
+
+[node name="Wall2" parent="." unique_id=432893965 instance=ExtResource("1_a055j")]
+position = Vector2(-608, 224)
+
+[node name="Wall3" parent="." unique_id=1229618496 instance=ExtResource("1_a055j")]
+position = Vector2(-608, 160)
+
+[node name="Wall4" parent="." unique_id=797425132 instance=ExtResource("1_a055j")]
+position = Vector2(-608, 96)
+
+[node name="Wall5" parent="." unique_id=1137098052 instance=ExtResource("1_a055j")]
+position = Vector2(-608, 32)
+
+[node name="Wall6" parent="." unique_id=1043905696 instance=ExtResource("1_a055j")]
+position = Vector2(-608, -32)
+
+[node name="Wall7" parent="." unique_id=339402048 instance=ExtResource("1_a055j")]
+position = Vector2(-608, -96)
+
+[node name="Wall8" parent="." unique_id=534211094 instance=ExtResource("1_a055j")]
+position = Vector2(-608, -160)
+
+[node name="Wall9" parent="." unique_id=180865922 instance=ExtResource("1_a055j")]
+position = Vector2(-608, -224)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2058307888]
+
+[node name="ControlTutorialUI" type="VBoxContainer" parent="." unique_id=1097244460]
+custom_maximum_size = Vector2(220, -1)
+offset_left = 420.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = -202.0
+
+[node name="Label2" type="RichTextLabel" parent="ControlTutorialUI" unique_id=1436798509]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b][i]Controls[/i]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Label1" type="RichTextLabel" parent="ControlTutorialUI" unique_id=1883372585]
+layout_mode = 2
+text = "←↑↓→  or  WASD  —>  Move"
+fit_content = true
+scroll_active = false
+
+[node name="Label3" type="RichTextLabel" parent="ControlTutorialUI" unique_id=733067966]
+layout_mode = 2
+bbcode_enabled = true
+text = "[1]  —>  Select [color=\"silver\"]WIND[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="Label4" type="RichTextLabel" parent="ControlTutorialUI" unique_id=75723573]
+layout_mode = 2
+bbcode_enabled = true
+text = "[8]  —>  Select AROUND"
+fit_content = true
+scroll_active = false
+
+[node name="Label5" type="RichTextLabel" parent="ControlTutorialUI" unique_id=14115502]
+layout_mode = 2
+bbcode_enabled = true
+text = "[ENTER]  —>  Cast spell with current runes"
+fit_content = true
+scroll_active = false
+
+[node name="Label6" type="RichTextLabel" parent="ControlTutorialUI" unique_id=1357649177]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ControlTutorialUI2" type="VBoxContainer" parent="." unique_id=789724012]
+custom_maximum_size = Vector2(200, -1)
+offset_left = 440.0
+offset_top = 259.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label2" type="RichTextLabel" parent="ControlTutorialUI2" unique_id=944020704]
+layout_mode = 2
+bbcode_enabled = true
+text = "[i]Find a way to the exit...[/i]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Label3" type="RichTextLabel" parent="ControlTutorialUI2" unique_id=43477863]
+layout_mode = 2
+bbcode_enabled = true
+text = "Cast spells by selecting an [color=\"silver\"]ELEMENT[/color] + [color=\"plum\"]MODIFIER[/color] and pressing CAST"
+fit_content = true
+scroll_active = false
