@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cs4jh0so0bn26"]
+
+[ext_resource type="PackedScene" uid="uid://20p67equkyj1" path="res://scripts/player/player.tscn" id="1_8a0p6"]
+[ext_resource type="PackedScene" uid="uid://cncpag0xnkhu6" path="res://scripts/interactables/wall.tscn" id="2_vgrmv"]
+
+[node name="root" type="Node2D" unique_id=1885997703]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
+
+[node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_8a0p6")]
+
+[node name="Wall" parent="." unique_id=1823622871 instance=ExtResource("2_vgrmv")]
+position = Vector2(-128, 0)
+
+[node name="Wall2" parent="." unique_id=1963759344 instance=ExtResource("2_vgrmv")]
+position = Vector2(-128, 64)
+
+[node name="Wall3" parent="." unique_id=807861525 instance=ExtResource("2_vgrmv")]
+position = Vector2(-128, -64)
+
+[node name="Wall4" parent="." unique_id=333377746 instance=ExtResource("2_vgrmv")]
+position = Vector2(-128, -128)
+
+[node name="Wall5" parent="." unique_id=1143762167 instance=ExtResource("2_vgrmv")]
+position = Vector2(-128, 128)
