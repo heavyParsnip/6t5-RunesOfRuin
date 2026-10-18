@@ -52,12 +52,16 @@ func _unhandled_input(event):
 			match dir:
 				"move_left":
 					facing = Direction.LEFT
+					$AnimatedSprite2D.animation = "left"
 				"move_right":
 					facing = Direction.RIGHT
+					$AnimatedSprite2D.animation = "right"
 				"move_up":
 					facing = Direction.UP
+					$AnimatedSprite2D.animation = "back"
 				"move_down":
 					facing = Direction.DOWN
+					$AnimatedSprite2D.animation = "front"
 				_:
 					pass
 	
