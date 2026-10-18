@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://yb5hgwx3nse8" path="res://scripts/interactables/pushable_wall.tscn" id="3_aldhi"]
 [ext_resource type="PackedScene" uid="uid://caumtotjjuweb" path="res://scripts/interactables/switch.tscn" id="4_0uj7a"]
 [ext_resource type="PackedScene" uid="uid://bdk5tp1mtqr2p" path="res://scripts/interactables/disappearing_block.tscn" id="5_dbgv3"]
+[ext_resource type="PackedScene" uid="uid://2l2p1tycgy2q" path="res://scripts/interactables/level_exit.tscn" id="6_dbgv3"]
 
 [node name="root" type="Node2D" unique_id=1885997703]
 
@@ -42,3 +43,7 @@ position = Vector2(64, 128)
 [node name="DisappearingBlock" parent="." unique_id=1702338825 node_paths=PackedStringArray("connected_to") instance=ExtResource("5_dbgv3")]
 position = Vector2(192, 128)
 connected_to = NodePath("../Switch")
+
+[node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("6_dbgv3")]
+position = Vector2(0, -256)
+next_level_path = "uid://cs4jh0so0bn26"
