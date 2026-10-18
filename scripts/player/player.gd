@@ -21,6 +21,7 @@ var inputs = {
 # make this into a state machine later if necessary
 var is_moving : bool = false
 @export var facing : Direction = Direction.DOWN
+var floating = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

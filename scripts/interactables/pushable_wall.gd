@@ -18,7 +18,8 @@ var moving := false
 func _ready() -> void:
 	impassable = true
 	moveable = true
-	react_wind = true 
+	react_wind = true
+	presses_switch = true 
 
 func get_wind(dir: Vector2) -> void:
 	if destination_blocked(dir):
