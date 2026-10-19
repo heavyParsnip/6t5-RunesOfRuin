@@ -31,7 +31,14 @@ scroll_active = false
 [node name="Label4" type="RichTextLabel" parent="." unique_id=901522871]
 layout_mode = 2
 bbcode_enabled = true
-text = "[8]  —>  Select AROUND"
+text = "[8]  —>  Select [color=\"plum\"]AROUND[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="Label7" type="RichTextLabel" parent="." unique_id=485763458]
+layout_mode = 2
+bbcode_enabled = true
+text = "[9]  —>  Select [color=\"plum\"]BELOW[/color]"
 fit_content = true
 scroll_active = false
 
@@ -45,5 +52,6 @@ scroll_active = false
 [node name="Label6" type="RichTextLabel" parent="." unique_id=774121783]
 layout_mode = 2
 bbcode_enabled = true
+text = "[R] —> Hold to restart level"
 fit_content = true
 scroll_active = false

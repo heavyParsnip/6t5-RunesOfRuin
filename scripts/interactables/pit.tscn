@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bm4rbu2byf5l3"]
+
+[ext_resource type="Script" uid="uid://cer1epc4r0k6h" path="res://scripts/interactables/pit.gd" id="1_47xf2"]
+[ext_resource type="Texture2D" uid="uid://clo14786eqg5v" path="res://Assets/Wall Tiles/wall_1.png" id="2_87n2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8k7b"]
+size = Vector2(64, 64)
+
+[node name="Pit" type="Area2D" unique_id=1823622871]
+collision_layer = 3
+script = ExtResource("1_47xf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963806180]
+shape = SubResource("RectangleShape2D_j8k7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074856258]
+modulate = Color(0.05, 0.05, 0.05, 1)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_87n2r")

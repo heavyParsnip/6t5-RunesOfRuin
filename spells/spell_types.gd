@@ -33,7 +33,9 @@ static func aroundModifier(startPos: Vector2, radius: int) -> Array[SpellTargets
 			)
 	return affectedCells
 
-
+static func belowModifier(startPos : Vector2) -> SpellTargets:
+	var affectedCell = SpellTargets.new(startPos, Vector2.DOWN, 0.2) # little hacky again
+	return affectedCell
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
