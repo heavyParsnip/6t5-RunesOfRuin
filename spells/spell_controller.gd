@@ -46,7 +46,8 @@ func cast_selected_spell() -> void:
 	match currentModifier:
 		Modifier.AROUND:
 			cast_around(currentElement)
-		#Modifier.Below
+		Modifier.BELOW:
+			cast_below(currentElement)
 		#Modifier.Here
 		
 	isCasting = false # ready to do another.
@@ -55,6 +56,11 @@ func cast_around(element: Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_around()
+
+func cast_below(element : Element) -> void:
+	match element:
+		Element.WIND:
+			cast_wind_below()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -76,7 +82,6 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 			interactables.append(collider as Interactable)
 	
 	return interactables
-	
 
 func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
 	var gust := wind_gust.instantiate() as WindGust
@@ -109,6 +114,21 @@ func cast_wind_around() -> void:
 	# so we'd pass wind_impact or whateva onto each targeted item
 	pass
 
+func cast_wind_below() -> void:
+	# only ever affects the player's cell
+	var cell := SpellTypes.belowModifier(player.global_position)
+	
+	wind_sfx(cell.pos, cell.dir)
+	
+	var player : Player = G.get_player()
+	
+	player.get_wind(Vector2.DOWN)
+	
+	#var interactables := get_node()
+	
+	#for i in interactables:
+		#i.get_spell(Element.WIND, cell.dir)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):
 		currentElement = Element.WIND
@@ -116,6 +136,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("selectAround"):
 		currentModifier = Modifier.AROUND
 		print("AROUND selected")
+	elif event.is_action_pressed("selectBelow"):
+		currentModifier = Modifier.BELOW
+		print("BELOW selected")
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
 		

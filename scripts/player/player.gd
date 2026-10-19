@@ -19,10 +19,12 @@ var inputs = {
 }
 
 @onready var reset_timer : Timer = $ResetTimer
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 var hold_time : float = 2.0
 @export var facing : Direction = Direction.DOWN
 var is_moving : bool = false # make this into a state machine later if necessary
-var floating = false
+var floating : bool = false
+var float_tween : Tween = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,14 +41,12 @@ func _process(delta):
 	for action in inputs:
 		if Input.is_action_pressed(action):
 			var collider = raycast_query(inputs[action], 1.0).get("collider")
-			if collider is Interactable and collider.impassable:
+			if collider is Interactable and (collider.float_over and !floating):
+				print("Pit collided! Can't pass over this without floating.")
+			elif collider is Interactable and collider.impassable:
 				print("Wall collided! We can't pass this.")
 			else:
 				move(action)
-			
-		
-	
-
 
 func _unhandled_input(event):
 	# This is separate from movement code to allow the player to change which way they are
@@ -118,6 +118,17 @@ func raycast_query(
 	query.exclude = [self.get_rid()]
 
 	return space_state.intersect_ray(query)
+
+func get_wind(dir : Vector2):
+	if !floating:
+		floating = true
+		# bob up and down
+		sprite.global_position.y = global_position.y - 10
+		sprite.material.set_shader_parameter("onoff", 1.0)
+	else:
+		floating = false
+		sprite.global_position.y = global_position.y
+		sprite.material.set_shader_parameter("onoff", 0.0)
 
 func reset_level():
 	print("Resetting level...")

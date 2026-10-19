@@ -7,6 +7,7 @@ var react_fire : bool = false
 var react_earth : bool = false
 var react_frost : bool = false
 var presses_switch : bool = false
+var float_over : bool = false
 
 var is_moving : bool = false
 

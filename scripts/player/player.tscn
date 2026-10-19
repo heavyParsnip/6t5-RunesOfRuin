@@ -6,11 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://kr0j8dydm2he" path="res://spells/windgust.tscn" id="4_5amry"]
 [ext_resource type="Texture2D" uid="uid://d2esdynda37my" path="res://Assets/mage/mback.png" id="4_jft68"]
 [ext_resource type="Texture2D" uid="uid://bea7qr1eu5t36" path="res://Assets/mage/mfront.png" id="5_5amry"]
+[ext_resource type="Shader" uid="uid://4sogsqp63llx" path="res://scripts/player/float.gdshader" id="5_b6sy1"]
 [ext_resource type="Texture2D" uid="uid://yy8thodwvnr2" path="res://Assets/mage/mleft.png" id="6_b6sy1"]
 [ext_resource type="Texture2D" uid="uid://2oy2de8p7omt" path="res://Assets/mage/mright.png" id="7_ws782"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dqld"]
+shader = ExtResource("5_b6sy1")
+shader_parameter/onoff = 0.0
+shader_parameter/amplitude = 20.00000095
+shader_parameter/speed = 5.0000002375
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lsifr"]
 animations = [{
@@ -47,8 +54,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1028885159]
-collision_layer = 4
+[node name="Player" type="CharacterBody2D" unique_id=1028885159 groups=["player"]]
+collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_f50pn")
 
@@ -71,6 +78,8 @@ spell_mask = 2
 wind_gust = ExtResource("4_5amry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1505049942]
+z_index = 2
+material = SubResource("ShaderMaterial_1dqld")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lsifr")
 animation = &"right"
