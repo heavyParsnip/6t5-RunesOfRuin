@@ -39,7 +39,7 @@ func destination_blocked(dir: Vector2) -> bool:
 	
 	# ray start & end pos
 	var start := global_position
-	var end := global_position + dir * G.TILE_SIZE
+	var end = global_position + dir * G.TILE_SIZE
 	
 	var query := PhysicsRayQueryParameters2D.create(start, end)
 	
@@ -66,7 +66,7 @@ func destination_blocked(dir: Vector2) -> bool:
 func push_once(dir: Vector2) -> void:
 	moving = true
 	pushed = true
-	var end := global_position + dir * G.TILE_SIZE
+	var end = global_position + dir * G.TILE_SIZE
 	
 	
 	var tween = create_tween()
