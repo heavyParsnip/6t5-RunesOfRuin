@@ -89,19 +89,6 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	
 	return interactables
 
-func raycast_query(from : Vector2, direction: Vector2, range_in_tiles: float):
-	var space_state := get_viewport().get_world_2d().direct_space_state
-
-	var to := from + direction * (range_in_tiles * G.TILE_SIZE + 1.0)
-
-	var query := PhysicsRayQueryParameters2D.create(from, to)
-
-	query.collide_with_areas = true
-	query.collide_with_bodies = true # in case we want body2D's to come into play
-	query.exclude = [player.get_rid()]
-
-	return space_state.intersect_ray(query)
-
 func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
 	var gust := wind_gust.instantiate() as WindGust
 	get_tree().current_scene.add_child(gust)
@@ -139,7 +126,7 @@ func cast_wind_below() -> void:
 	
 	wind_sfx(cell.pos, cell.dir)
 	
-	var player : Player = G.get_player()
+	#var player : Player = G.get_player()
 	
 	player.get_wind(Vector2.DOWN)
 	
@@ -149,9 +136,19 @@ func cast_wind_below() -> void:
 		#i.get_spell(Element.WIND, cell.dir)
 
 func cast_wind_there() -> void:
-	var distance := 0
-	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(-player.facing), distance)
-	pass
+	
+	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(player.facing))
+	var interactables := find_interactables_at(cell.pos)
+	
+	for interactable in interactables:
+		interactable.get_spell(Element.WIND, -cell.dir) # push backwards !
+	
+	# anything pulled will be on the same tile, so no need to play multiple 
+	# instances of the same sound/effect
+	wind_sfx(cell.pos, cell.dir) 
+	
+	
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):

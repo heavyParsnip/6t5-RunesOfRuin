@@ -7,6 +7,7 @@ const Directions: Array[Vector2] = [
 	Vector2.DOWN,
 	]
 
+const THERE_RANGE : int = 16 # fixed range for There modifier
 
 class SpellTargets: # a spelltarget is basically just a tile
 	# we need its position, where it is in ref to the player and how far it is
@@ -37,14 +38,26 @@ static func belowModifier(startPos : Vector2) -> SpellTargets:
 	var affectedCell = SpellTargets.new(startPos, Vector2.DOWN, 0.2) # little hacky again
 	return affectedCell
 
-static func thereModifier(startPos : Vector2, dir : Vector2, dist : int) -> SpellTargets:
-	var affectedCell = SpellTargets.new(startPos, dir, dist)
+static func thereModifier(startPos : Vector2, dir : Vector2) -> SpellTargets:
+	var affectedCell : SpellTargets
+	
+	var result = G.raycast_query(startPos, dir, THERE_RANGE, [G.get_player().get_rid()])
+	result = result.get("collider")
+	print(result)
+	var dist = abs(G.get_player().global_position - result.global_position) / G.TILE_SIZE
+	print("dist: " + dist)
+	
+	
+	
+	affectedCell = SpellTargets.new(
+		startPos + dir * THERE_RANGE * G.TILE_SIZE, 
+		dir, 
+		dist)
 	return affectedCell
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
