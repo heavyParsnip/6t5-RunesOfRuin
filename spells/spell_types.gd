@@ -37,6 +37,10 @@ static func belowModifier(startPos : Vector2) -> SpellTargets:
 	var affectedCell = SpellTargets.new(startPos, Vector2.DOWN, 0.2) # little hacky again
 	return affectedCell
 
+static func thereModifier(startPos : Vector2, dir : Vector2, dist : int) -> SpellTargets:
+	var affectedCell = SpellTargets.new(startPos, dir, dist)
+	return affectedCell
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

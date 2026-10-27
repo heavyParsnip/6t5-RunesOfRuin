@@ -89,29 +89,18 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	
 	return interactables
 
-func cast_ray():
+func raycast_query(from : Vector2, direction: Vector2, range_in_tiles: float):
 	var space_state := get_viewport().get_world_2d().direct_space_state
 
-	# global position rather than local since i think space_state uses globals only?
-	var start := player.global_position
-	var end = player.global_position + player.directions.get(player.facing) * (
-		16.0 * G.TILE_SIZE + 1.0
-	)
-	
-	# prev ray = position + directioin * G.TILE_SIZE / 2. this didn't reach the end of the tile!
-	# we'd go from center to center and this just pushes us a lil more in
-	
-	
-	# the ray only went halfway into the next space, and mixed with the dir issues, made the ray a bit unreliable
+	var to := from + direction * (range_in_tiles * G.TILE_SIZE + 1.0)
 
-	var query := PhysicsRayQueryParameters2D.create(start, end)
+	var query := PhysicsRayQueryParameters2D.create(from, to)
 
 	query.collide_with_areas = true
 	query.collide_with_bodies = true # in case we want body2D's to come into play
 	query.exclude = [player.get_rid()]
 
 	return space_state.intersect_ray(query)
-	return false
 
 func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
 	var gust := wind_gust.instantiate() as WindGust
@@ -160,7 +149,8 @@ func cast_wind_below() -> void:
 		#i.get_spell(Element.WIND, cell.dir)
 
 func cast_wind_there() -> void:
-	
+	var distance := 0
+	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(-player.facing), distance)
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -175,7 +165,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("BELOW selected")
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
