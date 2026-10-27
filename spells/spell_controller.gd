@@ -16,7 +16,7 @@ enum Modifier{
 	NONE,
 	AROUND,
 	BELOW,
-	HERE
+	THERE
 }
 
 @onready var player : Player = get_parent() as Player
@@ -48,7 +48,8 @@ func cast_selected_spell() -> void:
 			cast_around(currentElement)
 		Modifier.BELOW:
 			cast_below(currentElement)
-		#Modifier.Here
+		Modifier.THERE:
+			cast_there(currentElement)
 		
 	isCasting = false # ready to do another.
 
@@ -61,6 +62,11 @@ func cast_below(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_below()
+
+func cast_there(element : Element) -> void:
+	match element:
+		Element.WIND:
+			cast_wind_there()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -82,6 +88,30 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 			interactables.append(collider as Interactable)
 	
 	return interactables
+
+func cast_ray():
+	var space_state := get_viewport().get_world_2d().direct_space_state
+
+	# global position rather than local since i think space_state uses globals only?
+	var start := player.global_position
+	var end = player.global_position + player.directions.get(player.facing) * (
+		16.0 * G.TILE_SIZE + 1.0
+	)
+	
+	# prev ray = position + directioin * G.TILE_SIZE / 2. this didn't reach the end of the tile!
+	# we'd go from center to center and this just pushes us a lil more in
+	
+	
+	# the ray only went halfway into the next space, and mixed with the dir issues, made the ray a bit unreliable
+
+	var query := PhysicsRayQueryParameters2D.create(start, end)
+
+	query.collide_with_areas = true
+	query.collide_with_bodies = true # in case we want body2D's to come into play
+	query.exclude = [player.get_rid()]
+
+	return space_state.intersect_ray(query)
+	return false
 
 func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
 	var gust := wind_gust.instantiate() as WindGust
@@ -128,6 +158,10 @@ func cast_wind_below() -> void:
 	
 	#for i in interactables:
 		#i.get_spell(Element.WIND, cell.dir)
+
+func cast_wind_there() -> void:
+	
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):
