@@ -513,4 +513,4 @@ tile_set = SubResource("TileSet_5i273")
 
 [node name="level_exit" parent="." unique_id=272109281 instance=ExtResource("4_k4nvq")]
 position = Vector2(160, -288)
-next_level_path = "uid://d3fnshurwlhe3"
+next_level_path = "uid://b118258esilw6"

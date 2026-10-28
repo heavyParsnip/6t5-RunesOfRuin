@@ -14,6 +14,7 @@ func raycast_query(from : Vector2, direction: Vector2, range_in_tiles: float, ig
 
 	query.collide_with_areas = true
 	query.collide_with_bodies = true # in case we want body2D's to come into play
+	
 	if !ignore.is_empty():
 			query.exclude.append_array(ignore)
 
