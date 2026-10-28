@@ -160,6 +160,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("selectBelow"):
 		currentModifier = Modifier.BELOW
 		print("BELOW selected")
+	elif event.is_action_pressed("selectThere"):
+		currentModifier = Modifier.THERE
+		print("THERE selected")
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
 

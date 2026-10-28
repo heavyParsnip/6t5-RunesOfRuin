@@ -42,15 +42,18 @@ static func thereModifier(startPos : Vector2, dir : Vector2) -> SpellTargets:
 	var affectedCell : SpellTargets
 	
 	var result = G.raycast_query(startPos, dir, THERE_RANGE, [G.get_player().get_rid()])
+	if result.is_empty():
+		return null
 	result = result.get("collider")
 	print(result)
-	var dist = abs(G.get_player().global_position - result.global_position) / G.TILE_SIZE
-	print("dist: " + dist)
+	# var dist = abs(G.get_player().global_position - result.global_position) / G.TILE_SIZE
+	var dist := roundi(startPos.distance_to(result.global_position) / G.TILE_SIZE)
+	print("dist: " + str(dist))
 	
 	
 	
 	affectedCell = SpellTargets.new(
-		startPos + dir * THERE_RANGE * G.TILE_SIZE, 
+		startPos + dir * dist * G.TILE_SIZE, 
 		dir, 
 		dist)
 	return affectedCell
