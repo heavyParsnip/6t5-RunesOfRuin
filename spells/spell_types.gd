@@ -51,7 +51,6 @@ static func thereModifier(startPos : Vector2, dir : Vector2) -> SpellTargets:
 	print("dist: " + str(dist))
 	
 	
-	
 	affectedCell = SpellTargets.new(
 		startPos + dir * dist * G.TILE_SIZE, 
 		dir, 
