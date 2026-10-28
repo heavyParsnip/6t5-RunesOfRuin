@@ -101,7 +101,7 @@ func raycast_query(
 
 	# global position rather than local since i think space_state uses globals only?
 	var start := global_position
-	var end := global_position + direction * (
+	var end = global_position + direction * (
 		range_in_tiles * G.TILE_SIZE + 1.0
 	)
 	
