@@ -26,12 +26,28 @@ var is_moving : bool = false # make this into a state machine later if necessary
 var floating : bool = false
 var float_tween : Tween = null
 
+@export var wind_rune_texture: Texture2D
+
+@export var around_rune_texture: Texture2D
+@export var below_rune_texture: Texture2D
+@export var there_rune_texture: Texture2D
+
+@onready var element_rune : Sprite2D = $ElementRune
+@onready var modifier_rune : Sprite2D = $ModifierRune
+
+@onready var spell_controller: SpellController = $SpellController
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#position = position.snapped(Vector2.ONE * G.TILE_SIZE)
 	reset_timer.wait_time = hold_time
 	reset_timer.one_shot = true
 	reset_timer.timeout.connect(reset_level)
+	
+	spell_controller.selection_changed.connect(_on_spell_selection_changed)
+	
+	_on_spell_selection_changed(spell_controller.currentElement, spell_controller.currentModifier)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -137,3 +153,29 @@ func reset_level():
 func _on_move_tween_finished():
 	# ok i take new movement now !
 	is_moving = false
+
+func update_element_rune(element: SpellController.Element) -> void:
+	match element:
+		SpellController.Element.WIND:
+			element_rune.texture = wind_rune_texture
+			element_rune.show()
+		_:
+			element_rune.hide()
+
+func update_modifier_rune(modifier: SpellController.Modifier) -> void:
+	match modifier:
+		SpellController.Modifier.AROUND:
+			modifier_rune.texture = around_rune_texture
+			modifier_rune.show()
+		SpellController.Modifier.BELOW:
+			modifier_rune.texture = below_rune_texture
+			modifier_rune.show()
+		SpellController.Modifier.THERE:
+			modifier_rune.texture = there_rune_texture
+			modifier_rune.show()
+		_:
+			modifier_rune.hide()
+
+func _on_spell_selection_changed(element: SpellController.Element, modifier: SpellController.Modifier)-> void:
+	update_element_rune(element)
+	update_modifier_rune(modifier)

@@ -1,6 +1,7 @@
 class_name SpellController extends Node
 
 signal spell_casted								# fire when a spell is casted
+signal selection_changed(element: Element, modifier: Modifier)
 
 @export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
 @export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
@@ -26,12 +27,14 @@ var currentElement = Element.NONE
 var currentModifier = Modifier.NONE
 
 var isCasting = false
+var spellActive = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	journal.element_selected.connect(_on_element_selected)
-	journal.modifier_selected.connect(_on_modifier_selected)
+	pass
+	# journal.element_selected.connect(_on_element_selected)
+	# journal.modifier_selected.connect(_on_modifier_selected)
 	
 func cast_selected_spell() -> void:
 	if isCasting:
@@ -44,6 +47,7 @@ func cast_selected_spell() -> void:
 		return
 	
 	isCasting = true # now we're actually casting
+	spellActive = true
 	spell_casted.emit()
 	
 	# so turns out godot doesn't have switches? but there's matches? let's try a match 
@@ -154,37 +158,52 @@ func cast_wind_there() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):
-		currentElement = Element.WIND
+		select_element(Element.WIND)
 		print("WIND selected")
 	elif event.is_action_pressed("selectAround"):
-		currentModifier = Modifier.AROUND
+		select_modifier(Modifier.AROUND)
 		print("AROUND selected")
 	elif event.is_action_pressed("selectBelow"):
-		currentModifier = Modifier.BELOW
+		select_modifier(Modifier.BELOW)
 		print("BELOW selected")
 	elif event.is_action_pressed("selectThere"):
-		currentModifier = Modifier.THERE
+		select_modifier(Modifier.THERE)
 		print("THERE selected")
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
 
 func _on_element_selected(element : Element):
-	match element:
-		Element.WIND:
-			currentElement = Element.WIND
-			print("WIND selected")
+	select_element(element)
 
 func _on_modifier_selected(modifier : Modifier):
-	match modifier:
-		Modifier.AROUND:
-			currentModifier = Modifier.AROUND
-			print("AROUND selected")
-		Modifier.BELOW:
-			currentModifier = Modifier.BELOW
-			print("BELOW selected")
-		Modifier.THERE:
-			currentModifier = Modifier.THERE
-			print("THERE selected")
+	select_modifier(modifier)
+
+func clear_if_active() -> void:
+	if spellActive:
+		currentElement = Element.NONE
+		currentModifier = Modifier.NONE
+		spellActive = false
+
+func select_element(element: Element) -> void:
+	clear_if_active()
+
+	currentElement = element
+
+	selection_changed.emit(
+		currentElement,
+		currentModifier
+	)
+
+
+func select_modifier(modifier: Modifier) -> void:
+	clear_if_active()
+
+	currentModifier = modifier
+
+	selection_changed.emit(
+		currentElement,
+		currentModifier
+	)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
