@@ -54,8 +54,11 @@ func _process(delta):
 	# changed the raycast to handle the input action rather than direction
 	if is_moving:
 		return
+	
 	for action in inputs:
 		if Input.is_action_pressed(action):
+			update_dir(action)
+			
 			var collider = raycast_query(inputs[action], 1.0).get("collider")
 			if collider is Interactable and (collider.float_over and !floating):
 				print("Pit collided! Can't pass over this without floating.")
@@ -67,24 +70,7 @@ func _process(delta):
 func _unhandled_input(event):
 	# This is separate from movement code to allow the player to change which way they are
 	# facing even if they are colliding with an object
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir, true) and !is_moving:
-			#move(dir) # Single-fire version of the movement code. More efficient but less responsive to held inputs
-			match dir:
-				"move_left":
-					facing = Direction.LEFT
-					$AnimatedSprite2D.animation = "left"
-				"move_right":
-					facing = Direction.RIGHT
-					$AnimatedSprite2D.animation = "right"
-				"move_up":
-					facing = Direction.UP
-					$AnimatedSprite2D.animation = "back"
-				"move_down":
-					facing = Direction.DOWN
-					$AnimatedSprite2D.animation = "front"
-				_:
-					pass
+	
 	
 	# Level reset handling
 	if event.is_action_pressed("reset_level"):
@@ -95,6 +81,24 @@ func _unhandled_input(event):
 	# DEBUG RAYCAST
 	if event.is_action_pressed("DEBUG RAYCAST"):
 		print(raycast_query(directions[facing], 3.0))
+
+func update_dir(dir: String) -> void:
+	match dir:
+		"move_left":
+			facing = Direction.LEFT
+			sprite.animation = "left"
+
+		"move_right":
+			facing = Direction.RIGHT
+			sprite.animation = "right"
+
+		"move_up":
+			facing = Direction.UP
+			sprite.animation = "back"
+
+		"move_down":
+			facing = Direction.DOWN
+			sprite.animation = "front"
 
 # let's roll!
 func move(dir):
