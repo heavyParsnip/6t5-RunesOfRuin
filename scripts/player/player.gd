@@ -20,7 +20,7 @@ var inputs = {
 
 @onready var reset_timer : Timer = $ResetTimer
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
-var hold_time : float = 2.0
+var hold_time : float = 1.2
 @export var facing : Direction = Direction.DOWN
 var is_moving : bool = false # make this into a state machine later if necessary
 var floating : bool = false

@@ -2,6 +2,7 @@ class_name Interactable extends Area2D
 
 @export var impassable : bool = false
 @export var moveable : bool = false
+@export var onground : bool = false
 var react_wind : bool = false
 var react_fire : bool = false
 var react_earth : bool = false

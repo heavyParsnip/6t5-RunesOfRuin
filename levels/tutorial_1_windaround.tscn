@@ -293,6 +293,8 @@ position = Vector2(96, 96)
 
 [node name="Switch" parent="." unique_id=272109281 instance=ExtResource("4_7iws3")]
 position = Vector2(-32, -96)
+collision_layer = 0
+onground = true
 
 [node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("6_x4i2b")]
 position = Vector2(-288, -288)
