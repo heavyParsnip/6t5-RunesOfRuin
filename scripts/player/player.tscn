@@ -9,16 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://dqktkd7vntf3f" path="res://Assets/runes/BELOW.png" id="4_g4jq6"]
 [ext_resource type="Texture2D" uid="uid://d2esdynda37my" path="res://Assets/mage/mback.png" id="4_jft68"]
 [ext_resource type="Texture2D" uid="uid://bea7qr1eu5t36" path="res://Assets/mage/mfront.png" id="5_5amry"]
-[ext_resource type="Shader" uid="uid://4sogsqp63llx" path="res://scripts/player/float.gdshader" id="5_b6sy1"]
 [ext_resource type="Texture2D" uid="uid://duckk5jgw4stn" path="res://Assets/runes/THERE.png" id="5_yj7se"]
 [ext_resource type="Texture2D" uid="uid://yy8thodwvnr2" path="res://Assets/mage/mleft.png" id="6_b6sy1"]
 [ext_resource type="Texture2D" uid="uid://2oy2de8p7omt" path="res://Assets/mage/mright.png" id="7_ws782"]
+[ext_resource type="Shader" uid="uid://bxuw7phb8qlba" path="res://scripts/player/runefloat.gdshader" id="14_p83wy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dqld"]
-shader = ExtResource("5_b6sy1")
+shader = ExtResource("14_p83wy")
 shader_parameter/onoff = 0.0
 shader_parameter/amplitude = 20.00000095
 shader_parameter/speed = 5.0000002375
@@ -58,17 +58,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j77er"]
-shader = ExtResource("5_b6sy1")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4jq6"]
+shader = ExtResource("14_p83wy")
 shader_parameter/onoff = 1.0
-shader_parameter/amplitude = 10.0
-shader_parameter/speed = 1.0
+shader_parameter/amplitude = 3.0000001425
+shader_parameter/speed = 3.50000016625
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p83wy"]
-shader = ExtResource("5_b6sy1")
+shader = ExtResource("14_p83wy")
 shader_parameter/onoff = 1.0
-shader_parameter/amplitude = 10.0
-shader_parameter/speed = 1.0
+shader_parameter/amplitude = 3.0000001425
+shader_parameter/speed = 3.50000016625
 
 [node name="Player" type="CharacterBody2D" unique_id=1028885159 groups=["player"]]
 collision_layer = 7
@@ -108,7 +108,7 @@ animation = &"right"
 
 [node name="ElementRune" type="Sprite2D" parent="." unique_id=793320482]
 z_index = 5
-material = SubResource("ShaderMaterial_j77er")
+material = SubResource("ShaderMaterial_g4jq6")
 position = Vector2(-19, -52)
 scale = Vector2(2, 2)
 
