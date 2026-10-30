@@ -4,6 +4,7 @@ extends Node
 @export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
 @export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
 @export var wind_gust : PackedScene
+@export var wind_around_fx : PackedScene
 @export var sfx_parent : Node2D
 
 enum Element{
@@ -92,27 +93,41 @@ func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
 	#gust.play()
 
 func cast_wind_around() -> void:
-	var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
-	
-	# for cells in affectedCells:
-	# check if there's an interactable at the cell
-	# if there is, apply wind to it, moving it back 1 tile based on direction
-	
-	for cells in affectedCells:
-		
-		wind_sfx(cells.pos, cells.dir)
-		var interactables := find_interactables_at(cells.pos)
-		print(interactables)
+	# Play one effect at the player's position.
+	var fx = wind_around_fx.instantiate()
+	get_tree().current_scene.add_child(fx)
+	fx.global_position = player.global_position
+
+	# Apply wind to the four adjacent cells.
+	var affected_cells = SpellTypes.aroundModifier(player.global_position, 1)
+
+	for cell in affected_cells:
+		var interactables = find_interactables_at(cell.pos)
 		for interactable in interactables:
-			interactable.get_spell(Element.WIND, cells.dir)
-	
-	# how's this gonna work?
-	# get a list of targets that it's going to affect
-	# for each target in targets apply effect
-	# effect applied is moving each away by 1 space based on player pos and dir
-	# each interactable should have like. impacted by x sort of spell
-	# so we'd pass wind_impact or whateva onto each targeted item
-	pass
+			interactable.get_spell(Element.WIND, cell.dir)
+
+#func cast_wind_around() -> void:
+	#var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
+	#
+	## for cells in affectedCells:
+	## check if there's an interactable at the cell
+	## if there is, apply wind to it, moving it back 1 tile based on direction
+	#
+	#for cells in affectedCells:
+		#
+		#wind_sfx(cells.pos, cells.dir)
+		#var interactables := find_interactables_at(cells.pos)
+		#print(interactables)
+		#for interactable in interactables:
+			#interactable.get_spell(Element.WIND, cells.dir)
+	#
+	## how's this gonna work?
+	## get a list of targets that it's going to affect
+	## for each target in targets apply effect
+	## effect applied is moving each away by 1 space based on player pos and dir
+	## each interactable should have like. impacted by x sort of spell
+	## so we'd pass wind_impact or whateva onto each targeted item
+	#pass
 
 func cast_wind_below() -> void:
 	# only ever affects the player's cell

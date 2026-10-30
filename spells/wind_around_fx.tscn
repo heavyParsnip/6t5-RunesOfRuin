@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b6ajosmoex4w5"]
+
+[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/windgust.gd" id="1_hrl3h"]
+[ext_resource type="Texture2D" uid="uid://vfku2pbi2pro" path="res://Assets/Wind FX/wind FX.png" id="2_rud53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alkbf"]
+atlas = ExtResource("2_rud53")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n13vi"]
+atlas = ExtResource("2_rud53")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujlmk"]
+atlas = ExtResource("2_rud53")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmvqn"]
+atlas = ExtResource("2_rud53")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8suu2"]
+atlas = ExtResource("2_rud53")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrl3h"]
+atlas = ExtResource("2_rud53")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knguh"]
+atlas = ExtResource("2_rud53")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87nl6"]
+atlas = ExtResource("2_rud53")
+region = Rect2(3072, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j30eq"]
+atlas = ExtResource("2_rud53")
+region = Rect2(0, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0jqw"]
+atlas = ExtResource("2_rud53")
+region = Rect2(1024, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3f3p"]
+atlas = ExtResource("2_rud53")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syg01"]
+atlas = ExtResource("2_rud53")
+region = Rect2(3072, 2048, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyg4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alkbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n13vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujlmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmvqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8suu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrl3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knguh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87nl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j30eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0jqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3f3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syg01")
+}],
+"loop": 0,
+"name": &"gust",
+"speed": 15.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1817801125]
+script = ExtResource("1_hrl3h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1110344308]
+z_index = 2
+scale = Vector2(0.188, 0.188)
+sprite_frames = SubResource("SpriteFrames_tyg4f")
+animation = &"gust"
+frame = 11
+frame_progress = 1.0

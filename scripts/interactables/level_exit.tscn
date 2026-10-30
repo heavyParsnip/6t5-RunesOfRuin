@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://2l2p1tycgy2q"]
 
 [ext_resource type="Script" uid="uid://ccmc2qfcqayn" path="res://scripts/interactables/level_exit.gd" id="1_lugki"]
+[ext_resource type="Texture2D" uid="uid://bju4m23v7o25" path="res://Assets/Exit Door/Exit door.png" id="2_coa80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
 
 [node name="level_exit" type="Area2D" unique_id=272109281]
 script = ExtResource("1_lugki")
@@ -14,5 +13,5 @@ script = ExtResource("1_lugki")
 shape = SubResource("RectangleShape2D_qn476")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
-scale = Vector2(64, 64)
-texture = SubResource("PlaceholderTexture2D_qn476")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_coa80")

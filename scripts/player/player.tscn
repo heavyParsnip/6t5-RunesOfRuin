@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2esdynda37my" path="res://Assets/mage/mback.png" id="4_jft68"]
 [ext_resource type="Texture2D" uid="uid://bea7qr1eu5t36" path="res://Assets/mage/mfront.png" id="5_5amry"]
 [ext_resource type="Shader" uid="uid://4sogsqp63llx" path="res://scripts/player/float.gdshader" id="5_b6sy1"]
+[ext_resource type="PackedScene" uid="uid://b6ajosmoex4w5" path="res://spells/wind_around_fx.tscn" id="5_ws782"]
 [ext_resource type="Texture2D" uid="uid://yy8thodwvnr2" path="res://Assets/mage/mleft.png" id="6_b6sy1"]
 [ext_resource type="Texture2D" uid="uid://2oy2de8p7omt" path="res://Assets/mage/mright.png" id="7_ws782"]
 
@@ -76,6 +77,7 @@ texture = ExtResource("2_enrq2")
 script = ExtResource("3_so2s4")
 spell_mask = 2
 wind_gust = ExtResource("4_5amry")
+wind_around_fx = ExtResource("5_ws782")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1505049942]
 z_index = 2
