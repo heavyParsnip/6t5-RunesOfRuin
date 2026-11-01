@@ -26,20 +26,39 @@ var is_moving : bool = false # make this into a state machine later if necessary
 var floating : bool = false
 var float_tween : Tween = null
 
+@export var wind_rune_texture: Texture2D
+
+@export var around_rune_texture: Texture2D
+@export var below_rune_texture: Texture2D
+@export var there_rune_texture: Texture2D
+
+@onready var element_rune : Sprite2D = $ElementRune
+@onready var modifier_rune : Sprite2D = $ModifierRune
+
+@onready var spell_controller: SpellController = $SpellController
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#position = position.snapped(Vector2.ONE * G.TILE_SIZE)
 	reset_timer.wait_time = hold_time
 	reset_timer.one_shot = true
 	reset_timer.timeout.connect(reset_level)
+	
+	spell_controller.selection_changed.connect(_on_spell_selection_changed)
+	
+	_on_spell_selection_changed(spell_controller.currentElement, spell_controller.currentModifier)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# changed the raycast to handle the input action rather than direction
 	if is_moving:
 		return
+	
 	for action in inputs:
 		if Input.is_action_pressed(action):
+			update_dir(action)
+			
 			var collider = raycast_query(inputs[action], 1.0).get("collider")
 			if collider is Interactable and (collider.float_over and !floating):
 				print("Pit collided! Can't pass over this without floating.")
@@ -51,24 +70,7 @@ func _process(delta):
 func _unhandled_input(event):
 	# This is separate from movement code to allow the player to change which way they are
 	# facing even if they are colliding with an object
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir, true) and !is_moving:
-			#move(dir) # Single-fire version of the movement code. More efficient but less responsive to held inputs
-			match dir:
-				"move_left":
-					facing = Direction.LEFT
-					$AnimatedSprite2D.animation = "left"
-				"move_right":
-					facing = Direction.RIGHT
-					$AnimatedSprite2D.animation = "right"
-				"move_up":
-					facing = Direction.UP
-					$AnimatedSprite2D.animation = "back"
-				"move_down":
-					facing = Direction.DOWN
-					$AnimatedSprite2D.animation = "front"
-				_:
-					pass
+	
 	
 	# Level reset handling
 	if event.is_action_pressed("reset_level"):
@@ -79,6 +81,24 @@ func _unhandled_input(event):
 	# DEBUG RAYCAST
 	if event.is_action_pressed("DEBUG RAYCAST"):
 		print(raycast_query(directions[facing], 3.0))
+
+func update_dir(dir: String) -> void:
+	match dir:
+		"move_left":
+			facing = Direction.LEFT
+			sprite.animation = "left"
+
+		"move_right":
+			facing = Direction.RIGHT
+			sprite.animation = "right"
+
+		"move_up":
+			facing = Direction.UP
+			sprite.animation = "back"
+
+		"move_down":
+			facing = Direction.DOWN
+			sprite.animation = "front"
 
 # let's roll!
 func move(dir):
@@ -137,3 +157,29 @@ func reset_level():
 func _on_move_tween_finished():
 	# ok i take new movement now !
 	is_moving = false
+
+func update_element_rune(element: SpellController.Element) -> void:
+	match element:
+		SpellController.Element.WIND:
+			element_rune.texture = wind_rune_texture
+			element_rune.show()
+		_:
+			element_rune.hide()
+
+func update_modifier_rune(modifier: SpellController.Modifier) -> void:
+	match modifier:
+		SpellController.Modifier.AROUND:
+			modifier_rune.texture = around_rune_texture
+			modifier_rune.show()
+		SpellController.Modifier.BELOW:
+			modifier_rune.texture = below_rune_texture
+			modifier_rune.show()
+		SpellController.Modifier.THERE:
+			modifier_rune.texture = there_rune_texture
+			modifier_rune.show()
+		_:
+			modifier_rune.hide()
+
+func _on_spell_selection_changed(element: SpellController.Element, modifier: SpellController.Modifier)-> void:
+	update_element_rune(element)
+	update_modifier_rune(modifier)
