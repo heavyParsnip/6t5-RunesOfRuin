@@ -1,0 +1,501 @@
+[gd_scene format=4 uid="uid://bgdkkc3mdty7y"]
+
+[ext_resource type="PackedScene" uid="uid://20p67equkyj1" path="res://scripts/player/player.tscn" id="1_3an0r"]
+[ext_resource type="PackedScene" uid="uid://yb5hgwx3nse8" path="res://scripts/interactables/pushable_wall.tscn" id="2_dtjqa"]
+[ext_resource type="PackedScene" uid="uid://caumtotjjuweb" path="res://scripts/interactables/switch.tscn" id="3_6wtuw"]
+[ext_resource type="PackedScene" uid="uid://2l2p1tycgy2q" path="res://scripts/interactables/level_exit.tscn" id="4_h35n7"]
+[ext_resource type="PackedScene" uid="uid://cncpag0xnkhu6" path="res://scripts/interactables/wall.tscn" id="5_wp4eb"]
+[ext_resource type="PackedScene" uid="uid://bdk5tp1mtqr2p" path="res://scripts/interactables/disappearing_block.tscn" id="6_if87m"]
+[ext_resource type="Texture2D" uid="uid://dwsfflpagmnl8" path="res://Assets/test/Tilesheet/tilesheet_complete.png" id="7_l8wqu"]
+[ext_resource type="PackedScene" uid="uid://bwwihr0lmxkgt" path="res://ui/tutorial_ui_1.tscn" id="8_6sph0"]
+[ext_resource type="Texture2D" uid="uid://dwe0dnanb2j1p" path="res://Assets/Floor/floor_1.png" id="8_wp4eb"]
+[ext_resource type="Texture2D" uid="uid://b4wdjxqovjfiw" path="res://Assets/Floor/floor_2.png" id="9_if87m"]
+[ext_resource type="PackedScene" uid="uid://vb6gjtsy2i7" path="res://ui/tutorial_ui_2.tscn" id="9_ip2om"]
+[ext_resource type="Texture2D" uid="uid://clxbve3restq3" path="res://Assets/Floor/floor_3.png" id="10_l8wqu"]
+[ext_resource type="Texture2D" uid="uid://bmp8y7cnl4fyx" path="res://Assets/Floor/floor_4.png" id="11_6sph0"]
+[ext_resource type="PackedScene" uid="uid://bm4rbu2byf5l3" path="res://scripts/interactables/pit.tscn" id="14_if87m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
+texture = ExtResource("7_l8wqu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip2om"]
+texture = ExtResource("8_wp4eb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spycf"]
+texture = ExtResource("9_if87m")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10t64"]
+texture = ExtResource("10_l8wqu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqxok"]
+texture = ExtResource("11_6sph0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5i273"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xkwek")
+sources/5 = SubResource("TileSetAtlasSource_ip2om")
+sources/6 = SubResource("TileSetAtlasSource_spycf")
+sources/7 = SubResource("TileSetAtlasSource_10t64")
+sources/8 = SubResource("TileSetAtlasSource_gqxok")
+
+[node name="root" type="Node2D" unique_id=1885997703]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
+offset = Vector2(0, 61.005)
+zoom = Vector2(0.9, 0.9)
+
+[node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_3an0r")]
+position = Vector2(-416, -32)
+
+[node name="PushableWall1" parent="." unique_id=741833010 instance=ExtResource("2_dtjqa")]
+position = Vector2(-160, -96)
+
+[node name="PushableWall2" parent="." unique_id=1823622871 instance=ExtResource("2_dtjqa")]
+position = Vector2(-224, -32)
+
+[node name="Switch1" parent="." unique_id=272109281 instance=ExtResource("3_6wtuw")]
+position = Vector2(-224, -96)
+
+[node name="Switch2" parent="." unique_id=378728142 instance=ExtResource("3_6wtuw")]
+position = Vector2(-32, 96)
+
+[node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("4_h35n7")]
+position = Vector2(-288, 352)
+next_level_path = "uid://bjdwt2uqriswy"
+
+[node name="Walls" type="Node2D" parent="." unique_id=2055088094]
+
+[node name="Wall1" parent="Walls" unique_id=970921943 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, -160)
+
+[node name="Wall2" parent="Walls" unique_id=427136635 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, -160)
+
+[node name="Wall3" parent="Walls" unique_id=207975773 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, -160)
+
+[node name="Wall4" parent="Walls" unique_id=1435628273 instance=ExtResource("5_wp4eb")]
+position = Vector2(-224, -160)
+
+[node name="Wall5" parent="Walls" unique_id=1354178055 instance=ExtResource("5_wp4eb")]
+position = Vector2(-224, -288)
+
+[node name="Wall6" parent="Walls" unique_id=348158763 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, -288)
+
+[node name="Wall7" parent="Walls" unique_id=1723534282 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, -288)
+
+[node name="Wall8" parent="Walls" unique_id=216655016 instance=ExtResource("5_wp4eb")]
+position = Vector2(-32, -288)
+
+[node name="Wall9" parent="Walls" unique_id=1935085189 instance=ExtResource("5_wp4eb")]
+position = Vector2(-224, -224)
+
+[node name="Wall10" parent="Walls" unique_id=900803326 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, -224)
+
+[node name="Wall11" parent="Walls" unique_id=284452689 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, -160)
+
+[node name="Wall12" parent="Walls" unique_id=51291301 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, -96)
+
+[node name="Wall13" parent="Walls" unique_id=106812087 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, -32)
+
+[node name="Wall14" parent="Walls" unique_id=698627628 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, 32)
+
+[node name="Wall15" parent="Walls" unique_id=19964547 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, 96)
+
+[node name="Wall16" parent="Walls" unique_id=1515544331 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, 160)
+
+[node name="Wall17" parent="Walls" unique_id=356014448 instance=ExtResource("5_wp4eb")]
+position = Vector2(-32, 224)
+
+[node name="Wall18" parent="Walls" unique_id=1267748781 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, 224)
+
+[node name="Wall19" parent="Walls" unique_id=1980827270 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, 224)
+
+[node name="Wall20" parent="Walls" unique_id=47201720 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, 288)
+
+[node name="Wall21" parent="Walls" unique_id=2070859012 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, 352)
+
+[node name="Wall22" parent="Walls" unique_id=424506387 instance=ExtResource("5_wp4eb")]
+position = Vector2(-224, 416)
+
+[node name="Wall23" parent="Walls" unique_id=893876214 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 416)
+
+[node name="Wall24" parent="Walls" unique_id=650842224 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 352)
+
+[node name="Wall25" parent="Walls" unique_id=108781548 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 288)
+
+[node name="Wall26" parent="Walls" unique_id=1581119096 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 224)
+
+[node name="Wall27" parent="Walls" unique_id=77927372 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 160)
+
+[node name="Wall28" parent="Walls" unique_id=719057945 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 96)
+
+[node name="Wall29" parent="Walls" unique_id=1046430816 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 32)
+
+[node name="Wall30" parent="Walls" unique_id=1201408578 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 32)
+
+[node name="Wall31" parent="Walls" unique_id=1679030042 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, 32)
+
+[node name="Wall32" parent="Walls" unique_id=1748983061 instance=ExtResource("5_wp4eb")]
+position = Vector2(-480, -32)
+
+[node name="Wall33" parent="Walls" unique_id=621952471 instance=ExtResource("5_wp4eb")]
+position = Vector2(-480, -96)
+
+[node name="Wall34" parent="Walls" unique_id=1410022655 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, -96)
+
+[node name="Wall35" parent="Walls" unique_id=1265572861 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, 32)
+
+[node name="Wall36" parent="Walls" unique_id=1147668761 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, 32)
+
+[node name="Wall37" parent="Walls" unique_id=1853682932 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, -32)
+
+[node name="Wall38" parent="Walls" unique_id=312105742 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, -96)
+
+[node name="Wall39" parent="Walls" unique_id=826073441 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, -160)
+
+[node name="SFX" type="Node2D" parent="." unique_id=1350976240]
+
+[node name="DisappearingBlock1" parent="." unique_id=1281463063 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
+position = Vector2(-32, -96)
+connected_to = NodePath("../Switch1")
+
+[node name="DisappearingBlock2" parent="." unique_id=580786067 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
+position = Vector2(-224, 224)
+connected_to = NodePath("../Switch2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
+z_index = -1
+tile_map_data = PackedByteArray("AAD+/wEABQAAAAAAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQABQAAAAAAAAD7/wQABQAAAAAAAAD6/wQAAAAAAAYAAAD5/wAAAAAAAAYAAAD5//3/AAAAAAYAAAD4//7/AAAAAAYAAAD4////AAAAAAYAAAD6/wAAAAAAAAYAAAD6//7/AAAAAAYAAAD6//3/AAAAAAYAAAD7//3/AAAAAAYAAAD7/wAAAAAAAAYAAAD7/wEAAAAAAAYAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD8/wMABQAAAAAAAAD8/wEABQAAAAAAAAD8/wAABQAAAAAAAAD8//3/AAAAAAYAAAD8//z/AAAAAAYAAAD9//z/BQAAAAAAAAD9//3/BQAAAAAAAAD9//7/BQAAAAAAAAD9////BQAAAAAAAAD9/wAAAAAAAAYAAAD9/wEABQAAAAAAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD//wAABQAAAAAAAAD/////BQAAAAAAAAD///7/BQAAAAAAAAD///3/BQAAAAAAAAD///z/BQAAAAAAAAD+//z/BQAAAAAAAAD+//3/AAAAAAYAAAD+//7/AAAAAAYAAAD+////AAAAAAYAAAD+/wAAAAAAAAYAAAAAAPz/AAAAAAYAAAAAAP3/AAAAAAYAAAAAAP7/AAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wEABQAAAAAAAAD8/wUABQAAAAAAAAD5//7/BQAAAAAAAAD5////BQAAAAAAAAD6////BQAAAAAAAAD7////BQAAAAAAAAD7//7/BQAAAAAAAAD8//7/BQAAAAAAAAD8////BQAAAAAAAAA=")
+tile_set = SubResource("TileSet_5i273")
+
+[node name="ControlTutorialUI" parent="." unique_id=142106021 instance=ExtResource("8_6sph0")]
+offset_left = 416.0
+offset_top = -288.0
+offset_right = 636.0
+offset_bottom = -107.0
+
+[node name="Label7" parent="ControlTutorialUI" index="4" unique_id=485763458]
+visible = false
+
+[node name="ControlTutorialUI2" parent="." unique_id=1076614349 instance=ExtResource("9_ip2om")]
+offset_left = 436.0
+offset_top = 331.0
+offset_right = 636.0
+offset_bottom = 432.0
+
+[node name="Pits" type="Node2D" parent="." unique_id=1539325222]
+
+[node name="Pit1" parent="Pits" unique_id=253978415 instance=ExtResource("14_if87m")]
+position = Vector2(-224, 160)
+
+[node name="Pit2" parent="Pits" unique_id=962204369 instance=ExtResource("14_if87m")]
+position = Vector2(-160, 160)
+
+[node name="Pit3" parent="Pits" unique_id=1708687737 instance=ExtResource("14_if87m")]
+position = Vector2(-96, 160)
+
+[node name="Pit4" parent="Pits" unique_id=49590535 instance=ExtResource("14_if87m")]
+position = Vector2(-32, 160)
+
+[editable path="ControlTutorialUI"]
