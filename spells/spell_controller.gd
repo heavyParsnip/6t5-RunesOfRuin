@@ -1,11 +1,13 @@
-class_name SpellController
-extends Node
+class_name SpellController extends Node
+
+signal spell_casted								# fire when a spell is casted
 
 @export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
 @export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
 @export var wind_gust : PackedScene
 @export var wind_around_fx : PackedScene
 @export var sfx_parent : Node2D
+@export var journal : Journal
 
 enum Element{
 	NONE,
@@ -17,7 +19,7 @@ enum Modifier{
 	NONE,
 	AROUND,
 	BELOW,
-	HERE
+	THERE
 }
 
 @onready var player : Player = get_parent() as Player
@@ -29,7 +31,8 @@ var isCasting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	journal.element_selected.connect(_on_element_selected)
+	journal.modifier_selected.connect(_on_modifier_selected)
 	
 func cast_selected_spell() -> void:
 	if isCasting:
@@ -42,6 +45,7 @@ func cast_selected_spell() -> void:
 		return
 	
 	isCasting = true # now we're actually casting
+	spell_casted.emit()
 	
 	# so turns out godot doesn't have switches? but there's matches? let's try a match 
 	match currentModifier:
@@ -49,7 +53,8 @@ func cast_selected_spell() -> void:
 			cast_around(currentElement)
 		Modifier.BELOW:
 			cast_below(currentElement)
-		#Modifier.Here
+		Modifier.THERE:
+			cast_there(currentElement)
 		
 	isCasting = false # ready to do another.
 
@@ -62,6 +67,11 @@ func cast_below(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_below()
+
+func cast_there(element : Element) -> void:
+	match element:
+		Element.WIND:
+			cast_wind_there()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -135,7 +145,7 @@ func cast_wind_below() -> void:
 	
 	wind_sfx(cell.pos, cell.dir)
 	
-	var player : Player = G.get_player()
+	#var player : Player = G.get_player()
 	
 	player.get_wind(Vector2.DOWN)
 	
@@ -143,6 +153,19 @@ func cast_wind_below() -> void:
 	
 	#for i in interactables:
 		#i.get_spell(Element.WIND, cell.dir)
+
+func cast_wind_there() -> void:
+	
+	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(player.facing))
+	var interactables := find_interactables_at(cell.pos)
+	
+	for interactable in interactables:
+		interactable.get_spell(Element.WIND, -cell.dir) # push backwards !
+	
+	# anything pulled will be on the same tile, so no need to play multiple 
+	# instances of the same sound/effect
+	wind_sfx(cell.pos, cell.dir) 
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):
@@ -154,9 +177,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("selectBelow"):
 		currentModifier = Modifier.BELOW
 		print("BELOW selected")
+	elif event.is_action_pressed("selectThere"):
+		currentModifier = Modifier.THERE
+		print("THERE selected")
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
-		
+
+func _on_element_selected(element : Element):
+	match element:
+		Element.WIND:
+			currentElement = Element.WIND
+			print("WIND selected")
+
+func _on_modifier_selected(modifier : Modifier):
+	match modifier:
+		Modifier.AROUND:
+			currentModifier = Modifier.AROUND
+			print("AROUND selected")
+		Modifier.BELOW:
+			currentModifier = Modifier.BELOW
+			print("BELOW selected")
+		Modifier.THERE:
+			currentModifier = Modifier.THERE
+			print("THERE selected")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

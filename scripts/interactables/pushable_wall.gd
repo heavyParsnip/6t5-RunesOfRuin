@@ -53,9 +53,9 @@ func destination_blocked(dir: Vector2) -> bool:
 	query.exclude = [get_rid()] # don't calculate self duh
 	
 	var hits = get_world_2d().direct_space_state.intersect_ray(query).get("collider")
-
+	print(hits)
 	# need to check whether queried objects are impassable or not 
-	if hits is Interactable and hits.impassable:
+	if (hits is Interactable and hits.impassable) or hits is Player:
 		return true # get outta here!!!
 	
 	# no impassables? no problem

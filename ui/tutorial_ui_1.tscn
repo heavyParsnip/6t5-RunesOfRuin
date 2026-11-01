@@ -55,3 +55,10 @@ bbcode_enabled = true
 text = "[R] —> Hold to restart level"
 fit_content = true
 scroll_active = false
+
+[node name="Label8" type="RichTextLabel" parent="." unique_id=917961401]
+layout_mode = 2
+bbcode_enabled = true
+text = "[7]  —>  Select [color=\"plum\"]HERE[/color]"
+fit_content = true
+scroll_active = false
