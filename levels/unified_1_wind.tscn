@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://clxbve3restq3" path="res://Assets/Floor/floor_3.png" id="10_l8wqu"]
 [ext_resource type="Texture2D" uid="uid://bmp8y7cnl4fyx" path="res://Assets/Floor/floor_4.png" id="11_6sph0"]
 [ext_resource type="PackedScene" uid="uid://bm4rbu2byf5l3" path="res://scripts/interactables/pit.tscn" id="14_if87m"]
+[ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="15_l8wqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
 texture = ExtResource("7_l8wqu")
@@ -317,28 +318,32 @@ offset = Vector2(0, 61.005)
 zoom = Vector2(0.9, 0.9)
 
 [node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_3an0r")]
-position = Vector2(-416, -32)
+position = Vector2(32, -32)
 
 [node name="PushableWall1" parent="." unique_id=741833010 instance=ExtResource("2_dtjqa")]
-position = Vector2(-160, -96)
+position = Vector2(288, -96)
 
 [node name="PushableWall2" parent="." unique_id=1823622871 instance=ExtResource("2_dtjqa")]
-position = Vector2(-224, -32)
+position = Vector2(224, -32)
 
 [node name="Switch1" parent="." unique_id=272109281 instance=ExtResource("3_6wtuw")]
-position = Vector2(-224, -96)
+position = Vector2(224, -96)
 
 [node name="Switch2" parent="." unique_id=378728142 instance=ExtResource("3_6wtuw")]
-position = Vector2(-32, 96)
+position = Vector2(416, 96)
 
 [node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("4_h35n7")]
-position = Vector2(-288, 352)
-next_level_path = "uid://bjdwt2uqriswy"
+position = Vector2(160, 352)
+next_level_path = "uid://cssyccy4bmkyp"
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
+position = Vector2(448, 0)
 
 [node name="Wall1" parent="Walls" unique_id=970921943 instance=ExtResource("5_wp4eb")]
 position = Vector2(-416, -160)
+
+[node name="Wall5" parent="Walls" unique_id=1955072436 instance=ExtResource("5_wp4eb")]
+position = Vector2(-480, -160)
 
 [node name="Wall2" parent="Walls" unique_id=427136635 instance=ExtResource("5_wp4eb")]
 position = Vector2(-352, -160)
@@ -349,11 +354,23 @@ position = Vector2(-288, -160)
 [node name="Wall4" parent="Walls" unique_id=1435628273 instance=ExtResource("5_wp4eb")]
 position = Vector2(-224, -160)
 
-[node name="Wall5" parent="Walls" unique_id=1354178055 instance=ExtResource("5_wp4eb")]
-position = Vector2(-224, -288)
-
 [node name="Wall6" parent="Walls" unique_id=348158763 instance=ExtResource("5_wp4eb")]
 position = Vector2(-160, -288)
+
+[node name="Wall41" parent="Walls" unique_id=1095893091 instance=ExtResource("5_wp4eb")]
+position = Vector2(-224, -288)
+
+[node name="Wall47" parent="Walls" unique_id=1052916319 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, -224)
+
+[node name="Wall48" parent="Walls" unique_id=349135291 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, -224)
+
+[node name="Wall49" parent="Walls" unique_id=1182904913 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, -224)
+
+[node name="Wall42" parent="Walls" unique_id=1503504671 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, -288)
 
 [node name="Wall7" parent="Walls" unique_id=1723534282 instance=ExtResource("5_wp4eb")]
 position = Vector2(-96, -288)
@@ -382,11 +399,47 @@ position = Vector2(32, 32)
 [node name="Wall15" parent="Walls" unique_id=19964547 instance=ExtResource("5_wp4eb")]
 position = Vector2(32, 96)
 
+[node name="Wall53" parent="Walls" unique_id=1173141694 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, -224)
+
+[node name="Wall54" parent="Walls" unique_id=537101762 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, -160)
+
+[node name="Wall55" parent="Walls" unique_id=640967781 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, -96)
+
+[node name="Wall56" parent="Walls" unique_id=72308463 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, -32)
+
+[node name="Wall57" parent="Walls" unique_id=421872336 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, 32)
+
+[node name="Wall58" parent="Walls" unique_id=120881987 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, 96)
+
 [node name="Wall16" parent="Walls" unique_id=1515544331 instance=ExtResource("5_wp4eb")]
 position = Vector2(32, 160)
 
+[node name="Wall60" parent="Walls" unique_id=594980887 instance=ExtResource("5_wp4eb")]
+position = Vector2(32, 224)
+
+[node name="Wall59" parent="Walls" unique_id=857334681 instance=ExtResource("5_wp4eb")]
+position = Vector2(96, 160)
+
 [node name="Wall17" parent="Walls" unique_id=356014448 instance=ExtResource("5_wp4eb")]
 position = Vector2(-32, 224)
+
+[node name="Wall46" parent="Walls" unique_id=811868904 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, 288)
+
+[node name="Wall50" parent="Walls" unique_id=1064095230 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, 288)
+
+[node name="Wall52" parent="Walls" unique_id=965292320 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, 352)
+
+[node name="Wall62" parent="Walls" unique_id=594377927 instance=ExtResource("5_wp4eb")]
+position = Vector2(-96, 352)
 
 [node name="Wall18" parent="Walls" unique_id=1267748781 instance=ExtResource("5_wp4eb")]
 position = Vector2(-96, 224)
@@ -415,8 +468,20 @@ position = Vector2(-352, 288)
 [node name="Wall26" parent="Walls" unique_id=1581119096 instance=ExtResource("5_wp4eb")]
 position = Vector2(-288, 224)
 
+[node name="Wall40" parent="Walls" unique_id=361778770 instance=ExtResource("5_wp4eb")]
+position = Vector2(-288, 224)
+
 [node name="Wall27" parent="Walls" unique_id=77927372 instance=ExtResource("5_wp4eb")]
 position = Vector2(-288, 160)
+
+[node name="Wall43" parent="Walls" unique_id=2085455846 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 224)
+
+[node name="Wall44" parent="Walls" unique_id=538686508 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 416)
+
+[node name="Wall45" parent="Walls" unique_id=123109228 instance=ExtResource("5_wp4eb")]
+position = Vector2(-160, 416)
 
 [node name="Wall28" parent="Walls" unique_id=719057945 instance=ExtResource("5_wp4eb")]
 position = Vector2(-288, 96)
@@ -427,8 +492,17 @@ position = Vector2(-288, 32)
 [node name="Wall30" parent="Walls" unique_id=1201408578 instance=ExtResource("5_wp4eb")]
 position = Vector2(-352, 32)
 
+[node name="Wall51" parent="Walls" unique_id=1497057715 instance=ExtResource("5_wp4eb")]
+position = Vector2(-480, 32)
+
 [node name="Wall31" parent="Walls" unique_id=1679030042 instance=ExtResource("5_wp4eb")]
 position = Vector2(-416, 32)
+
+[node name="Wall61" parent="Walls" unique_id=1670451784 instance=ExtResource("5_wp4eb")]
+position = Vector2(-352, 96)
+
+[node name="Wall63" parent="Walls" unique_id=1410280601 instance=ExtResource("5_wp4eb")]
+position = Vector2(-416, 96)
 
 [node name="Wall32" parent="Walls" unique_id=1748983061 instance=ExtResource("5_wp4eb")]
 position = Vector2(-480, -32)
@@ -437,7 +511,7 @@ position = Vector2(-480, -32)
 position = Vector2(-480, -96)
 
 [node name="Wall34" parent="Walls" unique_id=1410022655 instance=ExtResource("5_wp4eb")]
-position = Vector2(-352, -96)
+position = Vector2(-416, -96)
 
 [node name="Wall35" parent="Walls" unique_id=1265572861 instance=ExtResource("5_wp4eb")]
 position = Vector2(-160, 32)
@@ -455,21 +529,24 @@ position = Vector2(-96, -96)
 position = Vector2(-96, -160)
 
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
+position = Vector2(448, 0)
 
 [node name="DisappearingBlock1" parent="." unique_id=1281463063 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
-position = Vector2(-32, -96)
+position = Vector2(416, -96)
 connected_to = NodePath("../Switch1")
 
 [node name="DisappearingBlock2" parent="." unique_id=580786067 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
-position = Vector2(-224, 224)
+position = Vector2(224, 224)
 connected_to = NodePath("../Switch2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
 z_index = -1
-tile_map_data = PackedByteArray("AAD+/wEABQAAAAAAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQABQAAAAAAAAD7/wQABQAAAAAAAAD6/wQAAAAAAAYAAAD5/wAAAAAAAAYAAAD5//3/AAAAAAYAAAD4//7/AAAAAAYAAAD4////AAAAAAYAAAD6/wAAAAAAAAYAAAD6//7/AAAAAAYAAAD6//3/AAAAAAYAAAD7//3/AAAAAAYAAAD7/wAAAAAAAAYAAAD7/wEAAAAAAAYAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD8/wMABQAAAAAAAAD8/wEABQAAAAAAAAD8/wAABQAAAAAAAAD8//3/AAAAAAYAAAD8//z/AAAAAAYAAAD9//z/BQAAAAAAAAD9//3/BQAAAAAAAAD9//7/BQAAAAAAAAD9////BQAAAAAAAAD9/wAAAAAAAAYAAAD9/wEABQAAAAAAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD//wAABQAAAAAAAAD/////BQAAAAAAAAD///7/BQAAAAAAAAD///3/BQAAAAAAAAD///z/BQAAAAAAAAD+//z/BQAAAAAAAAD+//3/AAAAAAYAAAD+//7/AAAAAAYAAAD+////AAAAAAYAAAD+/wAAAAAAAAYAAAAAAPz/AAAAAAYAAAAAAP3/AAAAAAYAAAAAAP7/AAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wEABQAAAAAAAAD8/wUABQAAAAAAAAD5//7/BQAAAAAAAAD5////BQAAAAAAAAD6////BQAAAAAAAAD7////BQAAAAAAAAD7//7/BQAAAAAAAAD8//7/BQAAAAAAAAD8////BQAAAAAAAAA=")
+position = Vector2(448, 0)
+tile_map_data = PackedByteArray("AAD+/wEABQAAAAAAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQACAAAAAAAAAD7/wQABQAAAAAAAAD6/wQAAAAAAAYAAAD6//7/CAAAAAAAAAD7/wIAAAAAAAYAAAD7/wMACAAAAAAAAAD8/wMABQAAAAAAAAD8/wEABgAAAAAAAAD8/wAABwAAAAAAAAD9//z/BwAAAAAAAAD9//3/BQAAAAAAAAD9//7/BQAAAAAAAAD9////CAAAAAAAAAD9/wAAAAAAAAYAAAD9/wEACAAAAAAAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD//wAABgAAAAAAAAD/////CAAAAAAAAAD///7/BwAAAAAAAAD///3/BQAAAAAAAAD///z/BgAAAAAAAAD+//z/CAAAAAAAAAD+//3/AAAAAAYAAAD+//7/AAAAAAYAAAD+////AAAAAAYAAAD+/wAAAAAAAAYAAAAAAPz/AAAAAAYAAAAAAP3/AAAAAAYAAAAAAP7/AAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAD//wMAAAAAAAYAAAD//wEABQAAAAAAAAD8/wUABgAAAAAAAAD5//7/AAAAAAYAAAD5////AAAAAAcAAAD6////BgAAAAAAAAD7////BQAAAAAAAAD7//7/BwAAAAAAAAD8//7/BQAAAAAAAAD8////BQAAAAAAAAD7/wUABQAAAAAAAAD7/wAAAAAAAAYAAAD7/wEAAAAAAAYAAAD6/wEAAAAAAAYAAAD5/wEAAAAAAAYAAAD5/wAAAAAAAAYAAAD6/wAAAAAAAAYAAAD4/wAAAAAAAAYAAAD4////AAAAAAYAAAD4//7/AAAAAAYAAAD5//3/AAAAAAYAAAD4//3/AAAAAAYAAAD6//3/AAAAAAYAAAD7//3/AAAAAAYAAAD8//3/AAAAAAYAAAD8//z/AAAAAAYAAAD7//z/AAAAAAYAAAD6//z/AAAAAAYAAAD5//z/AAAAAAYAAAD8//v/AAAAAAYAAAAAAPv/AAAAAAYAAAABAP7/AAAAAAYAAAABAP3/AAAAAAYAAAABAPz/AAAAAAYAAAABAAIAAAAAAAYAAAABAAEAAAAAAAYAAAABAAAAAAAAAAYAAAABAP//AAAAAAYAAAAAAAMAAAAAAAYAAAD+/wQAAAAAAAYAAAD9/wUAAAAAAAYAAAD+/wUAAAAAAAYAAAD9/wYAAAAAAAYAAAD8/wYAAAAAAAYAAAD7/wYAAAAAAAYAAAD6/wYAAAAAAAYAAAD6/wUAAAAAAAYAAAD5/wQAAAAAAAYAAAD5/wUAAAAAAAYAAAD6/wMAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_5i273")
 
 [node name="ControlTutorialUI" parent="." unique_id=142106021 instance=ExtResource("8_6sph0")]
+visible = false
 offset_left = 416.0
 offset_top = -288.0
 offset_right = 636.0
@@ -479,12 +556,14 @@ offset_bottom = -107.0
 visible = false
 
 [node name="ControlTutorialUI2" parent="." unique_id=1076614349 instance=ExtResource("9_ip2om")]
+visible = false
 offset_left = 436.0
 offset_top = 331.0
 offset_right = 636.0
 offset_bottom = 432.0
 
 [node name="Pits" type="Node2D" parent="." unique_id=1539325222]
+position = Vector2(448, 0)
 
 [node name="Pit1" parent="Pits" unique_id=253978415 instance=ExtResource("14_if87m")]
 position = Vector2(-224, 160)
@@ -498,4 +577,11 @@ position = Vector2(-96, 160)
 [node name="Pit4" parent="Pits" unique_id=49590535 instance=ExtResource("14_if87m")]
 position = Vector2(-32, 160)
 
+[node name="SpellJournalUI" parent="." unique_id=1216615160 instance=ExtResource("15_l8wqu")]
+offset_left = -624.0
+offset_top = -320.0
+offset_right = -560.0
+offset_bottom = -256.0
+
 [editable path="ControlTutorialUI"]
+[editable path="SpellJournalUI"]

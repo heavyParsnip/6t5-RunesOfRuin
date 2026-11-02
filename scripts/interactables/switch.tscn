@@ -2,16 +2,38 @@
 
 [ext_resource type="Script" uid="uid://cp5ybfcqkjc73" path="res://scripts/interactables/switch.gd" id="1_144xb"]
 [ext_resource type="Texture2D" uid="uid://bxpgbm21q6vlq" path="res://Assets/Switches/Switch 1.png" id="2_pwjj6"]
+[ext_resource type="Texture2D" uid="uid://bp6quacw70m7r" path="res://Assets/Switches/Switch 2.png" id="3_vgakp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn476"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pwjj6")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vgakp")
+}],
+"loop": 1,
+"name": &"on",
+"speed": 5.0
+}]
+
 [node name="Switch" type="Area2D" unique_id=272109281]
+collision_layer = 0
 script = ExtResource("1_144xb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]
 shape = SubResource("RectangleShape2D_qn476")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=302802609]
 scale = Vector2(0.065, 0.065)
-texture = ExtResource("2_pwjj6")
+sprite_frames = SubResource("SpriteFrames_qn476")
+animation = &"off"

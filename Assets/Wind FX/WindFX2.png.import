@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfvwasqicu0ga"
-path="res://.godot/imported/wind FX 2 (1) (1).png-385a6741e7e95897c365ec2d0dabb976.ctex"
+path="res://.godot/imported/WindFX2.png-ee1e00ab15f8d6787361618c772b661b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Wind FX/wind FX 2 (1) (1).png"
-dest_files=["res://.godot/imported/wind FX 2 (1) (1).png-385a6741e7e95897c365ec2d0dabb976.ctex"]
+source_file="res://Assets/Wind FX/WindFX2.png"
+dest_files=["res://.godot/imported/WindFX2.png-ee1e00ab15f8d6787361618c772b661b.ctex"]
 
 [params]
 

@@ -8,7 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dwsfflpagmnl8" path="res://Assets/test/Tilesheet/tilesheet_complete.png" id="7_iibl1"]
 [ext_resource type="PackedScene" uid="uid://bdk5tp1mtqr2p" path="res://scripts/interactables/disappearing_block.tscn" id="7_iqr8o"]
 [ext_resource type="PackedScene" uid="uid://bwwihr0lmxkgt" path="res://ui/tutorial_ui_1.tscn" id="8_1dqld"]
+[ext_resource type="Texture2D" uid="uid://dwe0dnanb2j1p" path="res://Assets/Floor/floor_1.png" id="8_j40hp"]
+[ext_resource type="Texture2D" uid="uid://b4wdjxqovjfiw" path="res://Assets/Floor/floor_2.png" id="9_2ymyq"]
 [ext_resource type="PackedScene" uid="uid://vb6gjtsy2i7" path="res://ui/tutorial_ui_2.tscn" id="9_hvkfe"]
+[ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="10_hvkfe"]
+[ext_resource type="Texture2D" uid="uid://clxbve3restq3" path="res://Assets/Floor/floor_3.png" id="10_kv4c8"]
+[ext_resource type="Texture2D" uid="uid://bmp8y7cnl4fyx" path="res://Assets/Floor/floor_4.png" id="11_81ujm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
 texture = ExtResource("7_iibl1")
@@ -277,30 +282,55 @@ texture_region_size = Vector2i(64, 64)
 20:11/0 = 0
 21:11/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwpif"]
+texture = ExtResource("8_j40hp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6qvw"]
+texture = ExtResource("9_2ymyq")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0pyu"]
+texture = ExtResource("10_kv4c8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvr6f"]
+texture = ExtResource("11_81ujm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_5i273"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_xkwek")
+sources/1 = SubResource("TileSetAtlasSource_pwpif")
+sources/2 = SubResource("TileSetAtlasSource_c6qvw")
+sources/3 = SubResource("TileSetAtlasSource_n0pyu")
+sources/4 = SubResource("TileSetAtlasSource_fvr6f")
 
 [node name="root" type="Node2D" unique_id=1885997703]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
 
 [node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_n3fuv")]
-position = Vector2(32, 224)
+position = Vector2(288, 224)
 
 [node name="PushableWall" parent="." unique_id=741833010 instance=ExtResource("3_xkwek")]
-position = Vector2(96, 96)
+position = Vector2(352, 96)
 
 [node name="Switch" parent="." unique_id=272109281 instance=ExtResource("4_7iws3")]
-position = Vector2(-32, -96)
+position = Vector2(224, -96)
 collision_layer = 0
 onground = true
 
 [node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("6_x4i2b")]
-position = Vector2(-288, -288)
+position = Vector2(-32, -288)
 next_level_path = "uid://bjdwt2uqriswy"
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
+position = Vector2(256, 0)
 
 [node name="Wall19" parent="Walls" unique_id=243257334 instance=ExtResource("2_iibl1")]
 position = Vector2(-480, -288)
@@ -434,6 +464,15 @@ position = Vector2(-416, -288)
 [node name="Wall82" parent="Walls" unique_id=1177347343 instance=ExtResource("2_iibl1")]
 position = Vector2(-352, -288)
 
+[node name="Wall104" parent="Walls" unique_id=532449537 instance=ExtResource("2_iibl1")]
+position = Vector2(-352, -352)
+
+[node name="Wall105" parent="Walls" unique_id=501313283 instance=ExtResource("2_iibl1")]
+position = Vector2(-224, -352)
+
+[node name="Wall106" parent="Walls" unique_id=1995446811 instance=ExtResource("2_iibl1")]
+position = Vector2(-288, -416)
+
 [node name="Wall84" parent="Walls" unique_id=1921942503 instance=ExtResource("2_iibl1")]
 position = Vector2(-224, -288)
 
@@ -531,22 +570,37 @@ position = Vector2(-96, 96)
 position = Vector2(-32, 96)
 
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
+position = Vector2(256, 0)
 
 [node name="DisappearingBlock" parent="." unique_id=1281463063 node_paths=PackedStringArray("connected_to") instance=ExtResource("7_iqr8o")]
-position = Vector2(-288, -224)
+position = Vector2(-32, -224)
 connected_to = NodePath("../Switch")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
-visible = false
 z_index = -1
-tile_map_data = PackedByteArray("AAD+/wEAAAAAAAYAAAD4//v/AAAAAAYAAAD5//v/AAAAAAYAAAD6//v/AAAAAAYAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAAAAPv/AAAAAAYAAAABAPv/AAAAAAYAAAACAPv/AAAAAAYAAAADAPv/AAAAAAYAAAAEAPv/AAAAAAYAAAAEAAQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAABAAQAAAAAAAYAAAAAAAQAAAAAAAYAAAD//wQAAAAAAAYAAAD+/wQAAAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQAAAAAAAYAAAD7/wQAAAAAAAYAAAD6/wQAAAAAAAYAAAD5/wQAAAAAAAYAAAD4/wQAAAAAAAYAAAD5/wIAAAAAAAYAAAD5/wEAAAAAAAYAAAD5/wAAAAAAAAYAAAD5////AAAAAAYAAAD5//7/AAAAAAYAAAD5//3/AAAAAAYAAAD5//z/AAAAAAYAAAD4//z/AAAAAAYAAAD4//3/AAAAAAYAAAD4//7/AAAAAAYAAAD4////AAAAAAYAAAD4/wAAAAAAAAYAAAD4/wEAAAAAAAYAAAD4/wIAAAAAAAYAAAD4/wMAAAAAAAYAAAD5/wMAAAAAAAYAAAD6/wMAAAAAAAYAAAD6/wIAAAAAAAYAAAD6/wEAAAAAAAYAAAD6/wAAAAAAAAYAAAD6////AAAAAAYAAAD6//7/AAAAAAYAAAD6//3/AAAAAAYAAAD6//z/AAAAAAYAAAD7//z/AAAAAAYAAAD7//3/AAAAAAYAAAD7//7/AAAAAAYAAAD7////AAAAAAYAAAD7/wAAAAAAAAYAAAD7/wEAAAAAAAYAAAD7/wIAAAAAAAYAAAD7/wMAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wIAAAAAAAYAAAD8/wEAAAAAAAYAAAD8/wAAAAAAAAYAAAD8////AAAAAAYAAAD8//7/AAAAAAYAAAD8//3/AAAAAAYAAAD8//z/AAAAAAYAAAD9//z/AAAAAAYAAAD9//3/AAAAAAYAAAD9//7/AAAAAAYAAAD9////AAAAAAYAAAD9/wAAAAAAAAYAAAD9/wEAAAAAAAYAAAD9/wIAAAAAAAYAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wIAAAAAAAYAAAD//wIAAAAAAAYAAAD//wEAAAAAAAYAAAD//wAAAAAAAAYAAAD/////AAAAAAYAAAD///7/AAAAAAYAAAD///3/AAAAAAYAAAD///z/AAAAAAYAAAD+//z/AAAAAAYAAAD+//3/AAAAAAYAAAD+//7/AAAAAAYAAAD+////AAAAAAYAAAD+/wAAAAAAAAYAAAAAAPz/AAAAAAYAAAAAAP3/AAAAAAYAAAAAAP7/AAAAAAYAAAAAAP//AAAAAAYAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAgAAAD//wMAAAAAAAYAAAABAAMAAAAAAAYAAAABAAIAAAAAAAYAAAABAAEAAAAAAAYAAAABAAAAAAAAAAYAAAABAP//AAAAAAYAAAABAP7/AAAAAAYAAAABAP3/AAAAAAYAAAABAPz/AAAAAAYAAAACAPz/AAAAAAYAAAACAP3/AAAAAAYAAAACAP7/AAAAAAYAAAACAP//AAAAAAYAAAACAAAAAAAAAAYAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAADAAMAAAAAAAYAAAADAAIAAAAAAAYAAAADAAEAAAAAAAYAAAADAAAAAAAAAAYAAAADAP//AAAAAAYAAAADAP7/AAAAAAYAAAADAP3/AAAAAAYAAAADAPz/AAAAAAYAAAAEAPz/AAAAAAYAAAAEAP3/AAAAAAYAAAAEAP7/AAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAYAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AQAAAAAAAAAAAPv/AAAAAAYAAAABAPv/AAAAAAYAAAACAPv/AAAAAAYAAAADAPv/AAAAAAYAAAAEAPv/AAAAAAYAAAAEAAQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAABAAQAAAAAAAYAAAAAAAQAAAAAAAYAAAD//wQAAAAAAAYAAAD+/wQAAAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQAAAAAAAYAAAD8/wMAAAAAAAYAAAD8/wIAAAAAAAYAAAD8/wEAAAAAAAYAAAD8/wAAAAAAAAYAAAD8////AAAAAAYAAAD8//7/AAAAAAYAAAD8//3/AAAAAAYAAAD8//z/AAAAAAYAAAD9//z/AAAAAAYAAAD9//3/BAAAAAAAAAD9//7/AgAAAAAAAAD9////AQAAAAAAAAD9/wAAAAAAAAYAAAD9/wEAAAAAAAYAAAD9/wIAAAAAAAYAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wIAAAAAAAYAAAD//wIAAAAAAAYAAAD//wEAAAAAAAYAAAD//wAAAAAAAAYAAAD/////AgAAAAAAAAD///7/AQAAAAAAAAD///3/AgAAAAAAAAD///z/AQAAAAAAAAD+//z/AAAAAAYAAAD+//3/AQAAAAAAAAD+//7/AgAAAAAAAAD+////AwAAAAAAAAD+/wAAAAAAAAYAAAAAAPz/AAAAAAYAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAYAAAAAAAIAAAAAAAYAAAAAAAMAAAAAAAgAAAD//wMAAAAAAAYAAAABAAMAAAAAAAYAAAABAAIAAAAAAAYAAAABAAEAAAAAAAYAAAABAAAAAAAAAAYAAAABAP//AQAAAAAAAAABAP7/AgAAAAAAAAABAP3/AQAAAAAAAAABAPz/AAAAAAYAAAACAPz/AwAAAAAAAAACAP3/BAAAAAAAAAACAP7/AQAAAAAAAAACAP//AgAAAAAAAAACAAAABAAAAAAAAAACAAEAAAAAAAYAAAACAAIAAAAAAAYAAAACAAMAAAAAAAYAAAADAAMAAwAAAAAAAAADAAIAAgAAAAAAAAADAAEAAAAAAAYAAAADAAAAAwAAAAAAAAADAP//BAAAAAAAAAADAP7/AQAAAAAAAAADAP3/AQAAAAAAAAADAPz/AgAAAAAAAAAEAPz/AgAAAAAAAAAEAP//AgAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAAAAAAYAAAAEAAIAAQAAAAAAAAAEAAMAAAAAAAcAAAAEAP3/AwAAAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAAFAP3/AgAAAAAAAAAFAPz/AQAAAAAAAAAGAPz/AgAAAAAAAAAHAPz/AQAAAAAAAAAHAP3/AwAAAAAAAAAGAP3/AQAAAAAAAAAGAP7/AwAAAAAAAAAHAP7/BAAAAAAAAAAIAPz/AAAAAAYAAAAIAP3/AAAAAAYAAAAIAP7/AAAAAAYAAAAIAP//AAAAAAYAAAAIAAAAAAAAAAYAAAAIAAEAAAAAAAYAAAAIAAIAAAAAAAYAAAAIAAMAAAAAAAYAAAAIAAQAAAAAAAYAAAAHAAQAAAAAAAYAAAAGAAQAAAAAAAYAAAAFAAQAAAAAAAYAAAAFAAMAAwAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAQAAAAAAAAAHAAIAAgAAAAAAAAAGAAIAAQAAAAAAAAAFAAIABAAAAAAAAAAFAAEABAAAAAAAAAAFAAAABAAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAHAP//AgAAAAAAAAAGAP//AwAAAAAAAAAFAP//AQAAAAAAAAD///r/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5i273")
 
 [node name="ControlTutorialUI" parent="." unique_id=142106021 instance=ExtResource("8_1dqld")]
+visible = false
 
 [node name="Label7" parent="ControlTutorialUI" index="4" unique_id=485763458]
 visible = false
 
 [node name="ControlTutorialUI2" parent="." unique_id=1076614349 instance=ExtResource("9_hvkfe")]
+visible = false
+
+[node name="SpellJournalUI" parent="." unique_id=1216615160 instance=ExtResource("10_hvkfe")]
+offset_left = -624.0
+offset_top = -320.0
+offset_right = -560.0
+offset_bottom = -256.0
+
+[node name="Below" parent="SpellJournalUI" index="2" unique_id=360191544]
+visible = false
+
+[node name="There" parent="SpellJournalUI" index="3" unique_id=1039370371]
+visible = false
 
 [editable path="ControlTutorialUI"]
+[editable path="SpellJournalUI"]

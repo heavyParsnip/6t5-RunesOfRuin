@@ -1,14 +1,7 @@
 class_name SpellController extends Node
 
-signal spell_casted								# fire when a spell is casted
+signal spell_casted # fire when a spell is casted
 signal selection_changed(element: Element, modifier: Modifier)
-
-@export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
-@export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
-@export var wind_gust : PackedScene
-@export var wind_around_fx : PackedScene
-@export var sfx_parent : Node2D
-@export var journal : Journal
 
 enum Element{
 	NONE,
@@ -23,7 +16,17 @@ enum Modifier{
 	THERE
 }
 
+@export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
+@export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
+@export var wind_gust : PackedScene
+@export var spell_fx : PackedScene
+@export var wind_around_fx : PackedScene
+@export var wind_there_fx : PackedScene
+@export var sfx_parent : Node2D
+
 @onready var player : Player = get_parent() as Player
+
+var journal : Journal
 var currentElement = Element.NONE
 var currentModifier = Modifier.NONE
 
@@ -33,9 +36,11 @@ var spellActive = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	# journal.element_selected.connect(_on_element_selected)
-	# journal.modifier_selected.connect(_on_modifier_selected)
+	journal = get_tree().get_first_node_in_group("journal_ui")
+	if journal:
+		journal.element_selected.connect(_on_element_selected)
+		journal.modifier_selected.connect(_on_modifier_selected)
+		journal.casted.connect(_on_casted)
 	
 func cast_selected_spell() -> void:
 	if isCasting:
@@ -98,19 +103,28 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	
 	return interactables
 
-func wind_sfx(world_pos: Vector2, direction: Vector2) -> void:
+# TO BE DEPRECATED, REPLACING WITH spawn_fx()
+func wind_sfx(world_pos : Vector2, direction : Vector2 = Vector2.ZERO) -> void:
 	var gust := wind_gust.instantiate() as WindGust
 	get_tree().current_scene.add_child(gust)
 	
 	gust.global_position = world_pos
-	gust.setangle(direction)
+	gust.set_angle(direction)
 	#gust.play()
+
+# Play the specified FX at the set location and direction.
+# Add an 'attach' for the animation to follow the selected node if it moves
+func spawn_fx(world_pos : Vector2, dir : Vector2, name : String = "default", attach : Node = get_tree().current_scene):
+	var fx := spell_fx.instantiate() as SpellFX
+	attach.add_child(fx)
+	
+	fx.global_position = world_pos
+	fx.set_angle(dir)
+	fx.sprite.play(name)
 
 func cast_wind_around() -> void:
 	# Play one effect at the player's position.
-	var fx = wind_around_fx.instantiate()
-	get_tree().current_scene.add_child(fx)
-	fx.global_position = player.global_position
+	spawn_fx(player.global_position, Vector2.ZERO, "wind_around", player)
 
 	# Apply wind to the four adjacent cells.
 	var affected_cells = SpellTypes.aroundModifier(player.global_position, 1)
@@ -165,10 +179,11 @@ func cast_wind_there() -> void:
 	
 	for interactable in interactables:
 		interactable.get_spell(Element.WIND, -cell.dir) # push backwards !
+		spawn_fx(cell.pos, Vector2(-cell.dir.y, cell.dir.x), "wind_there", interactable) # direction is a lil wonky bc of orientation of the sprite
 	
 	# anything pulled will be on the same tile, so no need to play multiple 
 	# instances of the same sound/effect
-	wind_sfx(cell.pos, cell.dir) 
+	#wind_sfx(cell.pos, cell.dir)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -187,16 +202,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(("cast")):
 		cast_selected_spell()
 
-func _on_element_selected(element : Element):
-	select_element(element)
-
-func _on_modifier_selected(modifier : Modifier):
-	select_modifier(modifier)
-
 func clear_if_active() -> void:
 	if spellActive:
-		currentElement = Element.NONE
-		currentModifier = Modifier.NONE
+		# temp disabled due to misbehavior
+		#currentElement = Element.NONE
+		#currentModifier = Modifier.NONE
 		spellActive = false
 
 func select_element(element: Element) -> void:
@@ -219,6 +229,15 @@ func select_modifier(modifier: Modifier) -> void:
 		currentElement,
 		currentModifier
 	)
+
+func _on_element_selected(element : Element):
+	select_element(element)
+
+func _on_modifier_selected(modifier : Modifier):
+	select_modifier(modifier)
+
+func _on_casted():
+	cast_selected_spell()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

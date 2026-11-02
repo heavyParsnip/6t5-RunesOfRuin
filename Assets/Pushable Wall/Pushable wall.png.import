@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vfku2pbi2pro"
-path="res://.godot/imported/wind FX.png-cf4ecf8bbb6b66bdae9b506e373353b7.ctex"
+uid="uid://baovcfllg1mgs"
+path="res://.godot/imported/Pushable wall.png-83c85d932b9440e400719e89769cfeea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Wind FX/wind FX.png"
-dest_files=["res://.godot/imported/wind FX.png-cf4ecf8bbb6b66bdae9b506e373353b7.ctex"]
+source_file="res://Assets/Pushable Wall/Pushable wall.png"
+dest_files=["res://.godot/imported/Pushable wall.png-83c85d932b9440e400719e89769cfeea.ctex"]
 
 [params]
 
