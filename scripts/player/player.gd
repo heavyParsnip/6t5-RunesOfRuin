@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 signal move_tween_finished
+signal moved
 
 enum Direction { LEFT, RIGHT, UP, DOWN }
 
@@ -18,6 +19,7 @@ var inputs = {
 	"move_down" : Vector2.DOWN
 }
 
+@onready var wasd : Control = $WASD
 @onready var reset_timer : Timer = $ResetTimer
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 var hold_time : float = 1.2
@@ -27,7 +29,6 @@ var floating : bool = false
 var float_tween : Tween = null
 
 @export var wind_rune_texture: Texture2D
-
 @export var around_rune_texture: Texture2D
 @export var below_rune_texture: Texture2D
 @export var there_rune_texture: Texture2D
@@ -48,6 +49,7 @@ func _ready():
 	spell_controller.selection_changed.connect(_on_spell_selection_changed)
 	
 	_on_spell_selection_changed(spell_controller.currentElement, spell_controller.currentModifier)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -71,7 +73,6 @@ func _unhandled_input(event):
 	# This is separate from movement code to allow the player to change which way they are
 	# facing even if they are colliding with an object
 	
-	
 	# Level reset handling
 	if event.is_action_pressed("reset_level"):
 		reset_timer.start()
@@ -87,15 +88,12 @@ func update_dir(dir: String) -> void:
 		"move_left":
 			facing = Direction.LEFT
 			sprite.animation = "left"
-
 		"move_right":
 			facing = Direction.RIGHT
 			sprite.animation = "right"
-
 		"move_up":
 			facing = Direction.UP
 			sprite.animation = "back"
-
 		"move_down":
 			facing = Direction.DOWN
 			sprite.animation = "front"
@@ -112,6 +110,8 @@ func move(dir):
 	
 	# set up signal for when movement finishes, so that game does not accept new movement inputs until current is done
 	move_tween.finished.connect(_on_move_tween_finished)
+	
+	moved.emit()
 
 func raycast_query(
 	direction: Vector2,

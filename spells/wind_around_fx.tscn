@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6ajosmoex4w5"]
 
-[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/windgust.gd" id="1_hrl3h"]
-[ext_resource type="Texture2D" uid="uid://vfku2pbi2pro" path="res://Assets/Wind FX/wind FX.png" id="2_rud53"]
+[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/wind_gust.gd" id="1_hrl3h"]
+[ext_resource type="Texture2D" uid="uid://vfku2pbi2pro" path="res://Assets/Wind FX/WindFX.png" id="2_rud53"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alkbf"]
 atlas = ExtResource("2_rud53")
@@ -89,6 +89,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_syg01")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": 0,
 "name": &"gust",
@@ -103,5 +106,5 @@ z_index = 2
 scale = Vector2(0.188, 0.188)
 sprite_frames = SubResource("SpriteFrames_tyg4f")
 animation = &"gust"
-frame = 11
+frame = 12
 frame_progress = 1.0

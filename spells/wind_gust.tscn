@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kr0j8dydm2he"]
 
-[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/windgust.gd" id="1_c8bej"]
+[ext_resource type="Script" uid="uid://dm0euj8o7i8ek" path="res://spells/wind_gust.gd" id="1_c8bej"]
 [ext_resource type="Texture2D" uid="uid://dvu2ern43jbtp" path="res://Assets/test/WindAnim/001.png" id="1_noad5"]
 [ext_resource type="Texture2D" uid="uid://chsfj5ntobsa7" path="res://Assets/test/WindAnim/002.png" id="2_frrcx"]
 [ext_resource type="Texture2D" uid="uid://8qpn6p3obc34" path="res://Assets/test/WindAnim/006.png" id="6_ghv2x"]

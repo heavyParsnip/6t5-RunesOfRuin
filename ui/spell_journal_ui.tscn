@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vl5d7ut22l6v" path="res://ui/journal.gd" id="1_affel"]
 
-[node name="SpellJournalUI" type="Control" unique_id=1216615160]
+[node name="SpellJournalUI" type="Control" unique_id=1216615160 groups=["journal_ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_affel")
 
 [node name="Wind" type="Button" parent="." unique_id=409424788]
+modulate = Color(0.5666665, 0.35000002, 1, 1)
 layout_mode = 0
 offset_left = 128.0
 offset_right = 224.0
@@ -41,7 +42,17 @@ offset_right = 352.0
 offset_bottom = 224.0
 text = "THERE"
 
+[node name="Cast" type="Button" parent="." unique_id=499801423]
+modulate = Color(0.31, 1, 0.862, 1)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 384.0
+offset_right = 224.0
+offset_bottom = 480.0
+text = "CAST"
+
 [connection signal="button_up" from="Wind" to="." method="_on_wind_button_up"]
 [connection signal="button_up" from="Around" to="." method="_on_around_button_up"]
 [connection signal="button_up" from="Below" to="." method="_on_below_button_up"]
 [connection signal="button_up" from="There" to="." method="_on_there_button_up"]
+[connection signal="button_up" from="Cast" to="." method="_on_cast_button_up"]

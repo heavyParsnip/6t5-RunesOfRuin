@@ -1,5 +1,7 @@
 class_name Interactable extends Area2D
 
+@onready var spell_fx : AnimatedSprite2D = $SpellFX
+
 @export var impassable : bool = false
 @export var moveable : bool = false
 @export var onground : bool = false
