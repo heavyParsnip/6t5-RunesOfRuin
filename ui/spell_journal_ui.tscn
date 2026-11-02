@@ -1,6 +1,301 @@
 [gd_scene format=3 uid="uid://b2yf8adijh03m"]
 
 [ext_resource type="Script" uid="uid://vl5d7ut22l6v" path="res://ui/journal.gd" id="1_affel"]
+[ext_resource type="Shader" uid="uid://bxuw7phb8qlba" path="res://scripts/player/runefloat.gdshader" id="2_oap4u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qn476"]
+shader = ExtResource("2_oap4u")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="Shader" id="Shader_fx1uy"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jn5y"]
+shader = SubResource("Shader_fx1uy")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 0.50000002375
+
+[sub_resource type="Shader" id="Shader_bg5ji"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o28x"]
+shader = SubResource("Shader_bg5ji")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 0.800000038
+
+[sub_resource type="Shader" id="Shader_8tpa2"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgl1s"]
+shader = SubResource("Shader_8tpa2")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 1.200000057
+
+[sub_resource type="Shader" id="Shader_xu8wh"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdgml"]
+shader = SubResource("Shader_xu8wh")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 1.6000000760000002
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyjyi"]
+shader = SubResource("Shader_xu8wh")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 2.000000095
+
+[sub_resource type="Shader" id="Shader_huho6"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trpk4"]
+shader = SubResource("Shader_huho6")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 2.400000114
+
+[sub_resource type="Shader" id="Shader_1gsdp"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ry6iv"]
+shader = SubResource("Shader_1gsdp")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 2.800000133
+
+[sub_resource type="Shader" id="Shader_v1mvv"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vuak6"]
+shader = SubResource("Shader_v1mvv")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 3.200000152
+
+[sub_resource type="Shader" id="Shader_2cm1k"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02vty"]
+shader = SubResource("Shader_2cm1k")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 3.600000171
+
+[sub_resource type="Shader" id="Shader_1guqb"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pf0g"]
+shader = SubResource("Shader_1guqb")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 4.00000019
+
+[sub_resource type="Shader" id="Shader_rssi0"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rrk5"]
+shader = SubResource("Shader_rssi0")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 4.400000209
+
+[sub_resource type="Shader" id="Shader_27pbc"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vofq6"]
+shader = SubResource("Shader_27pbc")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 4.800000228
+
+[sub_resource type="Shader" id="Shader_w74bo"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5k8y"]
+shader = SubResource("Shader_w74bo")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 5.200000247
+
+[sub_resource type="Shader" id="Shader_7p3gt"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wq8h"]
+shader = SubResource("Shader_7p3gt")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 5.600000266
+
+[sub_resource type="Shader" id="Shader_1gpxp"]
+code = "shader_type canvas_item;
+
+uniform float onoff : hint_range(0.0, 1.0); // toggle
+uniform float amplitude : hint_range(0.0, 500.0) = 10.0; // max height
+uniform float speed : hint_range(0.0, 10.0) = 1.0; // speed
+uniform float offset : hint_range(0.0, 100.0) = 0.0; // time offset
+
+void vertex(){
+	VERTEX.y += amplitude * sin((TIME+offset)*speed) * onoff;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6ext"]
+shader = SubResource("Shader_1gpxp")
+shader_parameter/onoff = 1.0
+shader_parameter/amplitude = 4.00000019
+shader_parameter/speed = 1.0
+shader_parameter/offset = 6.000000285
 
 [node name="SpellJournalUI" type="Control" unique_id=1216615160 groups=["journal_ui"]]
 layout_mode = 3
@@ -21,16 +316,16 @@ text = "WIND"
 
 [node name="Around" type="Button" parent="." unique_id=547801555]
 layout_mode = 0
+offset_left = 128.0
 offset_top = 128.0
-offset_right = 96.0
+offset_right = 224.0
 offset_bottom = 224.0
 text = "AROUND"
 
 [node name="Below" type="Button" parent="." unique_id=360191544]
 layout_mode = 0
-offset_left = 128.0
 offset_top = 128.0
-offset_right = 224.0
+offset_right = 96.0
 offset_bottom = 224.0
 text = "BELOW"
 
@@ -50,6 +345,187 @@ offset_top = 384.0
 offset_right = 224.0
 offset_bottom = 480.0
 text = "CAST"
+
+[node name="HackyAssHboxContainer" type="HBoxContainer" parent="." unique_id=449868891]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 584.0
+offset_right = 345.0
+offset_bottom = 618.0
+
+[node name="H" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=290650838]
+material = SubResource("ShaderMaterial_qn476")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "H"
+fit_content = true
+scroll_active = false
+
+[node name="O2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=49439366]
+material = SubResource("ShaderMaterial_5jn5y")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "O"
+fit_content = true
+scroll_active = false
+
+[node name="L" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=453497372]
+material = SubResource("ShaderMaterial_8o28x")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "L"
+fit_content = true
+scroll_active = false
+
+[node name="D" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=28558957]
+material = SubResource("ShaderMaterial_lgl1s")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "D"
+fit_content = true
+scroll_active = false
+
+[node name="SP6" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1181818311]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP7" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1820387751]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP8" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1232196621]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="[" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1683294528]
+material = SubResource("ShaderMaterial_bdgml")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "["
+fit_content = true
+scroll_active = false
+
+[node name="R" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1668913138]
+material = SubResource("ShaderMaterial_eyjyi")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "R"
+fit_content = true
+scroll_active = false
+
+[node name="]" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1169670474]
+material = SubResource("ShaderMaterial_trpk4")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "]"
+fit_content = true
+scroll_active = false
+
+[node name="SP" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=269645598]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP5" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=649043744]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1287835613]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="T" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=55077696]
+material = SubResource("ShaderMaterial_ry6iv")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "T"
+fit_content = true
+scroll_active = false
+
+[node name="O" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=793048836]
+material = SubResource("ShaderMaterial_vuak6")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "O"
+fit_content = true
+scroll_active = false
+
+[node name="SP2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2014765553]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP4" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=461181]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="SP9" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1092729403]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+
+[node name="R2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1200596207]
+material = SubResource("ShaderMaterial_02vty")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "R"
+fit_content = true
+scroll_active = false
+
+[node name="E" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=125273481]
+material = SubResource("ShaderMaterial_2pf0g")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "E"
+fit_content = true
+scroll_active = false
+
+[node name="S" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1522092336]
+material = SubResource("ShaderMaterial_0rrk5")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "S"
+fit_content = true
+scroll_active = false
+
+[node name="T2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=954725208]
+material = SubResource("ShaderMaterial_vofq6")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "T"
+fit_content = true
+scroll_active = false
+
+[node name="A" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2000292554]
+material = SubResource("ShaderMaterial_u5k8y")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "A"
+fit_content = true
+scroll_active = false
+
+[node name="R3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=924804308]
+material = SubResource("ShaderMaterial_7wq8h")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "R"
+fit_content = true
+scroll_active = false
+
+[node name="T3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2850515]
+material = SubResource("ShaderMaterial_j6ext")
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "T"
+fit_content = true
+scroll_active = false
 
 [connection signal="button_up" from="Wind" to="." method="_on_wind_button_up"]
 [connection signal="button_up" from="Around" to="." method="_on_around_button_up"]

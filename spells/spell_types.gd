@@ -11,9 +11,9 @@ const THERE_RANGE : int = 16 # fixed range for There modifier
 
 class SpellTargets: # a spelltarget is basically just a tile
 	# we need its position, where it is in ref to the player and how far it is
-	var pos: Vector2
-	var dir: Vector2
-	var dist: int
+	var pos : Vector2
+	var dir : Vector2
+	var dist : int
 	
 	func _init(position: Vector2, direction: Vector2, distance: int) -> void:
 		pos = position

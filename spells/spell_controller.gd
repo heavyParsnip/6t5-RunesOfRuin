@@ -114,7 +114,7 @@ func wind_sfx(world_pos : Vector2, direction : Vector2 = Vector2.ZERO) -> void:
 
 # Play the specified FX at the set location and direction.
 # Add an 'attach' for the animation to follow the selected node if it moves
-func spawn_fx(world_pos : Vector2, dir, name : String = "default", attach : Node = get_tree().current_scene):
+func spawn_fx(world_pos : Vector2, dir : Vector2, name : String = "default", attach : Node = get_tree().current_scene):
 	var fx := spell_fx.instantiate() as SpellFX
 	attach.add_child(fx)
 	
@@ -179,7 +179,7 @@ func cast_wind_there() -> void:
 	
 	for interactable in interactables:
 		interactable.get_spell(Element.WIND, -cell.dir) # push backwards !
-		spawn_fx(cell.pos, cell.dir, "wind_there", interactable)
+		spawn_fx(cell.pos, Vector2(-cell.dir.y, cell.dir.x), "wind_there", interactable) # direction is a lil wonky bc of orientation of the sprite
 	
 	# anything pulled will be on the same tile, so no need to play multiple 
 	# instances of the same sound/effect

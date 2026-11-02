@@ -2,107 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cfbals1iearkm" path="res://scripts/interactables/wall.gd" id="1_ov7yt"]
 [ext_resource type="Texture2D" uid="uid://clo14786eqg5v" path="res://Assets/Wall Tiles/wall_1.png" id="2_ov7yt"]
-[ext_resource type="Texture2D" uid="uid://bfvwasqicu0ga" path="res://Assets/Wind FX/WindFX2.png" id="3_dlbs0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8k7b"]
 size = Vector2(64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_62vd2"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob8mx"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(1024, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwao7"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(2048, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j8qlm"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(3072, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_162xd"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(0, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7fhk"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(1024, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8e35"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(2048, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_30r73"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(3072, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jobp6"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(0, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6lhp"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(1024, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuj8w"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(2048, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_npc0i"]
-atlas = ExtResource("3_dlbs0")
-region = Rect2(3072, 2048, 1024, 1024)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dlbs0"]
-animations = [{
-"frames": [],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_62vd2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ob8mx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nwao7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j8qlm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_162xd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c7fhk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8e35")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_30r73")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jobp6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6lhp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuj8w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_npc0i")
-}],
-"loop": 0,
-"name": &"wind_there",
-"speed": 15.0
-}]
 
 [node name="Wall" type="Area2D" unique_id=1823622871]
 collision_layer = 3
@@ -114,7 +16,3 @@ shape = SubResource("RectangleShape2D_j8k7b")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074856258]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_ov7yt")
-
-[node name="SpellFX" type="AnimatedSprite2D" parent="." unique_id=1220205696]
-scale = Vector2(-0.187, -0.187)
-sprite_frames = SubResource("SpriteFrames_dlbs0")

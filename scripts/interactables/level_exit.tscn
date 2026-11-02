@@ -2,107 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ccmc2qfcqayn" path="res://scripts/interactables/level_exit.gd" id="1_lugki"]
 [ext_resource type="Texture2D" uid="uid://bju4m23v7o25" path="res://Assets/Exit Door/Exit door.png" id="2_coa80"]
-[ext_resource type="Texture2D" uid="uid://bfvwasqicu0ga" path="res://Assets/Wind FX/WindFX2.png" id="3_n4tbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_62vd2"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob8mx"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(1024, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwao7"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(2048, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j8qlm"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(3072, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_162xd"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(0, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7fhk"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(1024, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8e35"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(2048, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_30r73"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(3072, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jobp6"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(0, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6lhp"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(1024, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuj8w"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(2048, 2048, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_npc0i"]
-atlas = ExtResource("3_n4tbe")
-region = Rect2(3072, 2048, 1024, 1024)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n4tbe"]
-animations = [{
-"frames": [],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_62vd2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ob8mx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nwao7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j8qlm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_162xd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c7fhk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8e35")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_30r73")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jobp6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6lhp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuj8w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_npc0i")
-}],
-"loop": 0,
-"name": &"wind_there",
-"speed": 15.0
-}]
 
 [node name="level_exit" type="Area2D" unique_id=272109281]
 script = ExtResource("1_lugki")
@@ -113,7 +15,3 @@ shape = SubResource("RectangleShape2D_qn476")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_coa80")
-
-[node name="SpellFX" type="AnimatedSprite2D" parent="." unique_id=970814241]
-scale = Vector2(-0.187, -0.187)
-sprite_frames = SubResource("SpriteFrames_n4tbe")
