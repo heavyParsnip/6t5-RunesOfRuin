@@ -12,7 +12,8 @@ func get_wind(_dir : Vector2):
 	pass
 
 func get_fire():
-	pass
+	# set sprite
+	is_burning = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

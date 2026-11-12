@@ -16,7 +16,8 @@ enum Modifier{
 	THERE
 }
 
-
+@export_flags_2d_physics var spell_mask : int = 1 # lets us mess w the masks
+@export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
 @export var wind_gust : PackedScene
 @export var spell_fx : PackedScene
 @export var wind_around_fx : PackedScene
@@ -85,11 +86,11 @@ func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
 	var query := PhysicsShapeQueryParameters2D.new()
 	query.shape = RectangleShape2D.new() # internet says a solid shape is better than a ray
-	query.shape.size = Vector2.ONE * G.target_query_size # so this is how long we want or casted rectangle 2 look
+	query.shape.size = Vector2.ONE * target_query_size # so this is how long we want or casted rectangle 2 look
 	query.transform = Transform2D(0.0, position) # where the ray go
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
-	query.collision_mask = G.spell_mask
+	query.collision_mask = spell_mask
 	query.exclude = [player.get_rid()]
 	
 	var hits:= player.get_world_2d().direct_space_state.intersect_shape(query, 10) # in what world will there be more than 10 objs
@@ -183,7 +184,6 @@ func cast_wind_there() -> void:
 	# anything pulled will be on the same tile, so no need to play multiple 
 	# instances of the same sound/effect
 	#wind_sfx(cell.pos, cell.dir)
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):

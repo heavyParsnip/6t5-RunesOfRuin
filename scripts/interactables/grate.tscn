@@ -8,6 +8,7 @@ size = Vector2(64, 64)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
 
 [node name="Grate" type="Area2D" unique_id=272109281]
+collision_layer = 16
 script = ExtResource("1_l222h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]

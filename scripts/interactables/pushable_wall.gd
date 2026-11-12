@@ -1,5 +1,6 @@
 class_name PushableWall extends Wall
 
+@export_flags_2d_physics var move_block_mask : int = 1
 @export var move_duration := 0.3 # slower than player
 var pushed := false
 
@@ -46,7 +47,7 @@ func destination_blocked(dir: Vector2) -> bool:
 	# our hypothetical transform of where it's going times tile size
 	#query.transform = coll_shape.global_transform.translated(dir * G.TILE_SIZE)
 	
-	query.collision_mask = G.MOVE_BLOCK_MASK # not everything prevents a move
+	query.collision_mask = move_block_mask # not everything prevents a move
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 

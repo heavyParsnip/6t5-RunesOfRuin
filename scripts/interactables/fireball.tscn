@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://bwj0yfki5vc5u"]
 
 [ext_resource type="Script" uid="uid://cf0tq14puw1yn" path="res://scripts/interactables/interactable.gd" id="1_05dv8"]
+[ext_resource type="Texture2D" uid="uid://cihpwbk104232" path="res://Assets/test/red.png" id="2_u4agx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
-size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr32u"]
+radius = 15.297058
 
 [node name="Object" type="Area2D" unique_id=272109281]
 script = ExtResource("1_05dv8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]
-shape = SubResource("RectangleShape2D_qn476")
+shape = SubResource("CircleShape2D_hr32u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
-scale = Vector2(64, 64)
-texture = SubResource("PlaceholderTexture2D_qn476")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_u4agx")

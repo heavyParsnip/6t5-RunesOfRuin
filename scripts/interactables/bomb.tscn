@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://klee318y7rh8"]
 
-[ext_resource type="Script" uid="uid://cf0tq14puw1yn" path="res://scripts/interactables/interactable.gd" id="1_x5esq"]
+[ext_resource type="Script" uid="uid://dbe2m46g8f571" path="res://scripts/interactables/bomb.gd" id="1_x5esq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
 
-[node name="Object" type="Area2D" unique_id=272109281]
+[node name="Bomb" type="Area2D" unique_id=272109281]
 script = ExtResource("1_x5esq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]

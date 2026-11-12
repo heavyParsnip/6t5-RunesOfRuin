@@ -33,6 +33,9 @@ static func belowModifier(startPos : Vector2) -> SpellTargets:
 
 static func thereModifier(startPos : Vector2, dir : Vector2) -> SpellTargets:
 	var affectedCell : SpellTargets
+	var ignore : Array[RID]
+	
+	ignore.push_back(G.get_player().get_rid())
 	
 	var result = G.raycast_query(startPos, dir, THERE_RANGE, [G.get_player().get_rid()])
 	if result.is_empty():

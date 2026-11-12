@@ -159,7 +159,7 @@ shader_parameter/offset = 1.0000000475
 [node name="Player" type="CharacterBody2D" unique_id=1028885159 groups=["player"]]
 z_index = 2
 collision_layer = 7
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_f50pn")
 wind_rune_texture = ExtResource("2_j77er")
 around_rune_texture = ExtResource("3_p83wy")

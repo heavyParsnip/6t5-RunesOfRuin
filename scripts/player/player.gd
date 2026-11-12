@@ -42,6 +42,13 @@ var float_tween : Tween = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#position = position.snapped(Vector2.ONE * G.TILE_SIZE)
+	
+	# clear floating visuals
+	floating = false
+	sprite.global_position.y = global_position.y
+	sprite.material.set_shader_parameter("onoff", 0.0)
+	
+	# set up reset timer
 	reset_timer.wait_time = hold_time
 	reset_timer.one_shot = true
 	reset_timer.timeout.connect(reset_level)
