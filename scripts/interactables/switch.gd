@@ -17,6 +17,8 @@ var check_timer : Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spells_pass = true
+	
 	# timer so switches don't raycast every single frame
 	check_timer = Timer.new()
 	check_timer.wait_time = 0.05

@@ -1,12 +1,5 @@
 class_name SpellTypes extends RefCounted
 
-const Directions: Array[Vector2] = [
-	Vector2.LEFT,
-	Vector2.RIGHT,
-	Vector2.UP,
-	Vector2.DOWN,
-	]
-
 const THERE_RANGE : int = 16 # fixed range for There modifier
 
 class SpellTargets: # a spelltarget is basically just a tile
@@ -22,7 +15,7 @@ class SpellTargets: # a spelltarget is basically just a tile
 
 static func aroundModifier(startPos: Vector2, radius: int) -> Array[SpellTargets]:
 	var affectedCells: Array[SpellTargets] = []
-	for dir in Directions:
+	for dir in G.DIRECTIONS:
 		for distance in range(1, radius + 1):
 			affectedCells.append(
 			SpellTargets.new(

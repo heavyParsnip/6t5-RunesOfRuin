@@ -1,5 +1,6 @@
 class_name Interactable extends Area2D
 
+@onready var collider : CollisionShape2D = $CollisionShape2D
 @export var impassable : bool = false
 @export var moveable : bool = false
 @export var onground : bool = false
@@ -9,6 +10,7 @@ var react_earth : bool = false
 var react_frost : bool = false
 var presses_switch : bool = false
 var float_over : bool = false
+var spells_pass : bool = false
 
 var is_moving : bool = false
 
@@ -26,8 +28,20 @@ func get_spell(element: SpellController.Element, dir: Vector2) -> void:
 		SpellController.Element.WIND:
 			if react_wind:
 				get_wind(dir)
+		SpellController.Element.FIRE:
+			if react_fire:
+				pass
 
 func get_wind(_dir: Vector2) -> void:
+	pass
+
+func get_fire():
+	pass
+
+func get_frost():
+	pass
+
+func get_earth():
 	pass
 
 func raycast_query(direction : Vector2, range : float):
