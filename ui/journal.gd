@@ -7,6 +7,9 @@ signal casted()
 func _on_wind_button_up() -> void:
 	element_selected.emit(SpellController.Element.WIND)
 
+func _on_fire_button_up():
+	element_selected.emit(SpellController.Element.FIRE)
+
 func _on_around_button_up() -> void:
 	modifier_selected.emit(SpellController.Modifier.AROUND)
 

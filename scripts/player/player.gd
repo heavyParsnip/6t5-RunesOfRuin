@@ -29,6 +29,7 @@ var floating : bool = false
 var float_tween : Tween = null
 
 @export var wind_rune_texture: Texture2D
+@export var fire_rune_texture: Texture2D
 @export var around_rune_texture: Texture2D
 @export var below_rune_texture: Texture2D
 @export var there_rune_texture: Texture2D
@@ -169,6 +170,9 @@ func update_element_rune(element: SpellController.Element) -> void:
 	match element:
 		SpellController.Element.WIND:
 			element_rune.texture = wind_rune_texture
+			element_rune.show()
+		SpellController.Element.FIRE:
+			element_rune.texture = fire_rune_texture
 			element_rune.show()
 		_:
 			element_rune.hide()

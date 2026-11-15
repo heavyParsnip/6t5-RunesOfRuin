@@ -26,6 +26,7 @@ enum Modifier{
 
 @onready var player : Player = get_parent() as Player
 
+var fireball : PackedScene = preload("res://scripts/interactables/fireball.tscn")
 var journal : Journal
 var currentElement = Element.NONE
 var currentModifier = Modifier.NONE
@@ -71,16 +72,22 @@ func cast_around(element: Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_around()
+		Element.FIRE:
+			cast_fire_around()
 
 func cast_below(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_below()
+		Element.FIRE:
+			cast_fire_below()
 
 func cast_there(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_there()
+		Element.FIRE:
+			cast_fire_there()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -157,6 +164,9 @@ func cast_wind_around() -> void:
 	## so we'd pass wind_impact or whateva onto each targeted item
 	#pass
 
+func cast_fire_around() -> void:
+	pass
+
 func cast_wind_below() -> void:
 	# only ever affects the player's cell
 	var cell := SpellTypes.belowModifier(player.global_position)
@@ -172,6 +182,9 @@ func cast_wind_below() -> void:
 	#for i in interactables:
 		#i.get_spell(Element.WIND, cell.dir)
 
+func cast_fire_below() -> void:
+	pass
+
 func cast_wind_there() -> void:
 	
 	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(player.facing))
@@ -184,6 +197,12 @@ func cast_wind_there() -> void:
 	# anything pulled will be on the same tile, so no need to play multiple 
 	# instances of the same sound/effect
 	#wind_sfx(cell.pos, cell.dir)
+
+func cast_fire_there() -> void:
+	var fire : Interactable = fireball.instantiate()
+	fire.global_position = player.global_position
+	fire.rotation = player.directions.get(player.facing).angle()
+	add_child(fire)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):

@@ -307,12 +307,20 @@ grow_vertical = 2
 script = ExtResource("1_affel")
 
 [node name="Wind" type="Button" parent="." unique_id=409424788]
-modulate = Color(0.5666665, 0.35000002, 1, 1)
+modulate = Color(0.20027271, 0.6185125, 5.7756904e-07, 1)
 layout_mode = 0
 offset_left = 128.0
 offset_right = 224.0
 offset_bottom = 96.0
 text = "WIND"
+
+[node name="Fire" type="Button" parent="." unique_id=1149216581]
+visible = false
+modulate = Color(0.9486881, 0.090823166, 0.24149948, 1)
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+text = "FIRE"
 
 [node name="Around" type="Button" parent="." unique_id=547801555]
 layout_mode = 0
@@ -528,6 +536,7 @@ fit_content = true
 scroll_active = false
 
 [connection signal="button_up" from="Wind" to="." method="_on_wind_button_up"]
+[connection signal="button_up" from="Fire" to="." method="_on_fire_button_up"]
 [connection signal="button_up" from="Around" to="." method="_on_around_button_up"]
 [connection signal="button_up" from="Below" to="." method="_on_below_button_up"]
 [connection signal="button_up" from="There" to="." method="_on_there_button_up"]

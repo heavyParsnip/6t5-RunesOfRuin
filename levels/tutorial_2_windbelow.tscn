@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="8_7ft6l"]
 [ext_resource type="Texture2D" uid="uid://bmp8y7cnl4fyx" path="res://Assets/Floor/floor_4.png" id="8_876at"]
 [ext_resource type="PackedScene" uid="uid://vb6gjtsy2i7" path="res://ui/tutorial_ui_2.tscn" id="9_n6f4c"]
+[ext_resource type="PackedScene" uid="uid://s88nmd5o6y7w" path="res://scripts/level_select.tscn" id="13_vqfuf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
 texture = ExtResource("7_876at")
@@ -313,10 +314,10 @@ sources/4 = SubResource("TileSetAtlasSource_pmd5x")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
 
 [node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_apd77")]
-position = Vector2(-32, 288)
+position = Vector2(-368, 288)
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
-position = Vector2(256, 0)
+position = Vector2(-80, 0)
 
 [node name="Wall19" parent="Walls" unique_id=243257334 instance=ExtResource("5_vqfuf")]
 position = Vector2(-480, -288)
@@ -460,7 +461,7 @@ position = Vector2(-32, -288)
 position = Vector2(288, 96)
 
 [node name="Pits" type="Node2D" parent="." unique_id=1245035505]
-position = Vector2(256, 0)
+position = Vector2(-80, 0)
 
 [node name="Pit" parent="Pits" unique_id=341837721 instance=ExtResource("3_tkj64")]
 position = Vector2(-96, -224)
@@ -535,11 +536,15 @@ position = Vector2(-32, 160)
 position = Vector2(-32, 224)
 
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
-position = Vector2(256, 0)
+position = Vector2(-80, 0)
+
+[node name="level_exit" parent="." unique_id=272109281 instance=ExtResource("4_k4nvq")]
+position = Vector2(80, -32)
+next_level_path = "uid://b118258esilw6"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
 z_index = -1
-position = Vector2(256, 0)
+position = Vector2(-80, 0)
 tile_map_data = PackedByteArray("AAD+/wEAAAAAAAYAAAD4//v/AAAAAAYAAAD5//v/AAAAAAYAAAD6//v/AAAAAAYAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAAAAPv/AAAAAAYAAAABAPv/AAAAAAYAAAACAPv/AAAAAAYAAAADAPv/AAAAAAYAAAAEAPv/AAAAAAYAAAAEAAQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAABAAQAAAAAAAYAAAAAAAQAAAAAAAYAAAD//wQAAAAAAAYAAAD+/wQAAAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQAAAAAAAYAAAD7/wQAAAAAAAcAAAD6/wQAAAAAAAYAAAD5/wQAAAAAAAYAAAD4/wQAAAAAAAYAAAD5/wIAAgAAAAAAAAD5/wEABAAAAAAAAAD5/wAAAwAAAAAAAAD5////AwAAAAAAAAD5//7/BAAAAAAAAAD5//3/AQAAAAAAAAD5//z/AwAAAAAAAAD4//z/AAAAAAYAAAD4//3/AAAAAAYAAAD4//7/AAAAAAYAAAD4////AAAAAAYAAAD4/wAAAAAAAAYAAAD4/wEAAAAAAAYAAAD4/wIAAAAAAAYAAAD4/wMAAAAAAAYAAAD5/wMAAgAAAAAAAAD6/wMAAwAAAAAAAAD6/wIAAwAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAwAAAAAAAAD6////AQAAAAAAAAD6//7/AgAAAAAAAAD6//3/AgAAAAAAAAD6//z/BAAAAAAAAAD7//z/AQAAAAAAAAD7//3/AgAAAAAAAAD7//7/AgAAAAAAAAD7////BAAAAAAAAAD7/wIABAAAAAAAAAD7/wMAAQAAAAAAAAD8/wMAAwAAAAAAAAD8/wIAAwAAAAAAAAD8/wEAAwAAAAAAAAD8/wAAAwAAAAAAAAD8////AwAAAAAAAAD8//7/AwAAAAAAAAD8//3/AwAAAAAAAAD8//z/AwAAAAAAAAD9//3/AAAAAAYAAAD9//7/AAAAAAYAAAD9////AAAAAAYAAAD9/wAAAAAAAAYAAAD9/wEAAAAAAAYAAAD9/wIAAAAAAAYAAAD9/wMAAAAAAAYAAAD+/wMAAAAAAAYAAAD+/wIAAAAAAAYAAAD//wIAAAAAAAYAAAD//wEAAAAAAAYAAAD//wAAAAAAAAYAAAD/////AAAAAAYAAAD///7/AAAAAAYAAAD///3/AAAAAAYAAAD///z/AAAAAAYAAAD+//z/AAAAAAYAAAD+//3/AAAAAAYAAAD+//7/AAAAAAYAAAD+////AAAAAAYAAAD+/wAAAAAAAAYAAAAAAPz/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAD//wMAAAAAAAYAAAABAAMAAgAAAAAAAAABAAIAAQAAAAAAAAABAAEABAAAAAAAAAABAAAAAgAAAAAAAAABAP//AQAAAAAAAAABAP7/AwAAAAAAAAABAP3/AgAAAAAAAAABAPz/AgAAAAAAAAACAPz/AQAAAAAAAAACAP3/AwAAAAAAAAACAP7/AgAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAwAAAAAAAAADAAMAAQAAAAAAAAADAAIABAAAAAAAAAADAAEAAgAAAAAAAAADAAAAAwAAAAAAAAADAP//BAAAAAAAAAADAP7/BAAAAAAAAAADAP3/AQAAAAAAAAADAPz/AwAAAAAAAAAEAPz/AAAAAAYAAAAEAP3/AAAAAAYAAAAEAP7/AAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wUABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5i273")
 
@@ -549,17 +554,16 @@ visible = false
 [node name="ControlTutorialUI2" parent="." unique_id=1076614349 instance=ExtResource("9_n6f4c")]
 visible = false
 
-[node name="level_exit" parent="." unique_id=272109281 instance=ExtResource("4_k4nvq")]
-position = Vector2(416, -32)
-next_level_path = "uid://b118258esilw6"
-
-[node name="SpellJournalUI" parent="." unique_id=1216615160 instance=ExtResource("8_7ft6l")]
-offset_left = -624.0
+[node name="SpellJournalUI2" parent="." unique_id=1216615160 instance=ExtResource("8_7ft6l")]
+offset_left = 272.0
 offset_top = -320.0
-offset_right = -560.0
+offset_right = 336.0
 offset_bottom = -256.0
 
-[node name="There" parent="SpellJournalUI" index="3" unique_id=1039370371]
+[node name="There" parent="SpellJournalUI2" index="3" unique_id=1039370371]
 visible = false
 
-[editable path="SpellJournalUI"]
+[node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("13_vqfuf")]
+current_level = 2
+
+[editable path="SpellJournalUI2"]

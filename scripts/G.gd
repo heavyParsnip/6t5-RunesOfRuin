@@ -9,6 +9,20 @@ const DIRECTIONS: Array[Vector2] = [
 	Vector2.DOWN,
 	]
 
+const level_0 : String = "res://levels/tutorial_0_cast_a_spell.tscn"
+const level_1 : String = "res://levels/tutorial_1_windaround.tscn"
+const level_2 : String = "res://levels/tutorial_2_windbelow.tscn"
+const level_3 : String = "res://levels/tutorial_3_windthere.tscn"
+const level_4 : String = "res://levels/unified_1_wind.tscn"
+
+const LEVELS : Array[String] = [
+	level_0,
+	level_1,
+	level_2,
+	level_3,
+	level_4
+]
+
 func get_player() -> CharacterBody2D:
 	return get_tree().get_first_node_in_group("player")
 

@@ -10,9 +10,6 @@ func _process(delta: float) -> void:
 	pass
 
 func destination_blocked(dir: Vector2) -> bool:
-	if coll_shape.shape == null:
-		print("Somehow, you forgot to give this wall a collider.")
-		return true
 	
 	# ray start & end pos
 	var start := global_position

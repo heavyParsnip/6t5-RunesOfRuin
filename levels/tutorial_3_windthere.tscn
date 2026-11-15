@@ -14,8 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://2l2p1tycgy2q" path="res://scripts/interactables/level_exit.tscn" id="8_unpa3"]
 [ext_resource type="PackedScene" uid="uid://bdk5tp1mtqr2p" path="res://scripts/interactables/disappearing_block.tscn" id="9_kyrnx"]
 [ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="14_hxw42"]
+[ext_resource type="PackedScene" uid="uid://s88nmd5o6y7w" path="res://scripts/level_select.tscn" id="15_el8t1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_el8t1"]
 texture = ExtResource("3_5nj1i")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -282,43 +283,43 @@ texture_region_size = Vector2i(64, 64)
 20:11/0 = 0
 21:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywfs3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fw8w8"]
 texture = ExtResource("4_nc5st")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xrqum"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywfs3"]
 texture = ExtResource("5_hxw42")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wlk8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xrqum"]
 texture = ExtResource("6_el8t1")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81hm6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wlk8"]
 texture = ExtResource("7_fw8w8")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5i273"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_xkwek")
-sources/1 = SubResource("TileSetAtlasSource_ywfs3")
-sources/2 = SubResource("TileSetAtlasSource_xrqum")
-sources/3 = SubResource("TileSetAtlasSource_3wlk8")
-sources/4 = SubResource("TileSetAtlasSource_81hm6")
+sources/0 = SubResource("TileSetAtlasSource_el8t1")
+sources/1 = SubResource("TileSetAtlasSource_fw8w8")
+sources/2 = SubResource("TileSetAtlasSource_ywfs3")
+sources/3 = SubResource("TileSetAtlasSource_xrqum")
+sources/4 = SubResource("TileSetAtlasSource_3wlk8")
 
 [node name="root" type="Node2D" unique_id=1885997703]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
 
 [node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_hmq28")]
-position = Vector2(288, 224)
+position = Vector2(-56, 224)
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
-position = Vector2(256, 0)
+position = Vector2(-88, 0)
 
 [node name="Wall20" parent="Walls" unique_id=1712859296 instance=ExtResource("2_2c7gy")]
 position = Vector2(-480, -224)
@@ -507,39 +508,43 @@ position = Vector2(96, -224)
 position = Vector2(-32, -224)
 
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
-position = Vector2(256, 0)
+position = Vector2(-88, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
+visible = false
 z_index = -1
-position = Vector2(256, 0)
+position = Vector2(-88, 0)
 tile_map_data = PackedByteArray("AAD+/wEAAQAAAAAAAAD5//v/AAAAAAYAAAD6//v/AAAAAAYAAAD8//v/AAAAAAYAAAD9//v/AAAAAAYAAAD+//v/AAAAAAYAAAD///v/AAAAAAYAAAAAAPv/AQAAAAAAAAABAPv/AAAAAAYAAAACAPv/AAAAAAYAAAADAPv/AAAAAAYAAAAEAAQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAABAAQAAAAAAAYAAAAAAAQAAAAAAAYAAAD//wQAAAAAAAYAAAD+/wQAAAAAAAYAAAD9/wQAAAAAAAYAAAD8/wQAAAAAAAYAAAD7/wQAAAAAAAYAAAD6/wQAAAAAAAYAAAD5/wQAAAAAAAYAAAD4/wQAAAAAAAYAAAD5/wIAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wAAAAAAAAYAAAD5////AAAAAAYAAAD5//7/AAAAAAYAAAD5//3/AAAAAAYAAAD5//z/AAAAAAYAAAD4//z/AAAAAAYAAAD4//3/AAAAAAYAAAD4//7/AAAAAAYAAAD4////AAAAAAYAAAD4/wAAAAAAAAYAAAD4/wEAAAAAAAYAAAD4/wIAAAAAAAYAAAD4/wMAAAAAAAYAAAD5/wMAAwAAAAAAAAD6/wMAAQAAAAAAAAD6/wIAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAgAAAAAAAAD6////AwAAAAAAAAD6//7/AQAAAAAAAAD6//3/AQAAAAAAAAD6//z/AAAAAAYAAAD7//z/AAAAAAYAAAD7//3/AAAAAAYAAAD7//7/AAAAAAYAAAD7////AAAAAAYAAAD7/wAAAAAAAAYAAAD7/wEAAAAAAAYAAAD7/wIAAgAAAAAAAAD7/wMAAgAAAAAAAAD8/wMAAgAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AgAAAAAAAAD8//7/AQAAAAAAAAD8//3/BAAAAAAAAAD9//z/AAAAAAYAAAD9//3/BAAAAAAAAAD9//7/BAAAAAAAAAD9////AQAAAAAAAAD9/wAAAwAAAAAAAAD9/wEAAwAAAAAAAAD9/wIAAQAAAAAAAAD9/wMAAQAAAAAAAAD+/wMAAgAAAAAAAAD+/wIABAAAAAAAAAD//wIAAgAAAAAAAAD//wEAAQAAAAAAAAD//wAAAQAAAAAAAAD/////AgAAAAAAAAD///7/AQAAAAAAAAD///3/AwAAAAAAAAD///z/AQAAAAAAAAD+//z/AQAAAAAAAAD+//3/AQAAAAAAAAD+//7/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAwAAAAAAAAAAAPz/AQAAAAAAAAAAAP3/AQAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AgAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAAAAAAcAAAD//wMAAgAAAAAAAAABAAMAAgAAAAAAAAABAAIAAgAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAP7/AgAAAAAAAAABAP3/AgAAAAAAAAABAPz/AQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AgAAAAAAAAACAP7/AQAAAAAAAAACAP//BAAAAAAAAAACAAAAAQAAAAAAAAACAAEAAgAAAAAAAAACAAIAAQAAAAAAAAACAAMAAgAAAAAAAAADAAMAAQAAAAAAAAADAAIAAgAAAAAAAAADAAEAAQAAAAAAAAADAAAABAAAAAAAAAADAP//BAAAAAAAAAADAP7/AwAAAAAAAAADAP3/BAAAAAAAAAADAPz/AAAAAAYAAAAEAPz/AAAAAAYAAAAEAP3/AAAAAAYAAAAEAP7/AAAAAAYAAAAEAP//AAAAAAYAAAAEAAAAAAAAAAYAAAAEAAEAAAAAAAYAAAAEAAIAAAAAAAYAAAAEAAMAAAAAAAYAAAD8//z/AAAAAAYAAAD///r/AAAAAAYAAAAAAPr/AAAAAAYAAAABAPr/AAAAAAYAAAA=")
 tile_set = SubResource("TileSet_5i273")
+
+[node name="Switch" parent="." unique_id=272109281 instance=ExtResource("6_nm8co")]
+position = Vector2(-440, 96)
+onground = true
+
+[node name="PushableWall" parent="." unique_id=2072742972 instance=ExtResource("7_a0fsb")]
+position = Vector2(-440, -160)
+
+[node name="level_exit" parent="." unique_id=1121928551 instance=ExtResource("8_unpa3")]
+position = Vector2(-56, -288)
+next_level_path = "uid://bgdkkc3mdty7y"
+
+[node name="DisappearingBlock" parent="." unique_id=592004547 node_paths=PackedStringArray("connected_to") instance=ExtResource("9_kyrnx")]
+position = Vector2(-56, -224)
+connected_to = NodePath("../Switch")
 
 [node name="ControlTutorialUI2" parent="." unique_id=1076614349 instance=ExtResource("5_nm8co")]
 visible = false
 
-[node name="Switch" parent="." unique_id=272109281 instance=ExtResource("6_nm8co")]
-position = Vector2(-96, 96)
-onground = true
-
-[node name="PushableWall" parent="." unique_id=2072742972 instance=ExtResource("7_a0fsb")]
-position = Vector2(-96, -160)
-
-[node name="level_exit" parent="." unique_id=1121928551 instance=ExtResource("8_unpa3")]
-position = Vector2(288, -288)
-next_level_path = "uid://bgdkkc3mdty7y"
-
-[node name="DisappearingBlock" parent="." unique_id=592004547 node_paths=PackedStringArray("connected_to") instance=ExtResource("9_kyrnx")]
-position = Vector2(288, -224)
-connected_to = NodePath("../Switch")
-
 [node name="ControlTutorialUI" parent="." unique_id=142106021 instance=ExtResource("4_ad68j")]
 visible = false
 
-[node name="SpellJournalUI" parent="." unique_id=1216615160 instance=ExtResource("14_hxw42")]
-offset_left = -624.0
+[node name="SpellJournalUI2" parent="." unique_id=1216615160 instance=ExtResource("14_hxw42")]
+offset_left = 272.0
 offset_top = -320.0
-offset_right = -560.0
+offset_right = 336.0
 offset_bottom = -256.0
 
-[editable path="SpellJournalUI"]
+[node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("15_el8t1")]
+current_level = 3
+
+[editable path="SpellJournalUI2"]

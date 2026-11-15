@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qwllw082vyys" path="res://spells/spell_fx.gd" id="1_o225r"]
 [ext_resource type="Texture2D" uid="uid://dvu2ern43jbtp" path="res://Assets/test/WindAnim/001.png" id="2_85n0v"]
+[ext_resource type="Texture2D" uid="uid://cnpy5tw86jemn" path="res://Assets/test/FireAnim/001.png" id="2_pfyjs"]
+[ext_resource type="Texture2D" uid="uid://ctv6au6sl77md" path="res://Assets/test/FireAnim/002.png" id="3_37ex2"]
 [ext_resource type="Texture2D" uid="uid://chsfj5ntobsa7" path="res://Assets/test/WindAnim/002.png" id="3_o225r"]
 [ext_resource type="Texture2D" uid="uid://8qpn6p3obc34" path="res://Assets/test/WindAnim/006.png" id="4_s7ogn"]
+[ext_resource type="Texture2D" uid="uid://dqnxdjj36q8j4" path="res://Assets/test/FireAnim/003.png" id="4_y6mq8"]
 [ext_resource type="Texture2D" uid="uid://bibnnag6aof2g" path="res://Assets/test/WindAnim/007.png" id="5_sfcg0"]
+[ext_resource type="Texture2D" uid="uid://cprb8vsk0wauw" path="res://Assets/test/FireAnim/004.png" id="5_yrmba"]
+[ext_resource type="Texture2D" uid="uid://bi3tpguu3jecd" path="res://Assets/test/FireAnim/005.png" id="6_cq758"]
 [ext_resource type="Texture2D" uid="uid://cogmjphtwcbtu" path="res://Assets/test/WindAnim/008.png" id="6_x046x"]
 [ext_resource type="Texture2D" uid="uid://btn16k757kpe7" path="res://Assets/test/WindAnim/009.png" id="7_cvugv"]
 [ext_resource type="Texture2D" uid="uid://dpb6kg3ibqa43" path="res://Assets/test/WindAnim/010.png" id="8_pfyjs"]
@@ -116,6 +121,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_pfyjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_37ex2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y6mq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yrmba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cq758")
+}],
+"loop": 1,
+"name": &"fireball",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_85n0v")
 }, {
 "duration": 1.0,
@@ -139,6 +164,11 @@ animations = [{
 "loop": 0,
 "name": &"gust",
 "speed": 15.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -233,6 +263,4 @@ script = ExtResource("1_o225r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1110344308]
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_tyg4f")
-animation = &"wind_around"
-frame = 12
-frame_progress = 1.0
+animation = &"fireball"
