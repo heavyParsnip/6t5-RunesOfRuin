@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://4jftpbyd3qu3"]
 
 [ext_resource type="Script" uid="uid://bwnbj2s1istut" path="res://scripts/interactables/rock.gd" id="1_4ggks"]
+[ext_resource type="Texture2D" uid="uid://cq8fdgonifdmm" path="res://Assets/Rock/Rock.png" id="2_b4fuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qn476"]
 
 [node name="Rock" type="Area2D" unique_id=272109281]
 script = ExtResource("1_4ggks")
@@ -14,5 +13,5 @@ script = ExtResource("1_4ggks")
 shape = SubResource("RectangleShape2D_qn476")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
-scale = Vector2(64, 64)
-texture = SubResource("PlaceholderTexture2D_qn476")
+scale = Vector2(0.082, 0.082)
+texture = ExtResource("2_b4fuh")

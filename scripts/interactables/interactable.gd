@@ -1,9 +1,12 @@
 class_name Interactable extends Area2D
 
 @onready var collider : CollisionShape2D = $CollisionShape2D
+@onready var sprite : Sprite2D = $Sprite2D
 @export var impassable : bool = false
 @export var moveable : bool = false
 @export var onground : bool = false
+@export var is_burning : bool = false
+@export var connected_to : Interactable
 var react_wind : bool = false
 var react_fire : bool = false
 var react_earth : bool = false
@@ -14,7 +17,6 @@ var spells_pass : bool = false
 
 var is_moving : bool = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -23,14 +25,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_spell(element: SpellController.Element, dir: Vector2) -> void:
+func get_spell(element: SpellController.Element, dir : Vector2 = Vector2.ZERO) -> void:
 	match element:
 		SpellController.Element.WIND:
 			if react_wind:
 				get_wind(dir)
 		SpellController.Element.FIRE:
 			if react_fire:
-				pass
+				get_fire()
 
 func get_wind(_dir: Vector2) -> void:
 	pass

@@ -1,7 +1,5 @@
 class_name DisappearingBlock extends Interactable
 
-@export var connected_to : Interactable
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	impassable = true

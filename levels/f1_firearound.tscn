@@ -312,11 +312,11 @@ sources/4 = SubResource("TileSetAtlasSource_02tyl")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=124144070]
 
-[node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_8h4yp")]
-position = Vector2(-480, -32)
-
 [node name="SFX" type="Node2D" parent="." unique_id=1853921689]
 position = Vector2(-88, 0)
+
+[node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_8h4yp")]
+position = Vector2(-504, -32)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1034963273]
 visible = false
@@ -325,6 +325,7 @@ position = Vector2(-88, 0)
 tile_set = SubResource("TileSet_fhjkk")
 
 [node name="Walls" type="Node2D" parent="." unique_id=888642025]
+position = Vector2(-24, 0)
 
 [node name="Wall" parent="Walls" unique_id=1823622871 instance=ExtResource("8_cp3lq")]
 position = Vector2(-544, 96)
@@ -432,54 +433,52 @@ position = Vector2(-32, -96)
 position = Vector2(-32, 32)
 
 [node name="PushableWall" parent="." unique_id=1957396167 instance=ExtResource("8_jv8y6")]
-position = Vector2(-352, -96)
+position = Vector2(-376, -96)
 
 [node name="PushableWall2" parent="." unique_id=2066993067 instance=ExtResource("8_jv8y6")]
-position = Vector2(-352, -32)
+position = Vector2(-376, -32)
 
 [node name="PushableWall3" parent="." unique_id=323109011 instance=ExtResource("8_jv8y6")]
-position = Vector2(-352, 32)
+position = Vector2(-376, 32)
 
 [node name="PushableWall4" parent="." unique_id=984021001 instance=ExtResource("8_jv8y6")]
-position = Vector2(-224, -96)
+position = Vector2(-248, -96)
 
 [node name="PushableWall5" parent="." unique_id=721878269 instance=ExtResource("8_jv8y6")]
-position = Vector2(-224, -32)
+position = Vector2(-248, -32)
 
 [node name="PushableWall6" parent="." unique_id=311538804 instance=ExtResource("8_jv8y6")]
-position = Vector2(-224, 32)
+position = Vector2(-248, 32)
 
 [node name="PushableWall7" parent="." unique_id=37797105 instance=ExtResource("8_jv8y6")]
-position = Vector2(-96, -96)
+position = Vector2(-120, -96)
 
 [node name="PushableWall10" parent="." unique_id=309837302 instance=ExtResource("8_jv8y6")]
-position = Vector2(-160, -96)
+position = Vector2(-184, -96)
 
 [node name="PushableWall11" parent="." unique_id=947008211 instance=ExtResource("8_jv8y6")]
-position = Vector2(-160, 32)
+position = Vector2(-184, 32)
 
 [node name="PushableWall8" parent="." unique_id=1227895252 instance=ExtResource("8_jv8y6")]
-position = Vector2(-96, -32)
+position = Vector2(-120, -32)
 
 [node name="PushableWall9" parent="." unique_id=926475466 instance=ExtResource("8_jv8y6")]
-position = Vector2(-96, 32)
+position = Vector2(-120, 32)
 
-[node name="Grate" parent="." unique_id=272109281 instance=ExtResource("9_dyby2")]
-position = Vector2(-32, -32)
+[node name="Grate" parent="." unique_id=272109281 node_paths=PackedStringArray("connected_to") instance=ExtResource("9_dyby2")]
+position = Vector2(-56, -32)
+connected_to = NodePath("../Torch")
 
 [node name="Torch" parent="." unique_id=984499027 instance=ExtResource("12_dyby2")]
-position = Vector2(-160, -32)
+position = Vector2(-184, -32)
 
 [node name="level_exit" parent="." unique_id=304560196 instance=ExtResource("10_4cm0k")]
-position = Vector2(96, -32)
+position = Vector2(72, -32)
 
 [node name="SpellJournalUI2" parent="." unique_id=1216615160 instance=ExtResource("7_4cm0k")]
-offset_left = 272.0
-offset_top = -320.0
-offset_right = 336.0
-offset_bottom = -256.0
-
-[node name="Fire" parent="SpellJournalUI2" index="1" unique_id=1149216581]
-visible = true
+offset_left = 152.0
+offset_top = -360.0
+offset_right = 216.0
+offset_bottom = -296.0
 
 [editable path="SpellJournalUI2"]

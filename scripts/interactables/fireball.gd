@@ -1,6 +1,6 @@
 class_name Fireball extends Interactable
 
-@export var speed = 3.0
+@export var speed = 4.0
 
 func _process(delta):
 	position += transform.x * speed

@@ -23,6 +23,8 @@ const LEVELS : Array[String] = [
 	level_4
 ]
 
+const FIRE : PackedScene = preload("res://scripts/interactables/fire.tscn")
+
 func get_player() -> CharacterBody2D:
 	return get_tree().get_first_node_in_group("player")
 

@@ -28,7 +28,10 @@ func get_wind(dir: Vector2) -> void:
 	push_once(dir)
 
 func get_fire():
-	pass
+	if !is_burning:
+		is_burning = true
+		var fire = G.FIRE.instantiate()
+		add_child.call_deferred(fire)
 
 # what constitutes blocked?
 # throw a raycast at the destination to do a coll check

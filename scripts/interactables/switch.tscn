@@ -37,3 +37,5 @@ shape = SubResource("RectangleShape2D_qn476")
 scale = Vector2(0.065, 0.065)
 sprite_frames = SubResource("SpriteFrames_qn476")
 animation = &"off"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1162100252]

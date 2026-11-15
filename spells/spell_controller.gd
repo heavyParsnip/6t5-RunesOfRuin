@@ -139,7 +139,7 @@ func cast_wind_around() -> void:
 	for cell in affected_cells:
 		var interactables = find_interactables_at(cell.pos)
 		for interactable in interactables:
-			interactable.get_spell(Element.WIND, cell.dir)
+			interactable.get_spell(Element.WIND)
 
 #func cast_wind_around() -> void:
 	#var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
@@ -165,7 +165,16 @@ func cast_wind_around() -> void:
 	#pass
 
 func cast_fire_around() -> void:
-	pass
+	# Play one effect at the player's position.
+	spawn_fx(player.global_position, Vector2.ZERO, "fire_around", player)
+
+	# Apply wind to the four adjacent cells.
+	var affected_cells = SpellTypes.aroundModifier(player.global_position, 1)
+
+	for cell in affected_cells:
+		var interactables = find_interactables_at(cell.pos)
+		for interactable in interactables:
+			interactable.get_spell(Element.FIRE, cell.dir)
 
 func cast_wind_below() -> void:
 	# only ever affects the player's cell
