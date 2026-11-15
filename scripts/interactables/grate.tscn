@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bedhx0adurjac"]
+
+[ext_resource type="Script" path="res://scripts/interactables/grate.gd" id="1_l222h"]
+[ext_resource type="Texture2D" path="res://Assets/Grate/Grate.png" id="2_3arwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
+size = Vector2(64, 64)
+
+[node name="Grate" type="Area2D" unique_id=272109281]
+collision_layer = 16
+script = ExtResource("1_l222h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]
+shape = SubResource("RectangleShape2D_qn476")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.07031251, 0.07031251)
+texture = ExtResource("2_3arwg")

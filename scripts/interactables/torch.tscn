@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://d4cowsdoa57i"]
+
+[ext_resource type="Script" path="res://scripts/interactables/torch.gd" id="1_iemup"]
+[ext_resource type="Texture2D" path="res://Assets/test/Torch/torch_placeholder.png" id="2_8rewp"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/001.png" id="3_ed8nw"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/002.png" id="4_kfqjg"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/003.png" id="5_ucb56"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/004.png" id="6_3n5cq"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/005.png" id="7_t3qvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
+size = Vector2(64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn476"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ed8nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kfqjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ucb56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3n5cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t3qvi")
+}],
+"loop": 1,
+"name": &"burning",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Area2D" unique_id=272109281 node_paths=PackedStringArray("a_sprite", "burn_timer")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_iemup")
+a_sprite = NodePath("AnimatedSprite2D")
+burn_timer = NodePath("BurnTimer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]
+shape = SubResource("RectangleShape2D_qn476")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
+position = Vector2(2.3841858e-07, 2.3841858e-07)
+scale = Vector2(3.4999998, 3.4999998)
+texture = ExtResource("2_8rewp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1001911084]
+z_index = 2
+position = Vector2(0, -16)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_qn476")
+autoplay = "default"
+
+[node name="BurnTimer" type="Timer" parent="." unique_id=133844801]
+wait_time = 5.0
+
+[connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]
