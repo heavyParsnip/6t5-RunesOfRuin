@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bmp8y7cnl4fyx" path="res://Assets/Floor/floor_4.png" id="9_ejqd3"]
 [ext_resource type="PackedScene" uid="uid://vb6gjtsy2i7" path="res://ui/tutorial_ui_2.tscn" id="9_quwx2"]
 [ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="10_1vncn"]
+[ext_resource type="PackedScene" uid="uid://s88nmd5o6y7w" path="res://scripts/level_select.tscn" id="13_lanhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkwek"]
 texture = ExtResource("7_kd3so")
@@ -313,44 +314,44 @@ sources/4 = SubResource("TileSetAtlasSource_1vncn")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1809080369]
 
 [node name="CharacterBody2D" parent="." unique_id=1028885159 instance=ExtResource("1_k3ueh")]
-position = Vector2(160, 224)
+position = Vector2(-224, 224)
 
 [node name="PushableWall" parent="." unique_id=741833010 instance=ExtResource("2_qwchh")]
-position = Vector2(160, -32)
+position = Vector2(-224, -32)
 
 [node name="PushableWall6" parent="." unique_id=1823622871 instance=ExtResource("2_qwchh")]
-position = Vector2(32, 224)
+position = Vector2(-352, 224)
 
 [node name="PushableWall7" parent="." unique_id=105908780 instance=ExtResource("2_qwchh")]
-position = Vector2(96, 160)
+position = Vector2(-288, 160)
 
 [node name="PushableWall8" parent="." unique_id=932459576 instance=ExtResource("2_qwchh")]
-position = Vector2(224, 160)
+position = Vector2(-160, 160)
 
 [node name="PushableWall9" parent="." unique_id=422192368 instance=ExtResource("2_qwchh")]
-position = Vector2(288, 224)
+position = Vector2(-96, 224)
 
 [node name="PushableWall10" parent="." unique_id=541487286 instance=ExtResource("2_qwchh")]
-position = Vector2(160, 96)
+position = Vector2(-224, 96)
 
 [node name="PushableWall2" parent="." unique_id=1947147048 instance=ExtResource("2_qwchh")]
-position = Vector2(96, -96)
+position = Vector2(-288, -96)
 
 [node name="PushableWall3" parent="." unique_id=1441260042 instance=ExtResource("2_qwchh")]
-position = Vector2(32, -160)
+position = Vector2(-352, -160)
 
 [node name="PushableWall4" parent="." unique_id=1994433394 instance=ExtResource("2_qwchh")]
-position = Vector2(224, -96)
+position = Vector2(-160, -96)
 
 [node name="PushableWall5" parent="." unique_id=1833287925 instance=ExtResource("2_qwchh")]
-position = Vector2(288, -160)
+position = Vector2(-96, -160)
 
 [node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("4_lanhn")]
-position = Vector2(160, -160)
+position = Vector2(-224, -160)
 next_level_path = "uid://d3fnshurwlhe3"
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
-position = Vector2(256, 0)
+position = Vector2(-128, 0)
 
 [node name="Wall89" parent="Walls" unique_id=635327695 instance=ExtResource("5_q31rv")]
 position = Vector2(-288, -160)
@@ -440,10 +441,10 @@ position = Vector2(96, 224)
 position = Vector2(-288, 32)
 
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
-position = Vector2(256, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2103959822]
 z_index = -1
+position = Vector2(-384, 0)
 tile_map_data = PackedByteArray("AAAAAPv/AAAAAAYAAAABAPv/AAAAAAYAAAACAPv/AAAAAAYAAAADAPv/AAAAAAYAAAAEAPv/AAAAAAYAAAAEAAQAAAAAAAYAAAADAAQAAAAAAAYAAAACAAQAAAAAAAYAAAABAAQAAAAAAAYAAAAAAAQAAAAAAAYAAAD//wQAAAAAAAYAAAD//wIAAAAAAAYAAAD//wEAAAAAAAYAAAD//wAAAAAAAAYAAAD/////AAAAAAYAAAD///7/AAAAAAYAAAD///3/AAAAAAYAAAD///z/AAAAAAYAAAAAAPz/AgAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAgAAAAAAAAD//wMAAAAAAAYAAAABAAEABAAAAAAAAAABAAAAAwAAAAAAAAABAP//AQAAAAAAAAABAP7/AgAAAAAAAAABAP3/AQAAAAAAAAABAPz/BAAAAAAAAAACAPz/AwAAAAAAAAACAP3/BAAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAwAAAAAAAAADAAAAAQAAAAAAAAADAP//AwAAAAAAAAADAP7/AQAAAAAAAAADAP3/AgAAAAAAAAADAPz/AgAAAAAAAAAEAPz/BAAAAAAAAAAEAP//BAAAAAAAAAAEAAAAAgAAAAAAAAAEAAEAAQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AwAAAAAAAAAFAP7/AAAAAAYAAAAFAP3/AAAAAAYAAAAFAPz/AAAAAAYAAAAFAAQAAAAAAAYAAAAFAAMAAAAAAAYAAAAFAAIAAAAAAAYAAAAFAAEAAAAAAAYAAAAFAAAAAAAAAAYAAAAFAP//AAAAAAYAAAACAAMAAAAAAAcAAAABAAMAAQAAAAAAAAAAAAMAAwAAAAAAAAAAAAIABAAAAAAAAAABAAIAAgAAAAAAAAACAAIABAAAAAAAAAADAAIAAwAAAAAAAAAEAAIAAgAAAAAAAAAEAAMABAAAAAAAAAADAAMAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_5i273")
 
@@ -457,16 +458,18 @@ visible = false
 visible = false
 
 [node name="SpellJournalUI" parent="." unique_id=1216615160 instance=ExtResource("10_1vncn")]
-offset_left = -624.0
-offset_top = -320.0
-offset_right = -560.0
-offset_bottom = -256.0
+offset_left = 152.0
+offset_top = -360.0
+offset_right = 216.0
+offset_bottom = -296.0
 
-[node name="Below" parent="SpellJournalUI" index="2" unique_id=360191544]
+[node name="Below" parent="SpellJournalUI" index="4" unique_id=360191544]
 visible = false
 
-[node name="There" parent="SpellJournalUI" index="3" unique_id=1039370371]
+[node name="There" parent="SpellJournalUI" index="5" unique_id=1039370371]
 visible = false
+
+[node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("13_lanhn")]
 
 [editable path="ControlTutorialUI"]
 [editable path="SpellJournalUI"]

@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://d4cowsdoa57i"]
+[gd_scene format=3 uid="uid://dgh3ss1c6jwka"]
 
-[ext_resource type="Script" path="res://scripts/interactables/torch.gd" id="1_iemup"]
-[ext_resource type="Texture2D" path="res://Assets/test/Torch/torch_placeholder.png" id="2_8rewp"]
-[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/001.png" id="3_ed8nw"]
-[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/002.png" id="4_kfqjg"]
-[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/003.png" id="5_ucb56"]
-[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/004.png" id="6_3n5cq"]
-[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/005.png" id="7_t3qvi"]
+[ext_resource type="Script" uid="uid://dcfwyaxhyte61" path="res://scripts/interactables/torch.gd" id="1_iemup"]
+[ext_resource type="Texture2D" uid="uid://ck70uuvogcovi" path="res://Assets/test/Torch/torch_placeholder.png" id="2_8rewp"]
+[ext_resource type="Texture2D" uid="uid://cnpy5tw86jemn" path="res://Assets/test/FireAnim/001.png" id="3_ed8nw"]
+[ext_resource type="Texture2D" uid="uid://ctv6au6sl77md" path="res://Assets/test/FireAnim/002.png" id="4_kfqjg"]
+[ext_resource type="Texture2D" uid="uid://dqnxdjj36q8j4" path="res://Assets/test/FireAnim/003.png" id="5_ucb56"]
+[ext_resource type="Texture2D" uid="uid://cprb8vsk0wauw" path="res://Assets/test/FireAnim/004.png" id="6_3n5cq"]
+[ext_resource type="Texture2D" uid="uid://bi3tpguu3jecd" path="res://Assets/test/FireAnim/005.png" id="7_t3qvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)

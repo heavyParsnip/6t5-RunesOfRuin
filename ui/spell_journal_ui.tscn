@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://b2yf8adijh03m"]
 
 [ext_resource type="Script" uid="uid://vl5d7ut22l6v" path="res://ui/journal.gd" id="1_affel"]
+[ext_resource type="Texture2D" uid="uid://db3a5scr2w0r4" path="res://Assets/runes/WIND.png" id="2_5jn5y"]
 [ext_resource type="Shader" uid="uid://bxuw7phb8qlba" path="res://scripts/player/runefloat.gdshader" id="2_oap4u"]
+[ext_resource type="Texture2D" uid="uid://rqb0gq0itskr" path="res://Assets/UI/U I.png" id="4_bg5ji"]
+[ext_resource type="Texture2D" uid="uid://b1yid7o0xc15u" path="res://Assets/runes/FIRE.png" id="4_lgl1s"]
+[ext_resource type="Texture2D" uid="uid://bpq1wlopk0sl1" path="res://Assets/runes/AROUND.png" id="5_xu8wh"]
+[ext_resource type="Texture2D" uid="uid://dqktkd7vntf3f" path="res://Assets/runes/BELOW.png" id="6_bdgml"]
+[ext_resource type="Texture2D" uid="uid://duckk5jgw4stn" path="res://Assets/runes/THERE.png" id="7_eyjyi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qn476"]
 shader = ExtResource("2_oap4u")
@@ -306,57 +312,96 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_affel")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=561156698]
+z_index = -1
+layout_mode = 0
+offset_left = -232.0
+offset_right = 488.0
+offset_bottom = 720.0
+texture = ExtResource("4_bg5ji")
+expand_mode = 1
+
 [node name="Wind" type="Button" parent="." unique_id=409424788]
-modulate = Color(0.5666665, 0.35000002, 1, 1)
-layout_mode = 0
-offset_left = 128.0
-offset_right = 224.0
-offset_bottom = 96.0
-text = "WIND"
-
-[node name="Around" type="Button" parent="." unique_id=547801555]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 224.0
-offset_bottom = 224.0
-text = "AROUND"
-
-[node name="Below" type="Button" parent="." unique_id=360191544]
-layout_mode = 0
-offset_top = 128.0
-offset_right = 96.0
-offset_bottom = 224.0
-text = "BELOW"
-
-[node name="There" type="Button" parent="." unique_id=1039370371]
+modulate = Color(0.20027271, 0.6185125, 5.7756904e-07, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 256.0
 offset_top = 128.0
-offset_right = 352.0
-offset_bottom = 224.0
-text = "THERE"
+offset_right = 320.0
+offset_bottom = 192.0
+icon = ExtResource("2_5jn5y")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Fire" type="Button" parent="." unique_id=1149216581]
+modulate = Color(0.9486881, 0.090823166, 0.24149948, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 192.0
+icon = ExtResource("4_lgl1s")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Around" type="Button" parent="." unique_id=547801555]
+texture_filter = 1
+layout_mode = 0
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 320.0
+text = "
+"
+icon = ExtResource("5_xu8wh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Below" type="Button" parent="." unique_id=360191544]
+texture_filter = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 320.0
+icon = ExtResource("6_bdgml")
+icon_alignment = 1
+expand_icon = true
+
+[node name="There" type="Button" parent="." unique_id=1039370371]
+texture_filter = 1
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 448.0
+offset_bottom = 320.0
+icon = ExtResource("7_eyjyi")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Cast" type="Button" parent="." unique_id=499801423]
 modulate = Color(0.31, 1, 0.862, 1)
+texture_filter = 1
 layout_mode = 0
-offset_left = 128.0
+offset_left = 256.0
 offset_top = 384.0
-offset_right = 224.0
-offset_bottom = 480.0
+offset_right = 320.0
+offset_bottom = 448.0
 text = "CAST"
 
 [node name="HackyAssHboxContainer" type="HBoxContainer" parent="." unique_id=449868891]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 584.0
-offset_right = 345.0
-offset_bottom = 618.0
+offset_left = 120.0
+offset_top = 568.0
+offset_right = 457.0
+offset_bottom = 602.0
 
 [node name="H" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=290650838]
 material = SubResource("ShaderMaterial_qn476")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "H"
 fit_content = true
@@ -365,6 +410,7 @@ scroll_active = false
 [node name="O2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=49439366]
 material = SubResource("ShaderMaterial_5jn5y")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "O"
 fit_content = true
@@ -373,6 +419,7 @@ scroll_active = false
 [node name="L" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=453497372]
 material = SubResource("ShaderMaterial_8o28x")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "L"
 fit_content = true
@@ -381,6 +428,7 @@ scroll_active = false
 [node name="D" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=28558957]
 material = SubResource("ShaderMaterial_lgl1s")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "D"
 fit_content = true
@@ -388,22 +436,26 @@ scroll_active = false
 
 [node name="SP6" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1181818311]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP7" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1820387751]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP8" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1232196621]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="[" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1683294528]
 material = SubResource("ShaderMaterial_bdgml")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "["
 fit_content = true
@@ -412,6 +464,7 @@ scroll_active = false
 [node name="R" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1668913138]
 material = SubResource("ShaderMaterial_eyjyi")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "R"
 fit_content = true
@@ -420,6 +473,7 @@ scroll_active = false
 [node name="]" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1169670474]
 material = SubResource("ShaderMaterial_trpk4")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "]"
 fit_content = true
@@ -427,22 +481,26 @@ scroll_active = false
 
 [node name="SP" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=269645598]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP5" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=649043744]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1287835613]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="T" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=55077696]
 material = SubResource("ShaderMaterial_ry6iv")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "T"
 fit_content = true
@@ -451,6 +509,7 @@ scroll_active = false
 [node name="O" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=793048836]
 material = SubResource("ShaderMaterial_vuak6")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "O"
 fit_content = true
@@ -458,22 +517,26 @@ scroll_active = false
 
 [node name="SP2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2014765553]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP4" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=461181]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="SP9" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1092729403]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 fit_content = true
 scroll_active = false
 
 [node name="R2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1200596207]
 material = SubResource("ShaderMaterial_02vty")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "R"
 fit_content = true
@@ -482,6 +545,7 @@ scroll_active = false
 [node name="E" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=125273481]
 material = SubResource("ShaderMaterial_2pf0g")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "E"
 fit_content = true
@@ -490,6 +554,7 @@ scroll_active = false
 [node name="S" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=1522092336]
 material = SubResource("ShaderMaterial_0rrk5")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "S"
 fit_content = true
@@ -498,6 +563,7 @@ scroll_active = false
 [node name="T2" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=954725208]
 material = SubResource("ShaderMaterial_vofq6")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "T"
 fit_content = true
@@ -506,6 +572,7 @@ scroll_active = false
 [node name="A" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2000292554]
 material = SubResource("ShaderMaterial_u5k8y")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "A"
 fit_content = true
@@ -514,6 +581,7 @@ scroll_active = false
 [node name="R3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=924804308]
 material = SubResource("ShaderMaterial_7wq8h")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "R"
 fit_content = true
@@ -522,12 +590,14 @@ scroll_active = false
 [node name="T3" type="RichTextLabel" parent="HackyAssHboxContainer" unique_id=2850515]
 material = SubResource("ShaderMaterial_j6ext")
 layout_mode = 2
+theme_override_colors/default_color = Color(0.19215687, 0.7058824, 0.74509805, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "T"
 fit_content = true
 scroll_active = false
 
 [connection signal="button_up" from="Wind" to="." method="_on_wind_button_up"]
+[connection signal="button_up" from="Fire" to="." method="_on_fire_button_up"]
 [connection signal="button_up" from="Around" to="." method="_on_around_button_up"]
 [connection signal="button_up" from="Below" to="." method="_on_below_button_up"]
 [connection signal="button_up" from="There" to="." method="_on_there_button_up"]

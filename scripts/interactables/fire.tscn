@@ -42,7 +42,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qn476")
 animation = &"burn"
 autoplay = "burn"
-frame_progress = 0.15588368
+frame_progress = 0.3205536
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1753962226]
 position = Vector2(-3, 13)
@@ -51,7 +51,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qn476")
 animation = &"burn"
 autoplay = "burn"
-frame_progress = 0.98172975
+frame_progress = 0.14639874
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=571807275]
 position = Vector2(18, -15)
@@ -60,7 +60,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qn476")
 animation = &"burn"
 autoplay = "burn"
-frame_progress = 0.18728532
+frame_progress = 0.3519546
 
 [node name="FireTimer" type="Timer" parent="." unique_id=118187459]
 wait_time = 2.0

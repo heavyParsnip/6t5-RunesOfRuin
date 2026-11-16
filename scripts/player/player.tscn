@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db3a5scr2w0r4" path="res://Assets/runes/WIND.png" id="2_j77er"]
 [ext_resource type="Texture2D" uid="uid://bpq1wlopk0sl1" path="res://Assets/runes/AROUND.png" id="3_p83wy"]
 [ext_resource type="Script" uid="uid://d0a8p0eti2xv1" path="res://spells/spell_controller.gd" id="3_so2s4"]
+[ext_resource type="Texture2D" uid="uid://b1yid7o0xc15u" path="res://Assets/runes/FIRE.png" id="3_uyddv"]
 [ext_resource type="PackedScene" uid="uid://kr0j8dydm2he" path="res://spells/wind_gust.tscn" id="4_5amry"]
 [ext_resource type="Texture2D" uid="uid://dqktkd7vntf3f" path="res://Assets/runes/BELOW.png" id="4_g4jq6"]
 [ext_resource type="Texture2D" uid="uid://d2esdynda37my" path="res://Assets/mage/mback.png" id="4_jft68"]
@@ -159,9 +160,10 @@ shader_parameter/offset = 1.0000000475
 [node name="Player" type="CharacterBody2D" unique_id=1028885159 groups=["player"]]
 z_index = 2
 collision_layer = 7
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_f50pn")
 wind_rune_texture = ExtResource("2_j77er")
+fire_rune_texture = ExtResource("3_uyddv")
 around_rune_texture = ExtResource("3_p83wy")
 below_rune_texture = ExtResource("4_g4jq6")
 there_rune_texture = ExtResource("5_yj7se")

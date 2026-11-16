@@ -10,13 +10,15 @@ class_name Switch extends Interactable
 signal activated
 signal deactivated
 
-@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var a_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 var is_activated : bool = false
 var check_timer : Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spells_pass = true
+	
 	# timer so switches don't raycast every single frame
 	check_timer = Timer.new()
 	check_timer.wait_time = 0.05
@@ -50,13 +52,13 @@ func check_for_press():
 func on():
 	print("switch is on!")
 	is_activated = true
-	sprite.play("on")
+	a_sprite.play("on")
 	emit_signal("activated")
 
 func off():
 	print("switch is off!")
 	is_activated = false
-	sprite.play("off")
+	a_sprite.play("off")
 	emit_signal("deactivated")
 
 func shape_query():

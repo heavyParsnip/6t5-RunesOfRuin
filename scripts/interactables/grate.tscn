@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bedhx0adurjac"]
+[gd_scene format=3 uid="uid://dhhte3xbvpxc8"]
 
-[ext_resource type="Script" path="res://scripts/interactables/grate.gd" id="1_l222h"]
-[ext_resource type="Texture2D" path="res://Assets/Grate/Grate.png" id="2_3arwg"]
+[ext_resource type="Script" uid="uid://dte40f58fhcne" path="res://scripts/interactables/grate.gd" id="1_l222h"]
+[ext_resource type="Texture2D" uid="uid://8ien1umewjtm" path="res://Assets/Grate/Grate.png" id="2_3arwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)

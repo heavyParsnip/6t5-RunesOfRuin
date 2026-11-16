@@ -16,7 +16,7 @@ enum Modifier{
 	THERE
 }
 
-@export_flags_2d_physics var spell_mask: int = 1 # lets us mess w the masks
+@export_flags_2d_physics var spell_mask : int = 1 # lets us mess w the masks
 @export_range(1.0, 64.0) var target_query_size := 32.0 # finding interactables
 @export var wind_gust : PackedScene
 @export var spell_fx : PackedScene
@@ -26,6 +26,7 @@ enum Modifier{
 
 @onready var player : Player = get_parent() as Player
 
+var fireball : PackedScene = preload("res://scripts/interactables/fireball.tscn")
 var journal : Journal
 var currentElement = Element.NONE
 var currentModifier = Modifier.NONE
@@ -71,16 +72,22 @@ func cast_around(element: Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_around()
+		Element.FIRE:
+			cast_fire_around()
 
 func cast_below(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_below()
+		Element.FIRE:
+			cast_fire_below()
 
 func cast_there(element : Element) -> void:
 	match element:
 		Element.WIND:
 			cast_wind_there()
+		Element.FIRE:
+			cast_fire_there()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/
@@ -132,7 +139,7 @@ func cast_wind_around() -> void:
 	for cell in affected_cells:
 		var interactables = find_interactables_at(cell.pos)
 		for interactable in interactables:
-			interactable.get_spell(Element.WIND, cell.dir)
+			interactable.get_spell(Element.WIND)
 
 #func cast_wind_around() -> void:
 	#var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
@@ -157,6 +164,18 @@ func cast_wind_around() -> void:
 	## so we'd pass wind_impact or whateva onto each targeted item
 	#pass
 
+func cast_fire_around() -> void:
+	# Play one effect at the player's position.
+	spawn_fx(player.global_position, Vector2.ZERO, "fire_around", player)
+
+	# Apply wind to the four adjacent cells.
+	var affected_cells = SpellTypes.aroundModifier(player.global_position, 1)
+
+	for cell in affected_cells:
+		var interactables = find_interactables_at(cell.pos)
+		for interactable in interactables:
+			interactable.get_spell(Element.FIRE, cell.dir)
+
 func cast_wind_below() -> void:
 	# only ever affects the player's cell
 	var cell := SpellTypes.belowModifier(player.global_position)
@@ -172,6 +191,9 @@ func cast_wind_below() -> void:
 	#for i in interactables:
 		#i.get_spell(Element.WIND, cell.dir)
 
+func cast_fire_below() -> void:
+	pass
+
 func cast_wind_there() -> void:
 	
 	var cell := SpellTypes.thereModifier(player.global_position, player.directions.get(player.facing))
@@ -185,6 +207,11 @@ func cast_wind_there() -> void:
 	# instances of the same sound/effect
 	#wind_sfx(cell.pos, cell.dir)
 
+func cast_fire_there() -> void:
+	var fire : Interactable = fireball.instantiate()
+	fire.global_position = player.global_position
+	fire.rotation = player.directions.get(player.facing).angle()
+	add_child(fire)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(("selectWind")):

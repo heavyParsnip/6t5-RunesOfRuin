@@ -1,11 +1,8 @@
 class_name PushableWall extends Wall
 
-@onready var coll_shape : CollisionShape2D = $CollisionShape2D
-@export_flags_2d_physics var move_block_mask: int = 1
-
+@export_flags_2d_physics var move_block_mask : int = 1
 @export var move_duration := 0.3 # slower than player
 var pushed := false
-var moving := false
 
 #var impassable : bool = false
 #var moveable : bool = false
@@ -19,21 +16,28 @@ func _ready() -> void:
 	impassable = true
 	moveable = true
 	react_wind = true
+	react_fire = true
 	presses_switch = true 
 
 func get_wind(dir: Vector2) -> void:
 	if destination_blocked(dir):
 		print("Can't be moved to this position due to a block")
 		return
-	if moving:
+	if is_moving:
 		return # don't double move
 	push_once(dir)
+
+func get_fire():
+	if !is_burning:
+		is_burning = true
+		var fire = G.FIRE.instantiate()
+		add_child.call_deferred(fire)
 
 # what constitutes blocked?
 # throw a raycast at the destination to do a coll check
 # if there would be a collision, noo bueno
 func destination_blocked(dir: Vector2) -> bool:
-	if coll_shape.shape == null:
+	if collider.shape == null:
 		print("Somehow, you forgot to give this wall a collider.")
 		return true
 	
@@ -64,7 +68,7 @@ func destination_blocked(dir: Vector2) -> bool:
 	#return not hits.is_empty() # if it's empty we can move
 
 func push_once(dir: Vector2) -> void:
-	moving = true
+	is_moving = true
 	pushed = true
 	var end = global_position + dir * G.TILE_SIZE
 	
@@ -76,8 +80,7 @@ func push_once(dir: Vector2) -> void:
 	await tween.finished
 	
 	#global_position = global_position.snapped(Vector2.ONE * G.TILE_SIZE)
-	moving = false
-	
+	is_moving = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
