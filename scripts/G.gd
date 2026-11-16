@@ -14,13 +14,19 @@ const level_1 : String = "res://levels/tutorial_1_windaround.tscn"
 const level_2 : String = "res://levels/tutorial_2_windbelow.tscn"
 const level_3 : String = "res://levels/tutorial_3_windthere.tscn"
 const level_4 : String = "res://levels/unified_1_wind.tscn"
+const level_5 : String = "res://levels/f1_firearound.tscn"
+const level_6 : String = "res://levels/f2_firethere.tscn"
+const level_7 : String = "res://levels/f3_firebelow.tscn"
 
 const LEVELS : Array[String] = [
 	level_0,
 	level_1,
 	level_2,
 	level_3,
-	level_4
+	level_4,
+	level_5,
+	level_6,
+	level_7
 ]
 
 const FIRE : PackedScene = preload("res://scripts/interactables/fire.tscn")

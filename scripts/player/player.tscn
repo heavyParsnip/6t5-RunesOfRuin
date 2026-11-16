@@ -210,6 +210,7 @@ position = Vector2(25, -51)
 scale = Vector2(2, 2)
 
 [node name="WASD" type="Control" parent="." unique_id=1140611599]
+visible = false
 z_index = -2
 layout_mode = 3
 anchors_preset = 0

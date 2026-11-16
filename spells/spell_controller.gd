@@ -139,7 +139,7 @@ func cast_wind_around() -> void:
 	for cell in affected_cells:
 		var interactables = find_interactables_at(cell.pos)
 		for interactable in interactables:
-			interactable.get_spell(Element.WIND)
+			interactable.get_spell(Element.WIND, cell.dir)
 
 #func cast_wind_around() -> void:
 	#var affectedCells := SpellTypes.aroundModifier(player.global_position, 1)
@@ -192,7 +192,7 @@ func cast_wind_below() -> void:
 		#i.get_spell(Element.WIND, cell.dir)
 
 func cast_fire_below() -> void:
-	pass
+	player.get_fire()
 
 func cast_wind_there() -> void:
 	

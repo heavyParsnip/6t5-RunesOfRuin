@@ -25,7 +25,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_spell(element: SpellController.Element, dir : Vector2 = Vector2.ZERO) -> void:
+func get_spell(element: SpellController.Element, dir : Vector2) -> void:
 	match element:
 		SpellController.Element.WIND:
 			if react_wind:

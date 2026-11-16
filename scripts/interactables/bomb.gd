@@ -3,12 +3,16 @@ class_name Bomb extends Interactable
 @export_flags_2d_physics var move_block_mask : int = 1
 @export var move_duration := 0.3 # slower than player
 @export var radius : int = 1
+@onready var a_sprite = $AnimatedSprite2D
+@onready var boom = $boom
 var pushed := false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	impassable = true
 	react_wind = true
+	react_fire = true
 
 func get_wind(dir: Vector2) -> void:
 	if destination_blocked(dir):
@@ -19,10 +23,9 @@ func get_wind(dir: Vector2) -> void:
 	push_once(dir)
 
 func get_fire():
-	explode()
+	pass
 
 func explode():
-	var target_tiles : Array[Vector2]
 	var interactables : Array[Interactable]
 	
 	for dir in G.DIRECTIONS:
@@ -30,7 +33,12 @@ func explode():
 	
 	for i in interactables:
 		if i is Rock:
-			queue_free()
+			i.queue_free()
+	boom.play("boom")
+	a_sprite.visible = false
+	collider.disabled = true
+	await boom.animation_finished
+	queue_free()
 
 func find_interactables_at(position: Vector2) -> Array[Interactable]:
 	# https://www.reddit.com/r/godot/comments/18y85jd/the_code_works_but_wondering_if_there_is_a_better/

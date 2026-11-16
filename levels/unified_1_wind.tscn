@@ -333,17 +333,15 @@ position = Vector2(-224, -96)
 [node name="PushableWall2" parent="." unique_id=1823622871 instance=ExtResource("2_dtjqa")]
 position = Vector2(-288, -32)
 
-[node name="Switch1" parent="." unique_id=272109281 node_paths=PackedStringArray("connected_to") instance=ExtResource("3_6wtuw")]
+[node name="Switch1" parent="." unique_id=272109281 instance=ExtResource("3_6wtuw")]
 position = Vector2(-288, -96)
-connected_to = NodePath("../DisappearingBlock1")
 
-[node name="Switch2" parent="." unique_id=378728142 node_paths=PackedStringArray("connected_to") instance=ExtResource("3_6wtuw")]
+[node name="Switch2" parent="." unique_id=378728142 instance=ExtResource("3_6wtuw")]
 position = Vector2(-96, 96)
-connected_to = NodePath("../DisappearingBlock2")
 
 [node name="level_exit" parent="." unique_id=1687013650 instance=ExtResource("4_h35n7")]
 position = Vector2(-352, 352)
-next_level_path = "uid://cssyccy4bmkyp"
+next_level_path = "uid://buw7c18f1elgy"
 
 [node name="Walls" type="Node2D" parent="." unique_id=2055088094]
 position = Vector2(-64, 0)
@@ -540,11 +538,13 @@ position = Vector2(-96, -160)
 [node name="SFX" type="Node2D" parent="." unique_id=1350976240]
 position = Vector2(-64, 0)
 
-[node name="DisappearingBlock1" parent="." unique_id=1281463063 instance=ExtResource("6_if87m")]
+[node name="DisappearingBlock1" parent="." unique_id=1281463063 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
 position = Vector2(-96, -96)
+connected_to = NodePath("../Switch1")
 
-[node name="DisappearingBlock2" parent="." unique_id=580786067 instance=ExtResource("6_if87m")]
+[node name="DisappearingBlock2" parent="." unique_id=580786067 node_paths=PackedStringArray("connected_to") instance=ExtResource("6_if87m")]
 position = Vector2(-288, 224)
+connected_to = NodePath("../Switch2")
 
 [node name="Pits" type="Node2D" parent="." unique_id=1539325222]
 position = Vector2(-64, 0)
@@ -560,6 +560,9 @@ position = Vector2(-96, 160)
 
 [node name="Pit4" parent="Pits" unique_id=49590535 instance=ExtResource("14_if87m")]
 position = Vector2(-32, 160)
+
+[node name="Pit5" parent="Pits" unique_id=1805225209 instance=ExtResource("14_if87m")]
+position = Vector2(-96, -224)
 
 [node name="ControlTutorialUI" parent="." unique_id=142106021 instance=ExtResource("8_6sph0")]
 visible = false
@@ -587,6 +590,9 @@ offset_top = -338.99997
 offset_right = 234.00002
 offset_bottom = -274.99997
 scale = Vector2(1.11, 1.11)
+
+[node name="Fire" parent="SpellJournalUI2" index="2" unique_id=1149216581]
+visible = false
 
 [editable path="ControlTutorialUI"]
 [editable path="SpellJournalUI2"]

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://de5y0s18r1576"]
+
+[ext_resource type="Script" uid="uid://bvnrduclxxaq1" path="res://scripts/interactables/leyline.gd" id="1_gj7vo"]
+[ext_resource type="Texture2D" uid="uid://defa0q2mvhfet" path="res://Assets/Layline/Lay line（terminal point）start.png" id="2_gj7vo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmft5"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5da"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e4rb"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18tnh"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6s2w"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70dk8"]
+atlas = ExtResource("2_gj7vo")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn476"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmft5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e4rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18tnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6s2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70dk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6s2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18tnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e4rb")
+}],
+"loop": 1,
+"name": &"glow",
+"speed": 10.0
+}]
+
+[node name="LeyLine" type="Area2D" unique_id=272109281]
+collision_layer = 0
+script = ExtResource("1_gj7vo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901107838]
+shape = SubResource("RectangleShape2D_qn476")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1753483344]
+scale = Vector2(0.066, 0.066)
+sprite_frames = SubResource("SpriteFrames_qn476")
+autoplay = "default"
+frame_progress = 0.93982565
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745385999]
+scale = Vector2(64, 64)

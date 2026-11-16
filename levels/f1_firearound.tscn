@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://buw7c18f1elgy"]
+[gd_scene format=4 uid="uid://buw7c18f1elgy"]
 
 [ext_resource type="PackedScene" uid="uid://20p67equkyj1" path="res://scripts/player/player.tscn" id="1_8h4yp"]
 [ext_resource type="Texture2D" uid="uid://dwsfflpagmnl8" path="res://Assets/test/Tilesheet/tilesheet_complete.png" id="2_cp3lq"]
@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://b2yf8adijh03m" path="res://ui/spell_journal_ui.tscn" id="7_4cm0k"]
 [ext_resource type="PackedScene" uid="uid://cncpag0xnkhu6" path="res://scripts/interactables/wall.tscn" id="8_cp3lq"]
 [ext_resource type="PackedScene" uid="uid://yb5hgwx3nse8" path="res://scripts/interactables/pushable_wall.tscn" id="8_jv8y6"]
-[ext_resource type="PackedScene" uid="uid://dhhte3xbvpxc8" path="res://scripts/interactables/grate.tscn" id="9_dyby2"]
+[ext_resource type="PackedScene" uid="uid://bedhx0adurjac" path="res://scripts/interactables/grate.tscn" id="9_dyby2"]
 [ext_resource type="PackedScene" uid="uid://2l2p1tycgy2q" path="res://scripts/interactables/level_exit.tscn" id="10_4cm0k"]
-[ext_resource type="PackedScene" uid="uid://dgh3ss1c6jwka" path="res://scripts/interactables/torch.tscn" id="12_dyby2"]
+[ext_resource type="PackedScene" uid="uid://d4cowsdoa57i" path="res://scripts/interactables/torch.tscn" id="12_dyby2"]
+[ext_resource type="PackedScene" uid="uid://s88nmd5o6y7w" path="res://scripts/level_select.tscn" id="13_4cm0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juay1"]
 texture = ExtResource("2_cp3lq")
@@ -319,9 +320,9 @@ position = Vector2(-88, 0)
 position = Vector2(-504, -32)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1034963273]
-visible = false
 z_index = -1
 position = Vector2(-88, 0)
+tile_map_data = PackedByteArray("AAD5////AQAAAAAAAAD4/wEAAAAAAAYAAAD4/wAAAAAAAAYAAAD4////AAAAAAYAAAD4//7/AAAAAAYAAAD4//3/AAAAAAYAAAD5//3/AAAAAAYAAAD6//3/AAAAAAYAAAD7//3/AAAAAAYAAAD8//3/AAAAAAYAAAD9//3/AAAAAAYAAAD+//3/AAAAAAYAAAD///3/AAAAAAYAAAAAAP3/AAAAAAYAAAABAP3/AAAAAAYAAAACAP3/AAAAAAYAAAADAP3/AAAAAAYAAAADAP7/AAAAAAYAAAADAP//AAAAAAYAAAADAAAAAAAAAAYAAAADAAEAAAAAAAYAAAACAAEAAAAAAAYAAAABAAEAAAAAAAYAAAAAAAEAAAAAAAYAAAD//wEAAAAAAAYAAAD+/wEAAAAAAAYAAAD9/wEAAAAAAAYAAAD8/wEAAAAAAAYAAAD7/wEAAAAAAAYAAAD6/wEAAAAAAAYAAAD5/wEAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAP7/AAAAAAYAAAD5//7/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AgAAAAAAAAD5/wAAAwAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAgAAAAAAAAD7////BAAAAAAAAAD7//7/AQAAAAAAAAD8/wAABAAAAAAAAAD8////AQAAAAAAAAD8//7/AwAAAAAAAAD9//7/AgAAAAAAAAD9////AwAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAgAAAAAAAAD+////AQAAAAAAAAD+//7/AwAAAAAAAAD///7/AwAAAAAAAAD/////BAAAAAAAAAD//wAAAQAAAAAAAAAAAP//AgAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAACAP7/AgAAAAAAAAABAP7/AwAAAAAAAAABAAAAAgAAAAAAAAACAAAABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_fhjkk")
 
 [node name="Walls" type="Node2D" parent="." unique_id=888642025]
@@ -474,11 +475,15 @@ position = Vector2(-184, -32)
 
 [node name="level_exit" parent="." unique_id=304560196 instance=ExtResource("10_4cm0k")]
 position = Vector2(72, -32)
+next_level_path = "uid://b5k2ybyk520y8"
 
 [node name="SpellJournalUI2" parent="." unique_id=1216615160 instance=ExtResource("7_4cm0k")]
 offset_left = 152.0
 offset_top = -360.0
 offset_right = 216.0
 offset_bottom = -296.0
+
+[node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("13_4cm0k")]
+current_level = 5
 
 [editable path="SpellJournalUI2"]
