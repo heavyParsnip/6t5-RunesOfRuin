@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://klee318y7rh8"]
+[gd_scene format=3 uid="uid://42wsl08hmkfy"]
 
-[ext_resource type="Script" uid="uid://dbe2m46g8f571" path="res://scripts/interactables/bomb.gd" id="1_x5esq"]
+[ext_resource type="Script" path="res://scripts/interactables/bomb.gd" id="1_x5esq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn476"]
 size = Vector2(64, 64)

@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://dmgs8g3ertodu"]
+[gd_scene format=3 uid="uid://ditelf15j1lno"]
 
-[ext_resource type="Script" uid="uid://oltg6a0cjqrm" path="res://scripts/interactables/fire.gd" id="1_r0xog"]
-[ext_resource type="Texture2D" uid="uid://cnpy5tw86jemn" path="res://Assets/test/FireAnim/001.png" id="2_r0xog"]
-[ext_resource type="Texture2D" uid="uid://ctv6au6sl77md" path="res://Assets/test/FireAnim/002.png" id="3_flbxc"]
-[ext_resource type="Texture2D" uid="uid://dqnxdjj36q8j4" path="res://Assets/test/FireAnim/003.png" id="4_s88vq"]
-[ext_resource type="Texture2D" uid="uid://cprb8vsk0wauw" path="res://Assets/test/FireAnim/004.png" id="5_nmte4"]
-[ext_resource type="Texture2D" uid="uid://bi3tpguu3jecd" path="res://Assets/test/FireAnim/005.png" id="6_m4fk7"]
+[ext_resource type="Script" path="res://scripts/interactables/fire.gd" id="1_r0xog"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/001.png" id="2_r0xog"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/002.png" id="3_flbxc"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/003.png" id="4_s88vq"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/004.png" id="5_nmte4"]
+[ext_resource type="Texture2D" path="res://Assets/test/FireAnim/005.png" id="6_m4fk7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qn476"]
 animations = [{
