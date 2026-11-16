@@ -320,10 +320,10 @@ position = Vector2(-88, 0)
 tile_set = SubResource("TileSet_fhjkk")
 
 [node name="SpellJournalUI2" parent="." unique_id=1216615160 instance=ExtResource("7_p511g")]
-offset_left = 272.0
-offset_top = -320.0
-offset_right = 336.0
-offset_bottom = -256.0
+offset_left = 152.0
+offset_top = -360.0
+offset_right = 216.0
+offset_bottom = -296.0
 
 [node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("8_wqdna")]
 

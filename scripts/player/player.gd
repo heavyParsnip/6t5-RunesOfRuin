@@ -26,6 +26,7 @@ var hold_time : float = 1.2
 @export var facing : Direction = Direction.DOWN
 var is_moving : bool = false # make this into a state machine later if necessary
 var floating : bool = false
+@export var fiery : bool = false
 var float_tween : Tween = null
 
 @export var wind_rune_texture: Texture2D
@@ -61,6 +62,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if fiery:
+		sprite.modulate = Color(sprite.modulate.r, fposmod(sprite.modulate.g - 1.0 * delta, 1.0), fposmod(sprite.modulate.b - 1.0 * delta, 1.0))
+	
 	# changed the raycast to handle the input action rather than direction
 	if is_moving:
 		return
@@ -157,6 +161,13 @@ func get_wind(dir : Vector2):
 		floating = false
 		sprite.global_position.y = global_position.y
 		sprite.material.set_shader_parameter("onoff", 0.0)
+
+func get_fire():
+	if !fiery:
+		fiery = true
+	elif fiery:
+		fiery = false
+		sprite.modulate = Color(1.0, 1.0, 1.0)
 
 func reset_level():
 	print("Resetting level...")

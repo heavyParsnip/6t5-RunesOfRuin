@@ -463,6 +463,9 @@ offset_top = -360.0
 offset_right = 216.0
 offset_bottom = -296.0
 
+[node name="Fire" parent="SpellJournalUI" index="2" unique_id=1149216581]
+visible = false
+
 [node name="Below" parent="SpellJournalUI" index="4" unique_id=360191544]
 visible = false
 

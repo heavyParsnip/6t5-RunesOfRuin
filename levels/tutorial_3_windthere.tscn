@@ -538,6 +538,9 @@ offset_right = 216.0
 offset_bottom = -296.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Fire" parent="SpellJournalUI2" index="2" unique_id=1149216581]
+visible = false
+
 [node name="LevelSelect" parent="." unique_id=1827309167 instance=ExtResource("15_el8t1")]
 current_level = 3
 

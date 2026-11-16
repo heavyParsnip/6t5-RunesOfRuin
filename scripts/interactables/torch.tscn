@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dgh3ss1c6jwka"]
+[gd_scene format=3 uid="uid://d4cowsdoa57i"]
 
 [ext_resource type="Script" uid="uid://dcfwyaxhyte61" path="res://scripts/interactables/torch.gd" id="1_iemup"]
 [ext_resource type="Texture2D" uid="uid://ck70uuvogcovi" path="res://Assets/test/Torch/torch_placeholder.png" id="2_8rewp"]

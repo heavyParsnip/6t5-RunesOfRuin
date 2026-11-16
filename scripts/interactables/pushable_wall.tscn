@@ -8,7 +8,6 @@ size = Vector2(64, 64)
 
 [node name="PushableWall" type="Area2D" unique_id=1823622871]
 collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_bxddq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963806180]
