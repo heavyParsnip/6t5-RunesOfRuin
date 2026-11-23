@@ -191,6 +191,7 @@ wind_around_fx = ExtResource("5_ws782")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1505049942]
 z_index = 2
 material = SubResource("ShaderMaterial_1dqld")
+position = Vector2(0, -11)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lsifr")
 animation = &"front"

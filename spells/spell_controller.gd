@@ -69,6 +69,8 @@ func cast_selected_spell() -> void:
 	isCasting = false # ready to do another.
 
 func cast_around(element: Element) -> void:
+	if player.fiery or player.floating:
+		return
 	match element:
 		Element.WIND:
 			cast_wind_around()
@@ -83,6 +85,8 @@ func cast_below(element : Element) -> void:
 			cast_fire_below()
 
 func cast_there(element : Element) -> void:
+	if player.fiery or player.floating:
+		return
 	match element:
 		Element.WIND:
 			cast_wind_there()
@@ -121,13 +125,15 @@ func wind_sfx(world_pos : Vector2, direction : Vector2 = Vector2.ZERO) -> void:
 
 # Play the specified FX at the set location and direction.
 # Add an 'attach' for the animation to follow the selected node if it moves
-func spawn_fx(world_pos : Vector2, dir : Vector2, name : String = "default", attach : Node = get_tree().current_scene):
+func spawn_fx(world_pos : Vector2, dir : Vector2, name : String = "default", attach : Node = get_tree().current_scene) -> SpellFX:
 	var fx := spell_fx.instantiate() as SpellFX
 	attach.add_child(fx)
 	
 	fx.global_position = world_pos
 	fx.set_angle(dir)
 	fx.sprite.play(name)
+	
+	return fx
 
 func cast_wind_around() -> void:
 	# Play one effect at the player's position.
@@ -183,6 +189,15 @@ func cast_wind_below() -> void:
 	wind_sfx(cell.pos, cell.dir)
 	
 	#var player : Player = G.get_player()
+	
+	if !player.floating:	
+		var fx = spawn_fx(player.global_position, Vector2.ZERO, "wind_below_a", player)
+		await fx.sprite.animation_finished
+		fx.sprite.play("wind_below_b")
+	else:
+		for c in player.get_children():
+			if c is SpellFX:
+				c.queue_free()
 	
 	player.get_wind(Vector2.DOWN)
 	

@@ -124,3 +124,4 @@ prev_level={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.1254902, 0.28235295, 0.29803923, 1)
