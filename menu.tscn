@@ -1,9 +1,44 @@
 [gd_scene format=3 uid="uid://ca6x5fuxqsxq8"]
 
 [ext_resource type="Script" uid="uid://b8l384c668efa" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://blix0yfnacafm" path="res://ui/extended flyer.png" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://84h0afv6ekgu" path="res://ui/logo.png" id="3_4hy44"]
+[ext_resource type="Texture2D" uid="uid://dskr2vlhmcoyt" path="res://Assets/UI/start_unlit_small.png" id="4_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://bsjmmiuqeka86" path="res://Assets/UI/start_lit_small.png" id="5_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://do2y6f3s76fii" path="res://Assets/UI/quit_unlit_small.png" id="6_nrnbx"]
+[ext_resource type="Texture2D" uid="uid://3waco8q05dwa" path="res://Assets/UI/quit_lit_small.png" id="7_iqepy"]
 
 [node name="Menu" type="Node2D" unique_id=1819477847]
 script = ExtResource("1_lti8b")
+
+[node name="Control" type="Control" parent="." unique_id=1592622960]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bg" type="TextureRect" parent="Control" unique_id=1894923114]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -102.0
+offset_right = 1315.071
+offset_bottom = 868.0
+texture = ExtResource("2_ouk20")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="Control" unique_id=1418605453]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 32.0
+offset_right = 1141.5333
+offset_bottom = 211.0
+texture = ExtResource("3_4hy44")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1858236521]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ButtonManager" type="Control" parent="." unique_id=1081770893]
 layout_mode = 3
@@ -13,17 +48,25 @@ offset_bottom = 40.0
 
 [node name="Start" type="TextureButton" parent="ButtonManager" unique_id=904003296]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 536.0
-offset_right = 448.0
-offset_bottom = 638.0
+offset_left = 14.0
+offset_top = 567.0
+offset_right = 418.49
+offset_bottom = 706.0
+texture_normal = ExtResource("4_ecwwl")
+texture_hover = ExtResource("5_kk3ma")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Quit" type="TextureButton" parent="ButtonManager" unique_id=1716697773]
 layout_mode = 0
-offset_left = 828.0
-offset_top = 536.0
-offset_right = 1174.0
-offset_bottom = 634.0
+offset_left = 883.0
+offset_top = 577.0
+offset_right = 1275.8501
+offset_bottom = 712.0
+texture_normal = ExtResource("6_nrnbx")
+texture_hover = ExtResource("7_iqepy")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
