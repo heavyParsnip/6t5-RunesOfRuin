@@ -59,8 +59,11 @@ func destination_blocked(dir: Vector2) -> bool:
 	var hits = get_world_2d().direct_space_state.intersect_ray(query).get("collider")
 	print(hits)
 	# need to check whether queried objects are impassable or not 
-	if (hits is Interactable and hits.impassable) or hits is Player:
-		return true # get outta here!!!
+	if hits is Interactable:
+		if hits.impassable or hits.float_over: # kind of hacky but only applies to pits
+			return true
+	if hits is Player: # separated but same result
+		return true
 	
 	# no impassables? no problem
 	return false
